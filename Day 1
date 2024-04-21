@@ -1,0 +1,115 @@
+#First Problem
+class Solution(object):
+    def twoSum(self, nums, target):
+        for i in range(len(nums)):
+            for j in range(len(nums)):
+                if i != j:
+                    num1, num2 = nums[i], nums[j]
+                    if num1 + num2 == target:
+                        answer = [i, j]
+                        return answer
+
+
+#Second Problem
+class Solution(object):
+    def isPalindrome(self, x):
+        x = str(x)
+        number = []
+        for i in x:
+            number.append(i)
+        while True:
+            if not number or len(number) == 1:
+                return True
+            index1 = number.pop()
+            index2 = number.pop(0)
+            if index1 != index2:
+                return False
+
+
+#Third Problem
+class Solution(object):
+    def romanToInt(self, s):
+        numbers = []
+        for i in s:
+            if i == "I":
+                numbers.append(1)
+            elif i == "V":
+                numbers.append(5)
+            elif i == "X":
+                numbers.append(10)
+            elif i == "L":
+                numbers.append(50)
+            elif i == "C":
+                numbers.append(100)
+            elif i == "D":
+                numbers.append(500)
+            elif i == "M":
+                numbers.append(1000)
+        result = 0
+        while True:
+            if len(numbers) == 1:
+                result += int(numbers[0])
+                return result
+            if not numbers:
+                return result
+            num1 = int(numbers[0]) 
+            num2 = int(numbers[1])
+            if num1 >= num2:
+                result += num1
+                numbers.pop(0)
+            elif num1 < num2:
+                result += num2 - num1
+                numbers.pop(0)
+                numbers.pop(0)
+
+
+#Fourth Problem
+class Solution(object):
+    def longestCommonPrefix(self, strs):
+        result = ""
+        shortest = ""
+        stop = False
+
+        if len(strs) == 1:
+            return strs[0]
+
+        for word in strs:
+            if word == "":
+                return ""
+            if not shortest:
+                shortest = word
+            if len(shortest) > len(word):
+                shortest = word
+
+        for i in range(len(shortest)):
+            letter = shortest[i]
+            for word in strs:
+                if letter != word[i]:
+                    stop = True
+                    break
+            if stop:
+                return result
+            result += letter
+        return result
+
+
+#Fifth Problem
+class Solution(object):
+    def isValid(self, s):
+        
+        opening = []
+        for i in s:
+            if i in ["(", "[", "{"]:
+                opening.append(i)
+            else:
+                if not opening:
+                    return False
+                p = opening.pop()
+                if i == ")" and p != "(" or i == "]" and p != "[" or i == "}" and p != "{":
+                    return False
+        if opening:
+            return False
+        return True
+
+
+#End of Day1
