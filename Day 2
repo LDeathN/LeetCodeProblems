@@ -41,3 +41,17 @@ class Solution(object):
         return len(nums)
 
 
+#Fourth Problem
+class Solution(object):
+    def strStr(self, haystack, needle):
+        if haystack == needle:
+            return 0
+        k = len(needle)
+        for i in range(len(haystack)):
+            if i - 2 == len(haystack) - k:
+                break
+            if haystack[i:i+k] == needle:
+                return i
+        return -1
+
+
