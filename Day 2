@@ -55,3 +55,15 @@ class Solution(object):
         return -1
 
 
+#Fifth Problem
+class Solution(object):
+    def searchInsert(self, nums, target):
+        for i in range(len(nums)):
+            if nums[i] == target:
+                return i
+        nums.append(target)
+        nums = sorted(nums)
+        return nums.index(target)
+
+
+Enn of Day 2
