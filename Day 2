@@ -30,3 +30,14 @@ class Solution(object):
         return len(unique)
 
 
+#Third Problem
+class Solution(object):
+    def removeElement(self, nums, val):
+        k = 0
+        for i in range(len(nums)):
+            if nums[i - k] == val:
+                nums.pop(i - k)
+                k += 1
+        return len(nums)
+
+
