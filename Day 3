@@ -1,0 +1,9 @@
+#First Problem
+class Solution(object):
+    def lengthOfLastWord(self, s):
+        s = s.strip()
+        words = s.split(" ")     
+        last = words.pop()
+        return len(last)
+
+
