@@ -67,3 +67,23 @@ class Solution(object):
         return x
 
 
+#Fifth Problem
+class Solution(object):
+    def climbStairs(self, n):
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 2
+
+        i = 1
+        j = 2
+
+        for _ in range(n - 2):
+            k = i + j
+            i = j
+            j = k
+
+        return k
+
+
+End of Day 3
