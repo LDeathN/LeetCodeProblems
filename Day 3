@@ -60,3 +60,10 @@ class Solution(object):
         return result
 
 
+#Fourth Problem
+class Solution(object):
+    def mySqrt(self, x):
+        x = int(sqrt(x))
+        return x
+
+
