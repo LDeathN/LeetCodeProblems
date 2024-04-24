@@ -34,3 +34,19 @@ class Solution(object):
                 nums1.append(nums2[n - i])
 
 
+#Third Problem
+class Solution(object):
+    def inorderTraversal(self, root):
+        res = []
+
+        def inorder(root):
+            if not root:
+                return
+            inorder(root.left)
+            res.append(root.val)
+            inorder(root.right)
+        
+        inorder(root)
+        return res
+
+
