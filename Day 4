@@ -16,3 +16,21 @@ class Solution(object):
         return head
 
 
+#Second Problem
+class Solution(object):
+    def merge(self, nums1, m, nums2, n):
+        for e in range(n):
+            nums1.pop()
+
+        for i in range(n, 0, -1):
+            if nums1:
+                for j in range(len(nums1)):
+                    if nums1[j] >= nums2[n - i]:
+                        nums1.insert(j, nums2[n - i])
+                        break
+                    if j == len(nums1) - 1:
+                        nums1.append(nums2[n - i])
+            else:
+                nums1.append(nums2[n - i])
+
+
