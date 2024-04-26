@@ -7,3 +7,20 @@ class Solution(object):
         return 1 + max(self.maxDepth(root.left), self.maxDepth(root.right))
 
 
+#Second Problem
+class Solution(object):
+    def constructor(self, nums, left, right):
+        if left > right:
+            return None
+        midpoint = left + (right - left) // 2
+        node = TreeNode(nums[midpoint])
+        node.left = self.constructor(nums, left, midpoint - 1)
+        node.right = self.constructor(nums, midpoint + 1, right)
+        return node
+
+    def sortedArrayToBST(self, nums):
+        if not nums:
+            return None
+        return self.constructor(nums, 0, len(nums) - 1)
+
+
