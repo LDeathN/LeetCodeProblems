@@ -39,3 +39,24 @@ class Solution(object):
         return dfs(root)[0]
 
 
+#Fourth Problem
+class Solution(object):
+    def minDepth(self, root):
+        if not root:
+            return 0
+        
+        self.min_depth = float('inf')
+        self.dfs(root, 0)
+
+        return self.min_depth
+
+    def dfs(self, node, cur_depth):
+        if not node: return None
+
+        if not node.left and not node.right:
+            self.min_depth = min(self.min_depth, cur_depth + 1)
+
+        self.dfs(node.left, cur_depth + 1)
+        self.dfs(node.right, cur_depth + 1)
+
+
