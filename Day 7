@@ -14,3 +14,13 @@ class Solution(object):
             return 0
 
 
+#Second Problem
+class Solution(object):
+    def isPalindrome(self, s):
+        phrase = ""
+        for symbol in s:
+            if symbol.isalnum():
+                phrase += symbol.lower()
+        return phrase == phrase[::-1]
+
+
