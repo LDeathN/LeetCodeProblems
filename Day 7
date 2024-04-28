@@ -1,0 +1,16 @@
+#First Problem
+class Solution(object):
+    def maxProfit(self, prices):
+        values = []
+        buy = prices[0]
+        for i in range(len(prices)):
+            if buy >= prices[i]:
+                buy = prices[i]
+            else:
+                values.append(prices[i] - buy)
+        if values:
+            return max(values)
+        else:
+            return 0
+
+
