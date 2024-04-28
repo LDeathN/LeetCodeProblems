@@ -14,6 +14,7 @@ class Solution(object):
             return 0
 
 
+
 #Second Problem
 class Solution(object):
     def isPalindrome(self, s):
@@ -24,3 +25,15 @@ class Solution(object):
         return phrase == phrase[::-1]
 
 
+
+#Third Problem
+class Solution(object):
+    def singleNumber(self, nums):
+        counted = {}
+        for num in nums:
+            if num not in counted:
+                counted[num] = 0
+            counted[num] += 1
+        for key, value in counted.items():
+            if value == 1:
+                return key
