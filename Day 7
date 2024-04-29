@@ -37,3 +37,6 @@ class Solution(object):
         for key, value in counted.items():
             if value == 1:
                 return key
+
+
+End of Day 7
