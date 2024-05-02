@@ -1,1 +1,12 @@
+#First Problem
+class Solution(object):
+    def titleToNumber(self, columnTitle):
+        count = 0
+        result = 0
+        for letter in columnTitle:
+            count += 1
+            result += (ord(letter) - 64)*(26**(len(columnTitle) - count))
+        return result
+
+
 
