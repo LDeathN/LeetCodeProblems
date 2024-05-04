@@ -4,4 +4,10 @@ grep -E '^\([0-9]{3}\) [0-9]{3}-[0-9]{4}$|^[0-9]{3}-[0-9]{3}-[0-9]{4}$' file.txt
 
 
 
+#Second Problem
+# Read from the file file.txt and output the tenth line to stdout.
+sed -n '10p' file.txt
+
+
+
 
