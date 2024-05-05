@@ -17,4 +17,26 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def removeElements(self, head, val):
+        if not head:
+            return None
+    
+        
+        dummy = ListNode(0)
+        dummy.next = head
+        prev, current = dummy, head
+        
+        while current:
+            if current.val == val:
+                prev.next = current.next
+            else:
+                prev = current
+            current = current.next
+        
+        return dummy.next
+
+
+
 
