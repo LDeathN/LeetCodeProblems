@@ -72,4 +72,33 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def summaryRanges(self, nums):
+        if not nums:
+            return []
 
+        result = []
+        start = nums[0]
+        end = nums[0]
+
+        for num in nums[1:]:
+            if num == end + 1:
+                end = num
+            else:
+                result.append(self.formatRange(start, end))
+                start = num
+                end = num
+
+        result.append(self.formatRange(start, end))
+
+        return result
+
+    def formatRange(sefl, start, end):
+        if start == end:
+            return str(start)
+        else:
+            return str(start) + "->" + str(end)
+
+
+End if Day 14
