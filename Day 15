@@ -43,4 +43,45 @@ class MyQueue(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def isPalindrome(self, head):
+        cur = head
+        n = 0
+
+        while cur:
+            n += 1
+            cur = cur.next
+
+        mid = n//2
+        i = 0
+
+        def reverse(head):
+            ans = None
+            while head:
+                nx = head.next
+                head.next = ans
+                ans = head
+                head = nx
+            return ans
+
+        first = head
+        second = head
+
+        while i < mid:
+            i += 1
+            second = second.next
+        
+        second = reverse(second)
+
+        while first and second:
+            if first.val != second.val:
+                return False
+            first = first.next
+            second = second.next
+
+        return True
+
+
+
 
