@@ -84,4 +84,28 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def isAnagram(self, s, t):
+        list_s = []
+        list_t = []
+
+        if len(s) != len(t):
+            return False
+        
+        for letter in s:
+            list_s.append(letter)
+        
+        for letter in t:
+            list_t.append(letter)
+        
+        list_s = sorted(list_s)
+        list_t = sorted(list_t)
+
+        if list_s == list_t:
+            return True
+        return False
+
+
+
 
