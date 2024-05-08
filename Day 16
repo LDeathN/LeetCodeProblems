@@ -1,1 +1,14 @@
+#First Problem
+class Solution(object):
+    def addDigits(self, num):
+        num = str(num)
+        while len(num) != 1:
+            new = 0
+            for i in num:
+                new += int(i)
+            num = str(new)
+        return int(num)
+
+
+
 
