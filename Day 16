@@ -55,4 +55,15 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def moveZeroes(self, nums):
+        count = 0
+        for i in range(len(nums)):
+            if nums[i - count] == 0:         
+                nums.append(nums.pop(i - count))
+                count += 1   
+        return nums
 
+
+End of Day 16
