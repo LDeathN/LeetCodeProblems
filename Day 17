@@ -59,4 +59,16 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def isPowerOfThree(self, n):
+        if n < 1:
+            return False
+        for i in range(0, 31):
+            if 3 ** i == n:
+                return True
+        return False
 
+
+
+End of Day 17
