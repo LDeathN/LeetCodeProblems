@@ -26,4 +26,30 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def reverseVowels(self, s):
+        vowels = ["A", "E", "I", "O", "U", "a", "e", "i", "o", "u"]
+        found = []
+        word = []
+        for letter in s:
+            word.append(letter)
+
+        for i in range(len(word)):
+            if word[i] in vowels:
+                found.append(i)
+
+        for j in range(len(found) // 2):
+            temp = word[found[j]]
+            word[found[j]] = word[found[-(j + 1)]]
+            word[found[-(j + 1)]] = temp
+        
+        result = ""
+        for i in range(len(word)):
+            result += word[i]
+        
+        return result
+
+
+
 
