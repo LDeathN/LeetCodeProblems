@@ -52,4 +52,16 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def intersection(self, nums1, nums2):
+        result = []
+        for num1 in nums1:
+            if num1 in nums2 and num1 not in result:
+                result.append(num1)
+            
+        return result
+
+
+
 
