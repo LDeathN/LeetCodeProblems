@@ -13,4 +13,17 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def reverseString(self, s):
+        mid = len(s) // 2
+
+        for i in range(mid):
+            temp = s[i]
+            s[i] = s[-(i + 1)]
+            s[-(i + 1)] = temp
+        return s
+
+
+
 
