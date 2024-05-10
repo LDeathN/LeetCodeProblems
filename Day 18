@@ -64,4 +64,29 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def intersect(self, nums1, nums2):
+        result = []
 
+        if len(nums1) <= len(nums2):
+            nums = nums1
+            searching = nums2
+        else:
+            nums = nums2
+            searching = nums1
+
+        for i in range(len(nums)):
+            if nums[i] in searching:
+                result.append(nums[i])
+                temp = nums[i]
+                nums[i] = ""
+                for j in range(len(searching)):
+                    if searching[j] == temp:
+                        searching[j] = ""
+                        break
+
+        return result
+
+
+End of Day 18
