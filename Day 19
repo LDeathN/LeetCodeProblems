@@ -24,4 +24,21 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        new_magazine = []
+        for letter in magazine:
+            new_magazine.append(letter)
+
+        for letter in ransomNote:
+            if letter in new_magazine:
+                new_magazine.remove(letter)
+            else:
+                return False
+        
+        return True
+
+
+
 
