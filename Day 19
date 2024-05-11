@@ -1,1 +1,8 @@
+#First Problem
+class Solution(object):
+    def isPerfectSquare(self, num):
+        return True if sqrt(num) == int(sqrt(num)) else False
+
+
+
 
