@@ -57,4 +57,13 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findTheDifference(self, s, t):
+        for letter in s:
+            t = t.replace(letter, "", 1)
+        return t
 
+
+
+End of Day 19
