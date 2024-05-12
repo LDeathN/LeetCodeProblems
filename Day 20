@@ -68,4 +68,29 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def longestPalindrome(self, s):
+        char_freq = {}
+    
+        for char in s:
+            char_freq[char] = char_freq.get(char, 0) + 1
+        
+        length = 0
+        odd_freq_exists = False
+
+        for freq in char_freq.values():
+            if freq % 2 == 0:
+                length += freq
+            else:
+                length += freq - 1
+                odd_freq_exists = True
+        
+        if odd_freq_exists:
+            length += 1
+        
+        return length
+
+
+
 
