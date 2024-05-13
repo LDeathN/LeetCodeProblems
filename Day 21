@@ -8,4 +8,21 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def thirdMax(self, nums):
+        unique = []
+
+        for num in nums:
+            if num not in unique:
+                unique.append(num)
+
+        unique = sorted(unique)
+        if len(unique) < 3:
+            return unique[len(unique) - 1]
+        else:
+            return unique[-3] 
+
+
+
 
