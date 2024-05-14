@@ -1,1 +1,23 @@
+#First Problem
+class Solution(object):
+    def findContentChildren(self, g, s):
+        g = sorted(g)
+        s = sorted(s)
+        result = 0
+        if not g or not s:
+            return 0
+        
+        while g and s:
+            child = g.pop(0)
+            cookie = s.pop(0)
+
+            if cookie >= child:
+                result += 1
+            else:
+                g.insert(0, child)
+        
+        return result
+
+
+
 
