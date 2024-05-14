@@ -70,4 +70,14 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findComplement(self, num):
+        bitmask = 1
+        while bitmask < num:
+            bitmask = (bitmask << 1) + 1
+        
+        return num ^ bitmask
 
+
+End of Day 22
