@@ -57,4 +57,23 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def nextGreaterElement(self, nums1, nums2):
+        result = []
+        for element in nums1:
+            found = False
+            position = nums2.index(element)
+            for i in range(position + 1, len(nums2)):
+                if nums2[i] > nums2[position]:
+                    result.append(nums2[i])
+                    found = True
+                    break
+            if not found:
+                result.append(-1)
+        
+        return result
+
+
+
 
