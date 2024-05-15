@@ -33,4 +33,28 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def findPoisonedDuration(self, timeSeries, duration):
+        if not timeSeries:
+            return 0
+        
+        total_poison_duration = 0
+        
+        for i in range(len(timeSeries) - 1):
+            poison_start = timeSeries[i]
+            poison_end = timeSeries[i] + duration - 1
+            next_attack_time = timeSeries[i + 1]
+            
+            if next_attack_time <= poison_end:
+                total_poison_duration += next_attack_time - poison_start
+            else:
+                total_poison_duration += duration
+
+        total_poison_duration += duration
+        
+        return total_poison_duration
+
+
+
 
