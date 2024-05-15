@@ -1,1 +1,19 @@
+#First Problem
+class Solution(object):
+    def licenseKeyFormatting(self, s, k):
+        s = s.replace('-', '').upper()
+
+        first_group_len = len(s) % k
+
+        result = s[:first_group_len]
+
+        for i in range(first_group_len, len(s), k):
+            if i != 0:
+                result += '-'
+            result += s[i:i+k]
+        
+        return result
+
+
+
 
