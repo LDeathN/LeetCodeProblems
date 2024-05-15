@@ -76,4 +76,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def constructRectangle(self, area):
+        length = int(math.sqrt(area))
 
+        while area % length != 0:
+            length -= 1
+
+        width = area // length
+        
+        return [width, length]
+
+
+End of Day 23
