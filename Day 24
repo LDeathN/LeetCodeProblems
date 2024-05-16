@@ -50,4 +50,24 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def findRelativeRanks(self, score):
+        reverse = sorted(score, key=lambda x: -x)
+        
+        for i in range(len(reverse)):
+            found = score.index(reverse[i])
+            if i == 0:
+                score[found] = "Gold Medal"
+            elif i == 1:
+                score[found] = "Silver Medal"
+            elif i == 2:
+                score[found] = "Bronze Medal"
+            else:
+                score[found] = str(i + 1)
+        
+        return score
+
+
+
 
