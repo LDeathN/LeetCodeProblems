@@ -1,1 +1,20 @@
+#First Problem
+class Solution(object):
+    def fib(self, n):
+        if n <= 0:
+            return 0 
+        elif n == 1:
+            return 1
+        elif n == 2:
+            return 1
+        
+        fib_sequence = [0, 1]
+        for i in range(2, n + 1):
+            next_value = fib_sequence[-1] + fib_sequence[-2]
+            fib_sequence.append(next_value)
+        
+        return fib_sequence[-1]
+
+
+
 
