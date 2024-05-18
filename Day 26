@@ -41,4 +41,16 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def reverseWords(self, s):
+        sentance = s.split(" ")
+
+        for i in range(len(sentance)):
+            sentance[i] = sentance[i][::-1]
+        
+        return " ".join(sentance)
+
+
+
 
