@@ -74,4 +74,15 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def distributeCandies(self, candyType):
+        unique = set(candyType)
 
+        if len(unique) >= len(candyType) / 2:
+            return len(candyType) / 2
+        else:
+            return len(unique)
+
+
+End of Day 27
