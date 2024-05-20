@@ -22,4 +22,20 @@ LIMIT 1;
 
 
 
+#Fourth Problem
+class Solution(object):
+    def preorder(self, root):
+        result = []
+        
+        def dfs(node):
+            if node:
+                result.append(node.val)
+                for child in node.children:
+                    dfs(child)
+
+        dfs(root)
+        return result
+
+
+
 
