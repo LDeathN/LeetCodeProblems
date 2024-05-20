@@ -38,4 +38,18 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def postorder(self, root):
+        def dfs(node):
+            if node:
+                for child in node.children:
+                    dfs(child)
+                result.append(node.val)
+        
+        result = []
+        dfs(root)
+        return result
 
+
+End of Day 28
