@@ -49,4 +49,23 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findRestaurant(self, list1, list2):
+        result = []
+        minimum = len(list1) + len(list2)
 
+        for i in range(len(list1)):
+            for j in range(len(list2)):
+                if list1[i] == list2[j]:
+                    if minimum > i + j:
+                        minimum = i + j
+                        result = []
+                        
+                    if minimum == i + j:
+                        result.append(list1[i])
+        
+        return result
+
+
+End of Day 29
