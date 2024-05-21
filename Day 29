@@ -24,4 +24,12 @@ WHERE area >= 3000000
 
 
 
+#Third Problem
+SELECT class
+FROM Courses
+GROUP BY class
+HAVING COUNT(student) >= 5;
+
+
+
 
