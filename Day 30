@@ -29,4 +29,17 @@ WHERE sp.sales_id NOT IN (
 
 
 
+#Third Problem
+SELECT
+    x,
+    y,
+    z,
+    CASE
+        WHEN x + y > z AND x + z > y AND y + z > x THEN 'Yes'
+        ELSE 'No'
+    END AS triangle
+FROM Triangle;
+
+
+
 
