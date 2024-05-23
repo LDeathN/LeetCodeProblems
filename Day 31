@@ -24,4 +24,28 @@ class Solution(object):
 
 
 
+#Fourth Problem
+from collections import deque
+
+class Solution(object):
+    def averageOfLevels(self, root):
+        s = defaultdict(float)
+        t = defaultdict(int)
+
+        def dfs(node, h):
+            if not node: return
+            dfs(node.left, h+1)
+            dfs(node.right, h+1)
+            s[h] += node.val
+            t[h] += 1
+        
+        dfs(root, 0)
+
+        output = []
+        for i in range(len(s)):
+            output.append(s[i]/t[i])
+        return output
+
+
+
 
