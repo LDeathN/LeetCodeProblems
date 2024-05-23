@@ -48,4 +48,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findMaxAverage(self, nums, k):
+        current = 0
+        for i in range(k):
+            current += nums[i]
+        maxi = current
+        for i in range(k, len(nums)):
+            current += nums[i] - nums[i - k]
+            maxi = max(current, maxi)
+        return float(maxi) / k
 
+
+End of Day 31
