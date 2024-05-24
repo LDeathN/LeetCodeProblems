@@ -1,1 +1,23 @@
+#First Problem
+class Solution(object):
+    def findErrorNums(self, nums):
+        n = len(nums)
+        S = n * (n + 1) // 2
+        P = n * (n + 1) * (2 * n + 1) // 6
+        
+        S_prime = sum(nums)
+        P_prime = sum(x * x for x in nums)
+        
+        diff = S - S_prime  
+        sq_diff = P - P_prime 
+
+        sum_diff = sq_diff // diff
+        
+        miss = (diff + sum_diff) // 2
+        dup = sum_diff - miss
+        
+        return [dup, miss]
+
+
+
 
