@@ -20,4 +20,37 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def inorder_traversal(self, root):
+        elements = []
+        
+        def inorder(node):
+            if not node:
+                return
+            inorder(node.left)
+            elements.append(node.val)
+            inorder(node.right)
+        
+        inorder(root)
+        return elements
+
+    def findTarget(self, root, k):
+        elements = self.inorder_traversal(root)
+        
+        left, right = 0, len(elements) - 1
+        
+        while left < right:
+            current_sum = elements[left] + elements[right]
+            if current_sum == k:
+                return True
+            elif current_sum < k:
+                left += 1
+            else:
+                right -= 1
+        
+        return False
+
+
+
 
