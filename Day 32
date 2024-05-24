@@ -93,4 +93,25 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findSecondMinimumValue(self, root):
+        self.first_min = root.val
+        self.second_min = float('inf')
+        self.dfs(root)
+        
+        return self.second_min if self.second_min < float('inf') else -1
+    
+    def dfs(self, node):
+        if not node:
+            return
 
+        if self.first_min < node.val < self.second_min:
+            self.second_min = node.val
+
+        elif node.val == self.first_min:
+            self.dfs(node.left)
+            self.dfs(node.right)
+
+
+End of Day 32
