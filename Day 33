@@ -58,4 +58,13 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def hasAlternatingBits(self, n):
+        shifted_n = n >> 1
+        xor_n = n ^ shifted_n
+        return (xor_n & (xor_n + 1)) == 0
+
+
+
 
