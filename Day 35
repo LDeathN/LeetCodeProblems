@@ -94,4 +94,25 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def selfDividingNumbers(self, left, right):
+        result = []
 
+        for i in range(left, right + 1):
+            string_i = str(i)
+            for digit in string_i:
+                check = True
+                if int(digit) == 0:
+                    check = False
+                    break
+                if i % int(digit) != 0:
+                    check = False
+                    break
+            if check:
+                result.append(i)
+        
+        return result
+
+
+End of Day 35
