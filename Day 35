@@ -1,1 +1,58 @@
+#First Problem
+class MyHashMap(object):
+    class Node:
+        def __init__(self, key, value):
+            self.key = key
+            self.value = value
+            self.next = None
+
+    def __init__(self):
+        self.size = 1009  # A prime number as the size of the array to reduce collisions
+        self.buckets = [None] * self.size
+
+    def put(self, key, value):
+        index = key % self.size
+        if not self.buckets[index]:
+            self.buckets[index] = self.Node(key, value)
+        else:
+            current = self.buckets[index]
+            while True:
+                if current.key == key:
+                    current.value = value
+                    return
+                if not current.next:
+                    break
+                current = current.next
+            current.next = self.Node(key, value)
+        
+
+    def get(self, key):
+        index = key % self.size
+        current = self.buckets[index]
+        while current:
+            if current.key == key:
+                return current.value
+            current = current.next
+        return -1
+        
+
+    def remove(self, key):
+        index = key % self.size
+        current = self.buckets[index]
+        if not current:
+            return
+        if current.key == key:
+            self.buckets[index] = current.next
+        else:
+            prev = current
+            current = current.next
+            while current:
+                if current.key == key:
+                    prev.next = current.next
+                    return
+                prev = current
+                current = current.next
+
+
+
 
