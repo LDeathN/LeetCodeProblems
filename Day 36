@@ -69,3 +69,32 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def shortestCompletingWord(self, licensePlate, words):
+        license_plate_freq = {}
+        for char in licensePlate:
+            if char.isalpha():
+                char_lower = char.lower()
+                license_plate_freq[char_lower] = license_plate_freq.get(char_lower, 0) + 1
+
+        shortest_word = None
+
+        for word in words:
+            word_freq = {}
+            for char in word:
+                word_freq[char] = word_freq.get(char, 0) + 1
+
+            valid_word = True
+            for char, freq in license_plate_freq.items():
+                if word_freq.get(char, 0) < freq:
+                    valid_word = False
+                    break
+
+            if valid_word and (shortest_word is None or len(word) < len(shortest_word)):
+                shortest_word = word
+
+        return shortest_word
+
+
+End of Day 36
