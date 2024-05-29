@@ -1,1 +1,25 @@
+#First Problem
+class Solution(object):
+    def countPrimeSetBits(self, left, right):
+        def is_prime(n):
+            if n <= 1:
+                return False
+            if n == 2:
+                return True
+            if n % 2 == 0:
+                return False
+            for i in range(3, int(n**0.5) + 1, 2):
+                if n % i == 0:
+                    return False
+            return True
+
+        count = 0
+        for num in range(left, right + 1):
+            set_bits = bin(num).count('1')
+            if is_prime(set_bits):
+                count += 1
+        return count
+
+
+
 
