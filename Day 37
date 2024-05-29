@@ -66,4 +66,22 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def rotateString(self, s, goal):
+        if s == goal:
+            return True
 
+        s = [letter for letter in s]
+        goal = [letter for letter in goal]
+        original = s
+
+        for i in range(len(s)):
+            s.append(s.pop(0))
+            if s == goal:
+                return True
+        
+        return False
+
+
+End of Day 37
