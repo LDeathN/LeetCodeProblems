@@ -81,4 +81,26 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    import collections
+    import re
+    def mostCommonWord(self, paragraph, banned):
+        normalized_str = re.sub(r'[^\w\s]', ' ', paragraph).lower()
+
+        words = normalized_str.split()
+
+        word_count = collections.Counter(words)
+
+        banned_set = set(banned)
+        for word in banned_set:
+            if word in word_count:
+                del word_count[word]
+
+        most_common_word, _ = word_count.most_common(1)[0]
+        
+        return most_common_word
+
+
+
 
