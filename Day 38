@@ -125,4 +125,18 @@ class Solution(object):
 
 
 
+#Sixth Problem
+class Solution(object):
+    def toGoatLatin(self, sentence):
+        vowels = set('aeiouAEIOU')
+        words = sentence.split()
+        result = []
+        for i, word in enumerate(words, 1):
+            if word[0] in vowels:
+                result.append(word + 'ma' + 'a' * i)
+            else:
+                result.append(word[1:] + word[0] + 'ma' + 'a' * i)
+        return ' '.join(result)
 
+
+End of Day 38
