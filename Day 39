@@ -39,4 +39,20 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def backspaceCompare(self, s, t):
+        def process(string):
+            stack = []
+            for char in string:
+                if char != '#':
+                    stack.append(char)
+                elif stack:
+                    stack.pop()
+            return ''.join(stack)
+        
+        return process(s) == process(t)
+
+
+
 
