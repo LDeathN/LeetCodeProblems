@@ -49,4 +49,19 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def fairCandySwap(self, aliceSizes, bobSizes):
+        sumA = sum(aliceSizes)
+        sumB = sum(bobSizes)
+        delta = (sumA - sumB) // 2
+        
+        setB = set(bobSizes)
+        
+        for x in aliceSizes:
+            if x - delta in setB:
+                return [x, x - delta]
+
+
+
 
