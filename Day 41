@@ -23,4 +23,30 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def uncommonFromSentences(self, s1, s2):
+        s1 = s1.split(" ")
+        s2 = s2.split(" ")
+        words_count = {}
+        result = []
+
+        for word in s1:
+            if word not in words_count:
+                words_count[word] = 0
+            words_count[word] += 1
+        
+        for word in s2:
+            if word not in words_count:
+                words_count[word] = 0
+            words_count[word] += 1
+
+        for key, value in words_count.items():
+            if value == 1:
+                result.append(key)
+
+        return result
+
+
+
 
