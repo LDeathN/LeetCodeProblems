@@ -69,4 +69,22 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def reverseOnlyLetters(self, s):
+        letters = [char for char in s if char.isalpha()]
+        reversed_letters = letters[::-1]
 
+        iter_reversed = iter(reversed_letters)
+
+        result = []
+        for char in s:
+            if char.isalpha():
+                result.append(next(iter_reversed))
+            else:
+                result.append(char)
+        
+        return ''.join(result)
+
+
+End of Day 42
