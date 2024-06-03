@@ -1,1 +1,20 @@
+#First Problem
+class Solution(object):
+    def increasingBST(self, root):
+        def in_order_traversal(node):
+            if not node:
+                return
+            in_order_traversal(node.left)
+            node.left = None
+            self.current.right = node
+            self.current = node
+            in_order_traversal(node.right)
+    
+        dummy = TreeNode()
+        self.current = dummy
+        in_order_traversal(root)
+        return dummy.right
+
+
+
 
