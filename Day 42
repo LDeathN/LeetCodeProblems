@@ -31,4 +31,20 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def smallestRangeI(self, nums, k):
+        if len(nums) == 1:
+            return 0
+        
+        min_val = min(nums)
+        max_val = max(nums)
+
+        new_min = min_val + k
+        new_max = max_val - k
+
+        return max(0, new_max - new_min)
+
+
+
 
