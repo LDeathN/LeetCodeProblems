@@ -47,4 +47,26 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    from collections import Counter
+    from functools import reduce
+
+    def gcd(sefl, a, b):
+        while b:
+            a, b = b, a % b
+        return a
+
+
+    def hasGroupsSizeX(self, deck):
+        count = Counter(deck)
+
+        frequencies = list(count.values())
+
+        gcd_of_frequencies = reduce(self.gcd, frequencies)
+
+        return gcd_of_frequencies > 1
+
+
+
 
