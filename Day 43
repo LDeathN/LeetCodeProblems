@@ -1,1 +1,20 @@
+#First Problem
+class Solution(object):
+    def sortArrayByParityII(self, nums):
+        even = []
+        odd = []
+        result = []
+        for num in nums:
+            if num % 2 == 0:
+                even.append(num)
+            else:
+                odd.append(num)
+        while even or odd:
+            result.append(even.pop())
+            result.append(odd.pop())
+        
+        return result
+
+
+
 
