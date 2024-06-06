@@ -39,4 +39,21 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        number = ""
+        for digit in num:
+            number += str(digit)
+        number = int(number)
+        number += k
+        number = str(number)
+        result = []
+        for digit in number:
+            result.append(int(digit))
+
+        return result
+
+
+
 
