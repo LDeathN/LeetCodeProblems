@@ -28,4 +28,15 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def sortedSquares(self, nums):
+        squared = []
+        for num in nums:
+            squared.append(num * num)
+        
+        return sorted(squared)
+
+
+
 
