@@ -56,4 +56,37 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    from collections import deque
+    def isCousins(self, root, x, y):
+        if not root:
+            return False
 
+        queue = deque([(root, 0, None)])
+        
+        x_info = y_info = None
+
+        while queue:
+            node, depth, parent = queue.popleft()
+            
+            if node.val == x:
+                x_info = (depth, parent)
+            if node.val == y:
+                y_info = (depth, parent)
+
+            if node.left:
+                queue.append((node.left, depth + 1, node))
+            if node.right:
+                queue.append((node.right, depth + 1, node))
+
+            if x_info and y_info:
+                break
+
+        if x_info and y_info:
+            return x_info[0] == y_info[0] and x_info[1] != y_info[1]
+        
+        return False
+
+
+End of Day 45
