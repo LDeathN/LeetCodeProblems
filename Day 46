@@ -114,4 +114,14 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def bitwiseComplement(self, n):
+        num_bits = n.bit_length()
+        bitmask = (1 << num_bits) - 1
+        complement = n ^ bitmask
+        
+        return complement
 
+
+End of Day 46
