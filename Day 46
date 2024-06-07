@@ -117,6 +117,9 @@ class Solution(object):
 #Fifth Problem
 class Solution(object):
     def bitwiseComplement(self, n):
+        if n == 0:
+            return 1
+            
         num_bits = n.bit_length()
         bitmask = (1 << num_bits) - 1
         complement = n ^ bitmask
