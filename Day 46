@@ -93,4 +93,25 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def largestSumAfterKNegations(self, nums, k):
+        
+        for i in range(k):
+            nums = sorted(nums)
+            for i in range(len(nums)):
+                if nums[i] < 0:
+                    nums[i] = abs(nums[i])
+                    break
+                elif nums[i] == 0:
+                    break
+                elif nums[i] > 0:
+                    nums[i] = -nums[i]
+                    break
+
+        result = sum(nums)
+        return result
+
+
+
 
