@@ -53,4 +53,25 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def sumRootToLeaf(self, root):
+        def dfs(node, current_value):
+            if not node:
+                return 0
+            
+            current_value = (current_value << 1) | node.val
+
+            if not node.left and not node.right:
+                return current_value
+
+            left_sum = dfs(node.left, current_value)
+            right_sum = dfs(node.right, current_value)
+            
+            return left_sum + right_sum
+        
+        return dfs(root, 0)
+
+
+
 
