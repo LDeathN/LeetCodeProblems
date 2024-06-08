@@ -1,1 +1,20 @@
+#First Problem
+class Solution(object):
+    def canThreePartsEqualSum(self, arr):
+        total_sum = sum(arr)
+        if total_sum % 3 != 0:
+            return False
+
+        target = total_sum // 3
+        current_sum, count = 0, 0
+
+        for num in arr:
+            current_sum += num
+            if current_sum == target:
+                count += 1
+                current_sum = 0
+
+        return count >= 3
+
+
 
