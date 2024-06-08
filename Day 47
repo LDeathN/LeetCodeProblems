@@ -74,4 +74,11 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def divisorGame(self, n):
+        return n % 2 == 0
 
+
+
+End of Day 47
