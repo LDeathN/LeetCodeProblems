@@ -63,4 +63,13 @@ class Solution(object):
 
 
 
+#Fifth Problem
+SELECT actor_id, director_id
+FROM ActorDirector
+GROUP BY actor_id, director_id
+HAVING COUNT(*) >= 3;
 
+
+
+
+End of Day 48
