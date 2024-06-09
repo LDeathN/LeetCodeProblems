@@ -1,1 +1,19 @@
+#First Problem
+class Solution(object):
+    def allCellsDistOrder(self, rows, cols, rCenter, cCenter):
+        cells = []
+
+        for r in range(rows):
+            for c in range(cols):
+                dist = abs(r - rCenter) + abs(c - cCenter)
+                cells.append((dist, r, c))
+
+        cells.sort()
+
+        result = [[r, c] for dist, r, c in cells]
+        
+        return result
+
+
+
 
