@@ -33,7 +33,7 @@ class Solution(object):
 #Third Problem
 class Solution(object):
     def lastStoneWeight(self, stones):
-        while len(stones) != 1:
+        while len(stones) > 1:
             stones = sorted(stones)
             rock_one = stones.pop()
             rock_two = stones.pop()
@@ -41,7 +41,25 @@ class Solution(object):
                 rock_one -= rock_two
                 stones.append(rock_one)
         
-        return stones[0]
+        if stones:
+            return stones[0]
+        else:
+            return 0
+
+
+
+#Fourth Problem
+class Solution(object):
+    def removeDuplicates(self, s):
+        stack = []
+    
+        for char in s:
+            if stack and stack[-1] == char:
+                stack.pop()
+            else:
+                stack.append(char)
+        
+        return ''.join(stack)
 
 
 
