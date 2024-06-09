@@ -30,3 +30,19 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def lastStoneWeight(self, stones):
+        while len(stones) != 1:
+            stones = sorted(stones)
+            rock_one = stones.pop()
+            rock_two = stones.pop()
+            if rock_one > rock_two:
+                rock_one -= rock_two
+                stones.append(rock_one)
+        
+        return stones[0]
+
+
+
+
