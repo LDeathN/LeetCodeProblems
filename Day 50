@@ -27,4 +27,24 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def distributeCandies(self, candies, num_people):
+        result = [0] * num_people
+        give = 0
+        count = num_people - 1
+        while candies:
+            count += 1
+            give += 1
+            if candies >= give:
+                result[count % num_people] += give
+                candies -= give
+            else:
+                result[count % num_people] += candies
+                candies = 0
+        
+        return result
+
+
+
 
