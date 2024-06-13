@@ -1,1 +1,25 @@
+#First Problem
+class Solution(object):
+    def dayOfYear(self, date):
+        thirties = [4, 6, 9, 11]
+        february = 2
+        date = date.split("-")
+        year = int(date[0])
+        month = int(date[1])
+        day = int(date[2])
+        for i in range(1, month):
+            if i == february:
+                if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
+                    day += 29
+                else:
+                    day += 28
+            elif i in thirties:
+                day += 30
+            else:
+                day += 31
+
+        return day
+
+
+
 
