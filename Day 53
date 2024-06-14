@@ -9,4 +9,42 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def maxNumberOfBalloons(self, text):
+        found = {}
+        for letter in text:
+            if letter == "b":
+                if letter not in found:
+                    found[letter] = 0
+                found[letter] += 1
+            elif letter == "a":
+                if letter not in found:
+                    found[letter] = 0
+                found[letter] += 1
+            elif letter == "l":
+                if letter not in found:
+                    found[letter] = 0
+                found[letter] += 1
+            elif letter == "o":
+                if letter not in found:
+                    found[letter] = 0
+                found[letter] += 1
+            elif letter == "n":
+                if letter not in found:
+                    found[letter] = 0
+                found[letter] += 1
+
+        result = 10000
+        if "b" in found and "a" in found and "l" in found and "o" in found and "n" in found:
+            for key, value in found.items():
+                if key == "l" or key == "o":
+                    value = value // 2
+                result = min(result, value)
+        else:
+            return 0
+        return result
+
+
+
 
