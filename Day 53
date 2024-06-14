@@ -67,4 +67,25 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def uniqueOccurrences(self, arr):
+        occurrences = {}
+        check = []
+        
+        for num in arr:
+            if num not in occurrences:
+                occurrences[num] = 0
+            occurrences[num] += 1
+        
+        for key, value in occurrences.items():
+            if value not in check:
+                check.append(value)
+            else:
+                return False
+        
+        return True
+
+
+
 
