@@ -1,1 +1,12 @@
+#First Problem
+class Solution(object):
+    import datetime
+    def dayOfTheWeek(self, day, month, year):
+        date = datetime.date(year, month, day)
+        days_of_week = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday","Sunday"]
+        day_index = date.weekday()
+        return days_of_week[day_index]
+
+
+
 
