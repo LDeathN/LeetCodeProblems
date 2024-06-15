@@ -1,1 +1,10 @@
+#First Problem
+class Solution(object):
+    def minCostToMoveChips(self, position):
+        even_count = sum(1 for pos in position if pos % 2 == 0)
+        odd_count = len(position) - even_count
+        return min(even_count, odd_count)
+
+
+
 
