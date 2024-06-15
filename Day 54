@@ -60,4 +60,26 @@ GROUP BY
 
 
 
+#Fifth Problem
+class Solution(object):
+    def oddCells(self, m, n, indices):
+        matrix = [[0 for i in range(n)] for i in range(m)]
+        result = 0
 
+        for indice in indices:
+            x, y = indice[0], indice[1]
+            for i in range(n):
+                matrix[x][i] += 1
+            for j in range(m):
+                matrix[j][y] += 1
+            
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] % 2 != 0:
+                    result += 1
+        
+        return result
+
+
+
+End of Day 54
