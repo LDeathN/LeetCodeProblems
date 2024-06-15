@@ -27,4 +27,23 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def checkStraightLine(self, coordinates):
+        if len(coordinates) < 3:
+            return True
+
+        def cross_product(A, B, C):
+            AB = [B[0] - A[0], B[1] - A[1]]
+            AC = [C[0] - A[0], C[1] - A[1]]
+            return AB[0] * AC[1] - AB[1] * AC[0]
+        
+        for i in range(2, len(coordinates)):
+            if cross_product(coordinates[0], coordinates[1], coordinates[i]) != 0:
+                return False
+        
+        return True
+
+
+
 
