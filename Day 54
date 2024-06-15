@@ -7,4 +7,24 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def balancedStringSplit(self, s):
+        count_L = 0
+        count_R = 0
+        count_balanced = 0
+        
+        for char in s:
+            if char == 'L':
+                count_L += 1
+            elif char == 'R':
+                count_R += 1
+            
+            if count_L == count_R:
+                count_balanced += 1
+        
+        return count_balanced
+
+
+
 
