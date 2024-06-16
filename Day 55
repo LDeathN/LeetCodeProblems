@@ -41,10 +41,16 @@ class Solution(object):
             current_player = players[i % 2]
             grid[row][col] = 'X' if current_player == 'A' else 'O'
 
-            if (all(grid[row][c] == grid[row][col] for c in range(3)) or
-                all(grid[r][col] == grid[row][col] for r in range(3)) or 
-                all(grid[d][d] == grid[row][col] for d in range(3)) if row == col else False or 
-                all(grid[d][2-d] == grid[row][col] for d in range(3)) if row + col ==2 else False):
+            if all(grid[row][c] == grid[row][col] for c in range(3)):
+                return current_player
+
+            if all(grid[r][col] == grid[row][col] for r in range(3)):
+                return current_player
+
+            if row == col and all(grid[d][d] == grid[row][col] for d in range(3)):
+                return current_player
+
+            if row + col == 2 and all(grid[d][2-d] == grid[row][col] for d in range(3)):
                 return current_player
 
         if len(moves) == 9:
