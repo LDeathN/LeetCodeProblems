@@ -1,1 +1,18 @@
+#First Problem
+class Solution(object):
+    def shiftGrid(self, grid, k):
+        m, n = len(grid), len(grid[0])
+        total_elements = m * n
+
+        flattened_grid = [grid[i // n][i % n] for i in range(total_elements)]
+
+        k = k % total_elements 
+        shifted_grid = flattened_grid[-k:] + flattened_grid[:-k]
+
+        new_grid = [[shifted_grid[i * n + j] for j in range(n)] for i in range(m)]
+        
+        return new_grid
+
+
+
 
