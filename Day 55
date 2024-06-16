@@ -29,4 +29,30 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def tictactoe(self, moves):
+        grid = [['' for _ in range(3)] for _ in range(3)]
+
+        players = ['A', 'B']
+
+        for i, move in enumerate(moves):
+            row, col = move
+            current_player = players[i % 2]
+            grid[row][col] = 'X' if current_player == 'A' else 'O'
+
+            if (all(grid[row][c] == grid[row][col] for c in range(3)) or
+                all(grid[r][col] == grid[row][col] for r in range(3)) or 
+                all(grid[d][d] == grid[row][col] for d in range(3)) if row == col else False or 
+                all(grid[d][2-d] == grid[row][col] for d in range(3)) if row + col ==2 else False):
+                return current_player
+
+        if len(moves) == 9:
+            return "Draw"
+
+        return "Pending"
+
+
+
+
 
