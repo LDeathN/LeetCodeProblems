@@ -86,5 +86,18 @@ ORDER BY
 
 
 
+#Fifth Problem
+class Solution(object):
+    def subtractProductAndSum(self, n):
+        n = str(n)
+        sum_n = 0
+        product_n = 1
+        for digit in n:
+            product_n *= int(digit)
+            sum_n += int(digit)
+        
+        return product_n - sum_n
 
+
+End of Day 55
 
