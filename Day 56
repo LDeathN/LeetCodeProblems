@@ -1,1 +1,18 @@
+#First Problem
+class Solution(object):
+    def findSpecialInteger(self, arr):
+        counted = {}
+        condition = len(arr) // 4
+
+        for num in arr:
+            if num not in counted:
+                counted[num] = 0
+            counted[num] += 1
+        
+        for key, value in counted.items():
+            if value > condition:
+                return key
+
+
+
 
