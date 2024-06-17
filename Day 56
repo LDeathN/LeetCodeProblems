@@ -15,4 +15,16 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def getDecimalValue(self, head):
+        result = 0
+        current = head
+        while current:
+            result = (result << 1) | current.val
+            current = current.next
+        return result
+
+
+
 
