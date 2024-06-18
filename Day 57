@@ -49,4 +49,17 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def maximum69Number (self, num):
+        changed = []
+        num = str(num)
+        for i in range(len(num)):
+            current = num[:i] + "9" + num[i + 1:]
+            changed.append(int(current))
+
+        return max(changed)
+
+
+
 
