@@ -17,4 +17,21 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def kWeakestRows(self, mat, k):
+        soldier_count = []
+    
+        for i, row in enumerate(mat):
+            count = sum(row)  
+            soldier_count.append((count, i))
+
+        soldier_count.sort()
+
+        weakest_rows = [index for _, index in soldier_count[:k]]
+        
+        return weakest_rows
+
+
+
 
