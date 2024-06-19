@@ -1,1 +1,10 @@
+#First Problem
+class Solution(object):
+    def arrayRankTransform(self, arr):
+        sorted_unique_elements = sorted(set(arr))
+        rank_map = {val: rank + 1 for rank, val in enumerate(sorted_unique_elements)}
+        return [rank_map[val] for val in arr]
+
+
+
 
