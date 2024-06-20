@@ -68,4 +68,14 @@ class Solution(object):
 
 
 
+#Sixth Problem
+class Solution(object):
+    def generateTheString(self, n):
+        if n % 2 != 0:
+            return "p" * n
+        else:
+            return ("p" * (n - 1)) + "a"
+
+
+
 
