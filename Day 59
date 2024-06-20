@@ -11,4 +11,16 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def sortByBits(self, arr):
+        def sort_key(x):
+            return (bin(x).count('1'), x)
+
+        arr.sort(key=sort_key)
+        
+        return arr
+
+
+
 
