@@ -51,4 +51,21 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def sortString(self, s):
+        result = []
+        while s:
+            for char in sorted(set(s)):
+                result.append(char)
+                s = s.replace(char, '', 1)
+
+            for char in sorted(set(s), reverse=True):
+                result.append(char)
+                s = s.replace(char, '', 1)
+        
+        return ''.join(result)
+
+
+
 
