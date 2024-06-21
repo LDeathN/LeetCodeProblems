@@ -61,4 +61,18 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findLucky(self, arr):
+        lucky_nums = []
+        for i in range(len(arr)):
+            if arr[i] == arr.count(arr[i]):
+                lucky_nums.append(arr[i])
+        
+        if lucky_nums:
+            return max(lucky_nums)
+    
+        return -1
 
+
+End of Day 60
