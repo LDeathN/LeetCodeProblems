@@ -15,4 +15,18 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def luckyNumbers (self, matrix):
+        min_row_elements = [(min(row), i, row.index(min(row))) for i, row in enumerate(matrix)]
+
+        lucky_numbers = []
+        for value, row_idx, col_idx in min_row_elements:
+            if all(value >= matrix[row][col_idx] for row in range(len(matrix))):
+                lucky_numbers.append(value)
+        
+        return lucky_numbers
+
+
+
 
