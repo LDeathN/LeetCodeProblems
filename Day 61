@@ -49,4 +49,17 @@ ORDER BY travelled_distance DESC, u.name ASC;
 
 
 
+#Fourth Problem
+class Solution(object):
+    def stringMatching(self, words):
+        result = []
+        for i in range(len(words)):
+            for j in range(len(words)):
+                if words[i] in words[j] and i != j:
+                    result.append(words[i])
+        result = set(result)
+        return result
+
+
+
 
