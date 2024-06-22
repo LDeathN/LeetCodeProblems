@@ -75,4 +75,40 @@ class Solution(object):
 
 
 
+#Sixth Problem
+class Solution(object):
+    def reformat(self, s):
+        letters = []
+        digits = []
 
+        for char in s:
+            if char.isalpha():
+                letters.append(char)
+            else:
+                digits.append(char)
+
+        if abs(len(letters) - len(digits)) > 1:
+            return ""
+
+        if len(letters) > len(digits):
+            result = []
+            for i in range(len(digits)):
+                result.append(letters[i])
+                result.append(digits[i])
+            result.append(letters[-1])
+        elif len(letters) < len(digits):
+            result = []
+            for i in range(len(letters)):
+                result.append(digits[i])
+                result.append(letters[i])
+            result.append(digits[-1])
+        else:
+            result = []
+            for i in range(len(letters)):
+                result.append(letters[i])
+                result.append(digits[i])
+    
+        return ''.join(result)
+
+
+End of Day 61
