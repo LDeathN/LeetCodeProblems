@@ -62,4 +62,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def minStartValue(self, nums):
+        min_sum = float('inf')  
+        running_sum = 0  
+        for num in nums:
+            running_sum += num
+            min_sum = min(min_sum, running_sum)
+
+        return 1 - min_sum if min_sum < 0 else 1
+
+
+
 
