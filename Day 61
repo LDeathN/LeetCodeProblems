@@ -19,4 +19,24 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def minSubsequence(self, nums):
+        nums.sort(reverse=True)
+
+        total_sum = sum(nums)
+        subseq_sum = 0
+        subsequence = []
+
+        for num in nums:
+            subsequence.append(num)
+            subseq_sum += num
+            total_sum -= num
+            if subseq_sum > total_sum:
+                break
+
+        return subsequence
+
+
+
 
