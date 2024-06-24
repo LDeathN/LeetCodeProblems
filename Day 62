@@ -1,1 +1,15 @@
+#First Problem
+class Solution(object):
+    def maxScore(self, s):
+        result = 0
+
+        for i in range(1, len(s)):
+            score = len([digit for digit in s[:i] if digit == "0"]) + len([digit for digit in s[i:] if digit == "1"])
+            if score > result:
+                result = score
+
+        return result
+
+
+
 
