@@ -39,4 +39,22 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def kLengthApart(self, nums, k):
+        count = 1
+        condition = False
+        for num in nums:
+            if num == 1:
+                if count < k and condition: 
+                    return False
+                condition = True
+                count = 0
+            else:
+                count += 1
+        
+        return True
+
+
+
 
