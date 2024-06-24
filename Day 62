@@ -28,4 +28,15 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def destCity(self, paths):
+        outgoing = set(cityA for cityA, cityB in paths)
+
+        for cityA, cityB in paths:
+            if cityB not in outgoing:
+                return cityB
+
+
+
 
