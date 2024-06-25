@@ -33,4 +33,15 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def maxProduct(self, nums):
+        nums = sorted(nums)
+        num1 = nums.pop()
+        num2 = nums.pop()
+
+        return (num1 - 1) * (num2 - 1)
+
+
+
 
