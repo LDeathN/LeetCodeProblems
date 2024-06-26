@@ -1,1 +1,19 @@
+#First Problem
+class Solution(object):
+    def finalPrices(self, prices):
+        result = []
+        for i in range(len(prices)):
+            condition = True
+            for j in range(len(prices)):
+                if prices[i] >= prices[j] and i != j and j > i:
+                    result.append(prices[i] - prices[j])
+                    condition = False
+                    break
+            if condition:
+                result.append(prices[i])
+
+        return result
+
+
+
 
