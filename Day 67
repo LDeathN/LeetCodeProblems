@@ -1,1 +1,19 @@
+#First Problem
+class Solution(object):
+    def findKthPositive(self, arr, k):
+        missing_count = 0
+        current_number = 1
+        arr_idx = 0
+        
+        while missing_count < k:
+            if arr_idx < len(arr) and arr[arr_idx] == current_number:
+                arr_idx += 1
+            else:
+                missing_count += 1
+                if missing_count == k:
+                    return current_number
+            current_number += 1
+
+
+
 
