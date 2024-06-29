@@ -45,4 +45,20 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def thousandSeparator(self, n):
+        s = str(n)
+
+        s = s[::-1]
+
+        parts = []
+
+        for i in range(0, len(s), 3):
+            parts.append(s[i:i+3])
+
+        return '.'.join(parts)[::-1]
+
+
+
 
