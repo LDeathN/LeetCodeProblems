@@ -61,4 +61,32 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def mostVisited(self, n, rounds):
+        visit_counts = [0] * (n + 1)
 
+        for i in range(1, len(rounds)):
+            start = rounds[i - 1]
+            end = rounds[i]
+            if start <= end:
+                for j in range(start, end):
+                    visit_counts[j] += 1
+            else:
+                for j in range(start, n + 1):
+                    visit_counts[j] += 1
+                for j in range(1, end):
+                    visit_counts[j] += 1
+        visit_counts[rounds[-1]] += 1 
+
+        max_visits = max(visit_counts)
+
+        result = []
+        for i in range(1, n + 1):
+            if visit_counts[i] == max_visits:
+                result.append(i)
+
+        return result
+
+
+End of Day 67
