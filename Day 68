@@ -64,4 +64,21 @@ ORDER BY customer_id;
 
 
 
+#Fifth Problem
+class Solution(object):
+    def numSpecial(self, mat):
+        rows = len(mat)
+        cols = len(mat[0])
+        count = 0
+        
+        for i in range(rows):
+            for j in range(cols):
+                if mat[i][j] == 1:
+                    if all(mat[i][k] == 0 for k in range(cols) if k != j) and \
+                    all(mat[k][j] == 0 for k in range(rows) if k != i):
+                        count += 1
+        
+        return count
 
+
+End of Day 68
