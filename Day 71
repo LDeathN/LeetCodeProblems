@@ -26,4 +26,27 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def canFormArray(self, arr, pieces):
+        piece_map = {piece[0]: piece for piece in pieces}
+
+        i = 0
+
+        while i < len(arr):
+            if arr[i] not in piece_map:
+                return False
+
+            piece = piece_map[arr[i]]
+
+            for num in piece:
+                if i < len(arr) and arr[i] == num:
+                    i += 1
+                else:
+                    return False
+
+        return True
+
+
+
 
