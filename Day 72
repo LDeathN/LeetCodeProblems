@@ -61,4 +61,17 @@ ORDER BY
 
 
 
+#Fifth Problem
+class Solution(object):
+    def maxRepeating(self, sequence, word):
+        k = 0
+        repeated_word = word
+        
+        while repeated_word in sequence:
+            k += 1
+            repeated_word += word
+            
+        return k
 
+
+End of Day 72
