@@ -40,4 +40,25 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def countStudents(self, students, sandwiches):
+        from collections import deque
+
+        students_queue = deque(students)
+        sandwiches_stack = sandwiches
+
+        while students_queue:
+            if students_queue[0] == sandwiches_stack[0]:
+                students_queue.popleft()
+                sandwiches_stack.pop(0)
+            else:
+                students_queue.append(students_queue.popleft())
+                if students_queue.count(students_queue[0]) == len(students_queue):
+                    break
+
+        return len(students_queue)
+
+
+
 
