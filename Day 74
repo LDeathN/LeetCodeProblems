@@ -12,4 +12,32 @@ GROUP BY
 
 
 
+#Second Problem
+class Solution(object):
+    def reformatNumber(self, number):
+        result = ''
+        phone = []
+        number = number.replace('-', '')
+        number = number.replace(' ', '')
+        for i in number:
+            phone.append(i)
+        while len(phone) > 4:
+            for i in range(3):
+                result += phone.pop(0)
+            result += '-'
+        if len(phone) == 4:
+            while phone:
+                result += phone.pop(0)
+                result += phone.pop(0)
+                result += '-'
+                result += phone.pop(0)
+                result += phone.pop(0)
+        else:
+            while phone:
+                result += phone.pop(0)
+        
+        return result
+
+
+
 
