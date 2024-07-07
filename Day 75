@@ -26,4 +26,20 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def countGoodRectangles(self, rectangles):
+        maxLen = 0
+        for length, width in rectangles:
+            maxLen = max(maxLen, min(length, width))
+        
+        count = 0
+        for length, width in rectangles:
+            if min(length, width) == maxLen:
+                count += 1
+        
+        return count
+
+
+
 
