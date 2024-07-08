@@ -1,1 +1,15 @@
+#First Problem
+class Solution(object):
+    def largestAltitude(self, gain):
+        current = 0
+        result = 0
+        for i in range(len(gain)):
+            current += gain[i]
+            if current > result:
+                result = current
+        
+        return result
+
+
+
 
