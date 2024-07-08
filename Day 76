@@ -76,4 +76,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def sumOfUnique(self, nums):
+        result = 0
+        for num in nums:
+            if nums.count(num) > 1:
+                pass
+            else:
+                result += num
+        
+        return result
 
+
+End of Day 76
