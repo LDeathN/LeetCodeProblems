@@ -55,4 +55,25 @@ ORDER BY
 
 
 
+#Fourth Problem
+class Solution(object):
+    def countBalls(self, lowLimit, highLimit):
+        dictionary = {}
+        result = 0
+        for num in range(lowLimit, highLimit + 1):
+            number = 0
+            for digit in str(num):
+                number += int(digit)
+            if number not in dictionary:
+                dictionary[number] = 0
+            dictionary[number] += 1
+        
+        for key, value in dictionary.items():
+            if value > result:
+                result = value
+        
+        return result
+
+
+
 
