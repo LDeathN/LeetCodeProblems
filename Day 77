@@ -36,4 +36,38 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def longestNiceSubstring(self, s):
+        if len(s) < 2:
+            return ""
+    
+        def isNice(sub):
+            unique_chars = set(sub)
+            for char in unique_chars:
+                if char.swapcase() not in unique_chars:
+                    return False
+            return True
+        
+        def helper(s):
+            if isNice(s):
+                return s
+            
+            max_nice_substring = ""
+            for i in range(len(s)):
+                if s[i].swapcase() not in s:
+                    left = helper(s[:i])
+                    right = helper(s[i+1:])
+                    if len(left) > len(max_nice_substring):
+                        max_nice_substring = left
+                    if len(right) > len(max_nice_substring):
+                        max_nice_substring = right
+                    break
+            
+            return max_nice_substring
+        
+        return helper(s)
+
+
+
 
