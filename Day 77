@@ -70,4 +70,19 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        result = []
+        word1 = [el for el in word1]
+        word2 = [el for el in word2]
+        while word1 or word2:
+            if word1:
+                result.append(word1.pop(0))
+            if word2:
+                result.append(word2.pop(0))
+        
+        return "".join(result)
 
+
+End of Day 77
