@@ -69,4 +69,24 @@ WHERE employee_id IN (
 
 
 
+#Fifth Problem
+class Solution(object):
+    def areAlmostEqual(self, s1, s2):
+        if s1 == s2:
+            return True
+            
+        if sorted(s1) != sorted(s2):
+            return False
+        
+        count = 0
+        for i in range(len(s1)):
+            if s1[i] == s2[i]:
+                count += 1 
 
+        if count == len(s1) - 2:
+            return True
+
+        return False
+
+
+End of Day 78
