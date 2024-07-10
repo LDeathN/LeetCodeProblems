@@ -1,1 +1,20 @@
+#First Problem
+class Solution(object):
+    def countMatches(self, items, ruleKey, ruleValue):
+        count = 0
+        for item in items:
+            if ruleKey == "type":
+                if ruleValue == item[0]:
+                    count += 1
+            elif ruleKey == "color":
+                if ruleValue == item[1]:
+                    count += 1
+            else:
+                if ruleValue == item[2]:
+                    count += 1
+                    
+        return count
+
+
+
 
