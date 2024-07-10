@@ -34,4 +34,23 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def checkOnesSegment(self, s):
+        seen_one_segment = False
+    
+        for i in range(len(s)):
+            if s[i] == '1':
+                if not seen_one_segment:
+                    seen_one_segment = True
+            elif seen_one_segment:
+                for j in range(i+1, len(s)):
+                    if s[j] == '1':
+                        return False
+                break
+
+        return True
+
+
+
 
