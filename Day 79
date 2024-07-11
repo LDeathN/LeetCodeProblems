@@ -32,4 +32,19 @@ WHERE store3 IS NOT NULL;
 
 
 
+#Third Problem
+class Solution(object):
+    def secondHighest(self, s):
+        digits = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+        found = set()
+        for i in s:
+            if i in digits:
+                found.add(int(i))
+        found = sorted(found)
+        if len(found) <= 1:
+            return -1
+        return found[-2]
+
+
+
 
