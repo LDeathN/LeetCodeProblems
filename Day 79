@@ -68,4 +68,25 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def numDifferentIntegers(self, word):
+        found = set()
+        number = ""
+        check = False
+        for i in range(len(word)):
+            if word[i].isdigit():
+                number += word[i]
+                check = True
+            if check and not word[i].isdigit():
+                found.add(int(number))
+                number = ""
+                check = False
 
+            if i == len(word) - 1 and check:
+                found.add(int(number))
+
+        return len(found)
+
+
+End of Day 79
