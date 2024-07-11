@@ -47,4 +47,25 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def maxAscendingSum(self, nums):
+        current = 0
+        sums = []
+        for i in range(len(nums)):
+            if i == 0:
+                current += nums[i]
+            elif nums[i-1] < nums[i]:
+                current += nums[i]
+            else:
+                sums.append(current)
+                current = nums[i]
+
+            if i == len(nums) - 1:
+                sums.append(current)
+                
+        return max(sums)
+
+
+
 
