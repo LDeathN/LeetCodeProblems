@@ -1,1 +1,16 @@
+#First Problem
+class Solution(object):
+    def findCenter(self, edges):
+        nums = {}
+        for edge in edges:
+            for num in edge:
+                if num not in nums:
+                    nums[num] = 0
+                nums[num] += 1
+        
+        nums = sorted(nums.items(), key=lambda item: item[1], reverse=True)
+        return nums[0][0]
+
+
+
 
