@@ -1,1 +1,17 @@
+#First Problem
+class Solution(object):
+    def squareIsWhite(self, coordinates):
+        letter = coordinates[0]
+        number = int(coordinates[1])
+        if ord(letter) % 2 == 0:
+            if number % 2 == 0:
+                return False
+            return True
+        else:
+            if number % 2 == 0:
+                return True
+            return False
+
+
+
 
