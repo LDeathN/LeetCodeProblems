@@ -14,4 +14,16 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def truncateSentence(self, s, k):
+        s = s.split(" ")
+        result = []
+        for i in range(k):
+            result.append(s[i])
+        
+        return " ".join(result)
+
+
+
 
