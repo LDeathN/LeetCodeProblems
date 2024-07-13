@@ -33,4 +33,39 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def maximumPopulation(self, logs):
+        population_changes = {}
+
+        for birth, death in logs:
+            if birth in population_changes:
+                population_changes[birth] += 1
+            else:
+                population_changes[birth] = 1
+            
+            if death in population_changes:
+                population_changes[death] -= 1
+            else:
+                population_changes[death] = -1
+
+        start_year = min([birth for birth, death in logs])
+        end_year = max([death for birth, death in logs])
+
+        current_population = 0
+        max_population = 0
+        max_year = start_year
+
+        for year in range(start_year, end_year):
+            if year in population_changes:
+                current_population += population_changes[year]
+            
+            if current_population > max_population:
+                max_population = current_population
+                max_year = year
+        
+        return max_year
+
+
+
 
