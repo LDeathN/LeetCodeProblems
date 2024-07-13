@@ -10,4 +10,15 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def replaceDigits(self, s):
+        for i in range(len(s)):
+            if s[i].isdigit():
+                s = s.replace(s[i], chr(ord(s[i - 1]) + int(s[i])), 1)
+        
+        return s
+
+
+
 
