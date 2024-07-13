@@ -21,4 +21,16 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def getMinDistance(self, nums, target, start):
+        values = []
+        for i in range(len(nums)):
+            if nums[i] == target:
+                values.append(abs(i - start))
+        
+        return min(values)
+
+
+
 
