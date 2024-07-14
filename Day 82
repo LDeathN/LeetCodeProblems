@@ -16,4 +16,35 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def checkZeroOnes(self, s):
+        count_1 = 0
+        count_0 = 0
+        max_1 = 0
+        max_0 = 0
+        for i in range(len(s)):
+            if s[i] == "1":
+                if count_0 > max_0:
+                    max_0 = count_0
+                count_1 += 1
+                count_0 = 0
+            else:
+                if count_1 > max_1:
+                    max_1 = count_1
+                count_0 += 1
+                count_1 = 0
+
+            if i == len(s) - 1:
+                if s[i] == "1":
+                    if count_1 > max_1:
+                        max_1 = count_1
+                else:
+                    if count_0 > max_0:
+                        max_0 = count_0
+        
+        return max_1 > max_0
+
+
+
 
