@@ -82,4 +82,19 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def isSumEqual(self, firstWord, secondWord, targetWord):
+        for i in range(len(firstWord)):
+            firstWord = firstWord.replace(firstWord[i], str(ord(firstWord[i]) - 97), 1)
+        
+        for i in range(len(secondWord)):
+            secondWord = secondWord.replace(secondWord[i], str(ord(secondWord[i]) - 97), 1)
+        
+        for i in range(len(targetWord)):
+            targetWord = targetWord.replace(targetWord[i], str(ord(targetWord[i]) - 97), 1)
+        
+        return int(firstWord) + int(secondWord) == int(targetWord)
 
+
+End of Day 82
