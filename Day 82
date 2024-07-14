@@ -61,4 +61,25 @@ ORDER BY
 
 
 
+#Fourth Problem
+class Solution(object):
+    def countGoodSubstrings(self, s):
+        result = 0
+        for i in range(len(s) - 2):
+            current = []
+            check = True
+            for char in s[i:i+3]:
+                if char not in current:
+                    current.append(char)
+                else:
+                    check = False
+                    break
+
+            if check:
+                result += 1
+
+        return result
+
+
+
 
