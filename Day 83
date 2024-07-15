@@ -66,4 +66,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def largestOddNumber(self, num):
+        num = [char for char in num]
+        while num:
+            digit = num.pop()
+            if int(digit) % 2 != 0:
+                num.append(digit)
+                return "".join(num)
+        
+        return ""
 
+
+End of Day 83
