@@ -31,4 +31,20 @@ GROUP BY
 
 
 
+#Third Problem
+class Solution(object):
+    def isCovered(self, ranges, left, right):
+        full_range = set()
+        for nums in ranges:
+            for num in range(nums[0], nums[1] + 1):
+                full_range.add(num)
+            
+        for i in range(left, right + 1):
+            if i not in full_range:
+                return False
+
+        return True
+
+
+
 
