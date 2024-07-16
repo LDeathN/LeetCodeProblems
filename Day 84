@@ -21,4 +21,14 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def maxProductDifference(self, nums):
+        nums = sorted(nums)
+        n1, n2 = nums.pop(), nums.pop()
+        k1, k2 = nums.pop(0), nums.pop(0)
+        return n1 * n2 - k1 * k2
+
+
+
 
