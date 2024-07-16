@@ -31,4 +31,19 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def buildArray(self, nums):
+        order = []
+        result = []
+        for i in range(len(nums)):
+            order.append(nums[i])
+
+        for num in order:
+            result.append(nums[num])
+        
+        return result
+
+
+
 
