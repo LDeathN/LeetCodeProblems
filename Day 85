@@ -14,4 +14,21 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def areOccurrencesEqual(self, s):
+        occur = {}
+        for element in s:
+            if element not in occur:
+                occur[element] = 0
+            occur[element] += 1
+        
+        count = occur[s[0]]
+        for value in occur.values():
+            if count != value:
+                return False
+        return True
+
+
+
 
