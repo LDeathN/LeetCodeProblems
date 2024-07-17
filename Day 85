@@ -31,4 +31,21 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def getLucky(self, s, k):
+        number = ""
+        for i in range(len(s)):
+            number += str(ord(s[i]) - 96)
+            
+        for i in range(k):
+            new = 0
+            for digit in str(number):
+                new += int(digit)
+            number = new
+        
+        return number
+
+
+
 
