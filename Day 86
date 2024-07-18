@@ -66,4 +66,20 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def minTimeToType(self, word):
+        total_time = 0
+        current_pos = 0  
 
+        for char in word:
+            target_pos = ord(char) - ord('a')
+            clockwise_dist = (target_pos - current_pos) % 26
+            counterclockwise_dist = (current_pos - target_pos) % 26
+            total_time += min(clockwise_dist, counterclockwise_dist) + 1
+            current_pos = target_pos
+
+        return total_time
+
+
+End of Day 86
