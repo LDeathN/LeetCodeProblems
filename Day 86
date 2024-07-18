@@ -1,1 +1,16 @@
+#First Problem
+class Solution(object):
+    def isPrefixString(self, s, words):
+        result = ""
+        for i in range(len(words)):
+            if words[i] in s:
+                result += words[i]
+            else:
+                return False
+            if result == s:
+                return True
+        return False
+
+
+
 
