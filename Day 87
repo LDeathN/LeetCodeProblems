@@ -1,9 +1,30 @@
 #First Problem
 SELECT e.employee_id
 FROM Employees e
-LEFT JOIN Employees m ON e.manager_id = m.employee_id
-WHERE e.salary < 30000 AND m.employee_id IS NULL
+WHERE e.salary < 30000 
+  AND e.manager_id IS NOT NULL
+  AND NOT EXISTS (
+      SELECT 1 
+      FROM Employees m 
+      WHERE m.employee_id = e.manager_id
+  )
 ORDER BY e.employee_id;
+
+
+
+#Second Problem
+class Solution(object):
+    def findGCD(self, nums):
+        nums = sorted(nums)
+        n1 = nums.pop(0)
+        n2 = nums.pop()
+        result = 1
+
+        for i in range(1, n1 + 1):
+            if n1 % i == 0 and n2 % i == 0 and i > result:
+                result = i
+        
+        return result
 
 
 
