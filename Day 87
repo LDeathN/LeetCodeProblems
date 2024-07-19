@@ -60,6 +60,17 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def countQuadruplets(self, nums):
+        count = 0
+        for i in range(len(nums) - 3):
+            for j in range(i+1, len(nums) - 2):
+                for k in range(j+1, len(nums) - 1):
+                    for m in range(k+1, len(nums)):
+                        if nums[i] + nums[j] + nums[k] == nums[m]:
+                            count += 1
+        return count
 
 
-
+End of Day 87
