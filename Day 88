@@ -49,4 +49,18 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def construct2DArray(self, original, m, n):
+        if len(original) != m * n:
+            return []
 
+        result = []
+        for i in range(m):
+            row = original[i * n:(i + 1) * n]
+            result.append(row)
+        
+        return result
+
+
+End of Day 88
