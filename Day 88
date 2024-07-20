@@ -36,4 +36,17 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def maximumDifference(self, nums):
+        result = -1
+        for i in range(len(nums) - 1):
+            for j in range(i, len(nums)):
+                if i < j and nums[i] < nums[j] and abs(nums[i] - nums[j]) > result:
+                    result = abs(nums[i] - nums[j])
+
+        return result
+
+
+
 
