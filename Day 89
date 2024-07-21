@@ -46,4 +46,20 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def areNumbersAscending(self, s):
+        numbers = []
+        s = s.split(' ')
+        for el in s:
+            if el.isdigit():
+                if numbers:
+                    if int(el) <= numbers[len(numbers) - 1]:
+                        return False
+                numbers.append(int(el))
+            
+        return True
+
+
+
 
