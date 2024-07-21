@@ -31,4 +31,19 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def minMovesToSeat(self, seats, students):
+        result = 0
+        seats = sorted(seats)
+        students = sorted(students)
+        while seats or students:
+            seat = seats.pop()
+            student = students.pop()
+            result += abs(seat - student)
+        
+        return result
+
+
+
 
