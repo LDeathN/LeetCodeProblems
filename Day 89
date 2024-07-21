@@ -62,4 +62,39 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    import string
+    def countValidWords(self, sentence):
+        def is_valid_word(word):
+            if any(char.isdigit() for char in word):
+                return False
 
+            hyphen_count = word.count('-')
+            if hyphen_count > 1:
+                return False
+            if hyphen_count == 1:
+                hyphen_index = word.index('-')
+                if hyphen_index == 0 or hyphen_index == len(word) - 1:
+                    return False
+                if not (word[hyphen_index - 1].islower() and word[hyphen_index + 1].islower()):
+                    return False
+
+            punctuations = set('!.,')
+            if any(char in punctuations for char in word[:-1]):
+                return False
+            if word[-1] in punctuations and len(word) > 1 and word[-2] in punctuations:
+                return False
+            
+            return True
+        
+        tokens = sentence.split()
+        valid_word_count = 0
+        
+        for token in tokens:
+            if is_valid_word(token):
+                valid_word_count += 1
+                
+        return valid_word_count
+
+End of Day 89
