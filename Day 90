@@ -30,4 +30,26 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def countVowelSubstrings(self, word):
+        vowels = {'a', 'e', 'i', 'o', 'u'}
+        n = len(word)
+        count = 0
+
+        for i in range(n):
+            if word[i] in vowels:
+                found_vowels = set()
+                for j in range(i, n):
+                    if word[j] in vowels:
+                        found_vowels.add(word[j])
+                        if len(found_vowels) == 5:
+                            count += 1
+                    else:
+                        break
+
+        return count
+
+
+
 
