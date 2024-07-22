@@ -72,4 +72,19 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def timeRequiredToBuy(self, tickets, k):
+        time = 0
+        n = len(tickets)
+        
+        while tickets[k] > 0:
+            for i in range(n):
+                if tickets[i] > 0:
+                    tickets[i] -= 1
+                    time += 1
+                    if tickets[k] == 0:
+                        return time
 
+
+End of Day 90
