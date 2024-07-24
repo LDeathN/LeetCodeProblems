@@ -30,4 +30,17 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def mostWordsFound(self, sentences):
+        count = 0
+        for sentence in sentences:
+            sentence = sentence.split(' ')
+            if len(sentence) > count:
+                count = len(sentence)
+
+        return count
+
+
+
 
