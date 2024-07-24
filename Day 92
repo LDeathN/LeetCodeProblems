@@ -43,4 +43,19 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def isSameAfterReversals(self, num):
+        original = num
+        num = str(num)
+        num = num[::-1]
+        num = int(num)
+        num = str(num)
+        num = num[::-1]
+        num = int(num)
+        
+        return original == num
+
+
+
 
