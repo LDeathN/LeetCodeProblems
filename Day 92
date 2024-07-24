@@ -1,1 +1,22 @@
+#First Problem
+class Solution(object):
+    def countPoints(self, rings):
+        count = 0
+        pairs = {}
+        rings = [el for el in rings]
+        while rings:
+            number = rings.pop()
+            color = rings.pop()
+            if number not in pairs:
+                pairs[number] = set()
+            pairs[number].add(color)
+
+        for key, value in pairs.items():
+            if len(value) == 3:
+                count += 1
+
+        return count
+
+
+
 
