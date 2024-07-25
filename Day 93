@@ -1,1 +1,17 @@
+#First Problem
+class Solution(object):
+    def capitalizeTitle(self, title):
+        result = []
+        title = title.split(' ')
+        for word in title:
+            word = word.lower()
+            if len(word) > 2:
+                result.append(word[0].upper() + word[1:])
+            else:
+                result.append(word)
+
+        return ' '.join(result)
+
+
+
 
