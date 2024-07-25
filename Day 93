@@ -69,4 +69,18 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def countElements(self, nums):
+        count = 0
+        nums = sorted(nums)
+        small = nums[0]
+        big = nums[len(nums) - 1]
+        for num in nums:
+            if small < num < big:
+                count += 1
 
+        return count
+
+
+End of Day 93
