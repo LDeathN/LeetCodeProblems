@@ -51,4 +51,22 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def minimumCost(self, cost):
+        result = 0
+        count = 1
+        cost = sorted(cost)
+        while cost:
+            if count % 3 == 0:
+                count = 1
+                cost.pop()
+            else:
+                count += 1
+                result += cost.pop()
+        
+        return result
+
+
+
 
