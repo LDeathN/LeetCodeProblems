@@ -33,4 +33,22 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def divideString(self, s, k, fill):
+        result = []
+        s = [el for el in s]
+        while s:
+            current = ""
+            for i in range(k):
+                if s:
+                    current += s.pop(0)
+                else:
+                    current += fill
+            result.append(current)
+        
+        return result
+
+
+
 
