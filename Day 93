@@ -14,4 +14,23 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def checkValid(self, matrix):
+        n = len(matrix)
+        required_set = set(range(1, n + 1))
+
+        for row in matrix:
+            if set(row) != required_set:
+                return False
+
+        for col in range(n):
+            column_set = set(matrix[row][col] for row in range(n))
+            if column_set != required_set:
+                return False
+
+        return True
+
+
+
 
