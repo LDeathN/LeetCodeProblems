@@ -11,4 +11,20 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def minimumSum(self, num):
+        num = sorted(str(num))
+        total = 0
+        while num:
+            current = ""
+            current += num.pop(0)
+            current += num.pop()
+            current = int(current)
+            total += current
+        
+        return total
+
+
+
 
