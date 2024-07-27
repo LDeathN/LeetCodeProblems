@@ -22,4 +22,26 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def mostFrequent(self, nums, key):
+        from collections import defaultdict
+
+        count = defaultdict(int)
+
+        for i in range(len(nums) - 1):
+            if nums[i] == key:
+                count[nums[i + 1]] += 1
+
+        max_count = -1
+        result = -1
+        for target, cnt in count.items():
+            if cnt > max_count:
+                max_count = cnt
+                result = target
+        
+        return result
+
+
+
 
