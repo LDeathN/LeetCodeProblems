@@ -64,4 +64,21 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def findKDistantIndices(self, nums, key, k):
+        key_indices = []
+        result_set = set()
 
+        for i in range(len(nums)):
+            if nums[i] == key:
+                key_indices.append(i)
+
+        for idx in key_indices:
+            for i in range(max(0, idx - k), min(len(nums), idx + k + 1)):
+                result_set.add(i)
+
+        return sorted(result_set)
+
+
+End of Day 95
