@@ -61,4 +61,18 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def minBitFlips(self, start, goal):
+        xor_result = start ^ goal
+
+        count_flips = 0
+        while xor_result > 0:
+            count_flips += xor_result & 1
+            xor_result >>= 1
+        
+        return count_flips
+
+
+
 
