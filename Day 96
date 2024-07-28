@@ -75,4 +75,28 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def convertTime(self, current, correct):
+        count = 0
+        current = current.split(':')
+        correct = correct.split(':')
+        current_time = int(current[0]) * 60 + int(current[1])
+        correct_time = int(correct[0]) * 60 + int(correct[1])
 
+        while current_time != correct_time:
+            diff = correct_time - current_time 
+            if diff >= 60:
+                current_time += 60
+            elif diff >= 15:
+                current_time += 15
+            elif diff >= 5:
+                current_time += 5
+            else:
+                current_time += 1
+            count += 1
+        
+        return count
+
+
+End of Day 96
