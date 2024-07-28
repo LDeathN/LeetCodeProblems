@@ -42,4 +42,23 @@ n = len(nums)
 
 
 
+#Third Problem
+class Solution(object):
+    def findDifference(self, nums1, nums2):
+        result = []
+        part_one = set()
+        part_two = set()
+        for i in range(len(nums1)):
+            if nums1[i] not in nums2:
+                part_one.add(nums1[i])
+        for i in range(len(nums2)):
+            if nums2[i] not in nums1:
+                part_two.add(nums2[i])
+        
+        result.append(part_one)
+        result.append(part_two)
+        return result
+
+
+
 
