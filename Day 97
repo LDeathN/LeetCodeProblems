@@ -34,4 +34,17 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def findClosestNumber(self, nums):
+        closest = None
+    
+        for num in nums:
+            if closest is None or abs(num) < abs(closest) or (abs(num) == abs(closest) and num > closest):
+                closest = num
+        
+        return closest
+
+
+
 
