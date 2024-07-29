@@ -1,1 +1,23 @@
+#First Problem
+class Solution(object):
+    def largestInteger(self, num):
+        digits = [int(d) for d in str(num)]
+
+        odd_digits = [d for d in digits if d % 2 != 0]
+        even_digits = [d for d in digits if d % 2 == 0]
+
+        odd_digits.sort(reverse=True)
+        even_digits.sort(reverse=True)
+
+        result = []
+        for d in digits:
+            if d % 2 == 0:
+                result.append(even_digits.pop(0))
+            else:
+                result.append(odd_digits.pop(0))
+
+        return int("".join(map(str, result)))
+
+
+
 
