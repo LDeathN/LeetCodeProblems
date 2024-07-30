@@ -31,4 +31,17 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def removeDigit(self, number, digit):
+        numbers = []
+        for i in range(len(number)):
+            if number[i] == digit:
+                current = number[:i] + number[i + 1:]
+                numbers.append(int(current))
+        
+        return str(max(numbers))
+
+
+
 
