@@ -44,4 +44,17 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def largestGoodInteger(self, num):
+        result = ''
+        wanted = ['000', '111', '222', '333', '444', '555', '666', '777', '888', '999']
+        for number in wanted:
+            if number in num:
+                result = number
+
+        return result
+
+
+
 
