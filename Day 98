@@ -57,4 +57,19 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def divisorSubstrings(self, num, k):
+        count = 0
+        num = str(num)
+        for i in range(len(num) - k + 1):
+            current = num[i:i + k]
+            if int(current) == 0:
+                continue
+            if int(num) % int(current) == 0:
+                count += 1
 
+        return count
+
+
+End of Day 98
