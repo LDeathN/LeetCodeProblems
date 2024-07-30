@@ -1,1 +1,22 @@
+#First Problem
+class Solution(object):
+    class Solution(object):
+    def intersection(self, nums):
+        counting = {}
+        result = []
+        for i in range(len(nums)):
+            current = set(nums[i])
+            for num in current:
+                if num not in counting:
+                    counting[num] = 0
+                counting[num] += 1
+        
+        for key, value in counting.items():
+            if value == len(nums):
+                result.append(key)
+
+        return sorted(result)
+
+
+
 
