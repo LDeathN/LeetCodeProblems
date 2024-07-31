@@ -23,4 +23,17 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def digitCount(self, num):
+        for i in range(len(num)):
+            current = [char for char in num if i == int(char)]
+            if len(current) == int(num[i]):
+                pass
+            else:
+                return False
+        return True
+
+
+
 
