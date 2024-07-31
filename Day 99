@@ -13,4 +13,14 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def percentageLetter(self, s, letter):
+        number = s.count(letter)
+        if number == 0:
+            return 0
+        return 100 * number // len(s)
+
+
+
 
