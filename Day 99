@@ -36,4 +36,23 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    from collections import Counter
+    def rearrangeCharacters(self, s, target):
+        count_s = Counter(s)
+        count_target = Counter(target)
+
+        max_copies = float('inf')
+        
+        for char in count_target:
+            if char in count_s:
+                max_copies = min(max_copies, count_s[char] // count_target[char])
+            else:
+                return 0 
+        
+        return max_copies
+
+
+
 
