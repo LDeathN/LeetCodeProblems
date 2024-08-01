@@ -44,4 +44,25 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def greatestLetter(self, s):
+        lowercase_set = set()
+        uppercase_set = set()
+        
+        for char in s:
+            if char.islower():
+                lowercase_set.add(char)
+            elif char.isupper():
+                uppercase_set.add(char)
+        
+        greatest = ""
+        for char in "ABCDEFGHIJKLMNOPQRSTUVWXYZ":
+            if char in uppercase_set and char.lower() in lowercase_set:
+                greatest = char
+                
+        return greatest
+
+
+
 
