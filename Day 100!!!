@@ -26,4 +26,22 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def calculateTax(self, brackets, income):
+        tax = 0.0
+        previous_upper = 0
+        
+        for upper, percent in brackets:
+            if income <= 0:
+                break
+            taxable_amount = min(income, upper - previous_upper)
+            tax += taxable_amount * (percent / 100.0)
+            income -= taxable_amount
+            previous_upper = upper
+            
+        return tax
+
+
+
 
