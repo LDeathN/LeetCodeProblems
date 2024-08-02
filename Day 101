@@ -1,1 +1,30 @@
+#First Problem
+class Solution(object):
+    def decodeMessage(self, key, message):
+        seen = set()
+        substitution_order = []
+        
+        for char in key:
+            if char != ' ' and char not in seen:
+                seen.add(char)
+                substitution_order.append(char)
+
+        substitution_table = {}
+        alphabet = 'abcdefghijklmnopqrstuvwxyz'
+        
+        for i, char in enumerate(substitution_order):
+            substitution_table[char] = alphabet[i]
+
+        decoded_message = []
+        
+        for char in message:
+            if char == ' ':
+                decoded_message.append(char)
+            else:
+                decoded_message.append(substitution_table[char])
+        
+        return ''.join(decoded_message)
+
+
+
 
