@@ -27,4 +27,20 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def evaluateTree(self, root):
+        if not root.left and not root.right:
+            return root.val == 1
+
+        left_value = self.evaluateTree(root.left)
+        right_value = self.evaluateTree(root.right)
+        
+        if root.val == 2:
+            return left_value or right_value
+        elif root.val == 3:
+            return left_value and right_value
+
+
+
 
