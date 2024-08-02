@@ -75,4 +75,20 @@ class Solution(object):
 
 
 
+class Solution(object):
+    def bestHand(self, ranks, suits):
+        if suits.count(suits[0]) == len(suits):
+            return "Flush"
+        
+        for rank in ranks:
+            if ranks.count(rank) >= 3:
+                return "Three of a Kind"
+                
+        for rank in ranks:
+            if ranks.count(rank) == 2:
+                return "Pair"
 
+        return "High Card"   
+
+
+End of Day 101
