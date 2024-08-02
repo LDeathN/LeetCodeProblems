@@ -53,4 +53,26 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def numberOfPairs(self, nums):
+        numbers = {}
+        pairs = 0
+        leftover = 0
+        for num in nums:
+            if num not in numbers:
+                numbers[num] = 0
+            numbers[num] += 1
+
+        for key, value in numbers.items():
+            if value % 2 == 0:
+                pairs += value / 2
+            else:
+                pairs += value // 2
+                leftover += value % 2
+        
+        return [pairs, leftover]
+
+
+
 
