@@ -43,4 +43,14 @@ class Solution(object):
 
 
 
+#Third Problem
+class Solution(object):
+    def fillCups(self, amount):
+        amount.sort()
+        total_cups = sum(amount)
+
+        return max((total_cups + 1) // 2, amount[2])
+
+
+
 
