@@ -54,4 +54,15 @@ class Solution(object):
 
 
 
+#Fifth Problem
+class Solution(object):
+    def arithmeticTriplets(self, nums, diff):
+        count = 0
+        for num in nums:
+            if num + diff in nums and num + diff + diff in nums:
+                count += 1
+        
+        return count
 
+
+End of Day 102
