@@ -18,4 +18,17 @@ GROUP BY teacher_id;
 
 
 
+#Third Problem
+class Solution(object):
+    def minimumOperations(self, nums):
+        unique_non_zero_elements = set()
+    
+        for num in nums:
+            if num > 0:
+                unique_non_zero_elements.add(num)
+        
+        return len(unique_non_zero_elements)
+
+
+
 
