@@ -31,4 +31,27 @@ class Solution(object):
 
 
 
+#Fourth Problem
+class Solution(object):
+    def mergeSimilarItems(self, items1, items2):
+        weight_map = {}
+
+        for value, weight in items1:
+            if value in weight_map:
+                weight_map[value] += weight
+            else:
+                weight_map[value] = weight
+
+        for value, weight in items2:
+            if value in weight_map:
+                weight_map[value] += weight
+            else:
+                weight_map[value] = weight
+
+        result = [[value, weight] for value, weight in sorted(weight_map.items())]
+
+        return result
+
+
+
 
