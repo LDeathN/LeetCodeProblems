@@ -16,4 +16,23 @@ class Solution(object):
 
 
 
+#Second Problem (2379)
+class Solution(object):
+    def minimumRecolors(self, blocks, k):
+        n = len(blocks)
+
+        current_white_count = blocks[:k].count('W')
+        min_white_count = current_white_count
+
+        for i in range(k, n):
+            if blocks[i - k] == 'W':
+                current_white_count -= 1
+            if blocks[i] == 'W':
+                current_white_count += 1
+            min_white_count = min(min_white_count, current_white_count)
+        
+        return min_white_count
+
+
+
 
