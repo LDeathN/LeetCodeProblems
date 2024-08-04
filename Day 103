@@ -56,4 +56,34 @@ class Solution(object):
 
 
 
+Fourth Problem (2389)
+class Solution(object):
+    def answerQueries(self, nums, queries):
+        nums.sort()
+
+        prefix_sums = [0] * len(nums)
+        prefix_sums[0] = nums[0]
+        for i in range(1, len(nums)):
+            prefix_sums[i] = prefix_sums[i-1] + nums[i]
+
+        result = []
+
+        def binary_search(arr, target):
+            left, right = 0, len(arr) - 1
+            while left <= right:
+                mid = (left + right) // 2
+                if arr[mid] <= target:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            return left
+
+        for query in queries:
+            max_size = binary_search(prefix_sums, query)
+            result.append(max_size)
+        
+        return result
+
+
+
 
