@@ -35,4 +35,25 @@ class Solution(object):
 
 
 
+#Third Problem (2383)
+class Solution(object):
+    def minNumberOfHours(self, initialEnergy, initialExperience, energy, experience):
+        total_hours = 0
+
+        total_energy_required = sum(energy)
+        if initialEnergy <= total_energy_required:
+            total_hours += (total_energy_required - initialEnergy + 1)
+        
+        current_experience = initialExperience
+
+        for i in range(len(experience)):
+            if current_experience <= experience[i]:
+                total_hours += (experience[i] - current_experience + 1)
+                current_experience = experience[i] + 1
+            current_experience += experience[i]
+        
+        return total_hours
+
+
+
 
