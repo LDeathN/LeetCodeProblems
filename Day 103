@@ -86,4 +86,18 @@ class Solution(object):
 
 
 
+Fifth Problem (2395)
+class Solution(object):
+    def findSubarrays(self, nums):
+        seen_sums = set()
+        
+        for i in range(len(nums) - 1):
+            subarray_sum = nums[i] + nums[i + 1]
+            if subarray_sum in seen_sums:
+                return True
+            seen_sums.add(subarray_sum)
+        
+        return False
 
+
+End of Day 103
