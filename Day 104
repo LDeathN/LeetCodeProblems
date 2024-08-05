@@ -19,4 +19,28 @@ class Solution(object):
 
 
 
+#Second Problem
+class Solution(object):
+    def mostFrequentEven(self, nums):
+        from collections import Counter
+
+        even_nums = [num for num in nums if num % 2 == 0]
+
+        if not even_nums:
+            return -1
+
+        freq_counter = Counter(even_nums)
+
+        max_frequency = -1
+        most_frequent_even = float('inf')
+
+        for num, freq in freq_counter.items():
+            if freq > max_frequency or (freq == max_frequency and num < most_frequent_even):
+                max_frequency = freq
+                most_frequent_even = num
+        
+        return most_frequent_even
+
+
+
 
