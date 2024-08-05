@@ -76,4 +76,16 @@ class Solution(object):
 
 
 
+#Fifth Problem (2418)
+class Solution(object):
+    def sortPeople(self, names, heights):
+        result = []
+        while names or heights:
+            height = heights.index(max(heights))
+            heights.pop(height)
+            result.append(names.pop(height))
+        
+        return result
 
+
+End of Day 104
