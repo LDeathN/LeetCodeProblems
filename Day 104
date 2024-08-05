@@ -1,4 +1,4 @@
-#First Problem
+#First Problem (2399)
 class Solution(object):
     def checkDistances(self, s, distance):
         first_occurrence = [-1] * 26
@@ -19,7 +19,7 @@ class Solution(object):
 
 
 
-#Second Problem
+#Second Problem (2404)
 class Solution(object):
     def mostFrequentEven(self, nums):
         from collections import Counter
@@ -40,6 +40,29 @@ class Solution(object):
                 most_frequent_even = num
         
         return most_frequent_even
+
+
+
+#Third Problem (2409)
+class Solution(object):
+    def countDaysTogether(self, arriveAlice, leaveAlice, arriveBob, leaveBob):
+        days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+        def date_to_day_of_year(date):
+            month, day = map(int, date.split('-'))
+            return sum(days_in_month[:month-1]) + day
+
+        arriveAliceDay = date_to_day_of_year(arriveAlice)
+        leaveAliceDay = date_to_day_of_year(leaveAlice)
+        arriveBobDay = date_to_day_of_year(arriveBob)
+        leaveBobDay = date_to_day_of_year(leaveBob)
+
+        start_overlap = max(arriveAliceDay, arriveBobDay)
+        end_overlap = min(leaveAliceDay, leaveBobDay)
+
+        if start_overlap > end_overlap:
+            return 0
+        return end_overlap - start_overlap + 1
 
 
 
