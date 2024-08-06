@@ -93,5 +93,15 @@ class Solution(object):
 
 
 
+#Fifth Problem (2441)
+class Solution(object):
+    def findMaxK(self, nums):
+        nums = sorted(nums)
+        for num in nums:
+            if abs(num) in nums and num < 0:
+                return abs(num)
+        
+        return -1
 
 
+End of Day 105
