@@ -41,4 +41,26 @@ class Solution(object):
 
 
 
+#Third Problem (2432)
+class Solution(object):
+    def hardestWorker(self, n, logs):
+        max_time = 0
+        employee_id = float('inf')  
+
+        prev_end_time = 0
+        
+        for log in logs:
+            id, leave_time = log
+            duration = leave_time - prev_end_time
+            if duration > max_time:
+                max_time = duration
+                employee_id = id
+            elif duration == max_time:
+                employee_id = min(employee_id, id)
+            prev_end_time = leave_time 
+        
+        return employee_id
+
+
+
 
