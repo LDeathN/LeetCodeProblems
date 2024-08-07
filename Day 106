@@ -17,4 +17,25 @@ class Solution(object):
 
 
 
+#Second Problem (2451)
+class Solution(object):
+    def oddString(self, words):
+        def get_difference_array(word):
+            return [ord(word[i + 1]) - ord(word[i]) for i in range(len(word) - 1)]
+        
+        difference_map = {}
+
+        for word in words:
+            diff = tuple(get_difference_array(word))
+            if diff in difference_map:
+                difference_map[diff].append(word)
+            else:
+                difference_map[diff] = [word]
+
+        for diff, word_list in difference_map.items():
+            if len(word_list) == 1:
+                return word_list[0]
+
+
+
 
