@@ -1,1 +1,20 @@
+#First Problem (2446)
+class Solution(object):
+    def haveConflict(self, event1, event2):
+        def time_to_minutes(time):
+            hours, minutes = map(int, time.split(':'))
+            return hours * 60 + minutes
+
+        startTime1, endTime1 = event1
+        startTime2, endTime2 = event2
+        
+        start1 = time_to_minutes(startTime1)
+        end1 = time_to_minutes(endTime1)
+        start2 = time_to_minutes(startTime2)
+        end2 = time_to_minutes(endTime2)
+        
+        return start1 <= end2 and start2 <= end1
+
+
+
 
