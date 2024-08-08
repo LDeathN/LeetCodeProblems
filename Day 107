@@ -60,4 +60,19 @@ class Solution(object):
 
 
 
+#Fifth Problem (2496)
+class Solution(object):
+    def maximumValue(self, strs):
+        result = 0
+        for word in strs:
+            if word.isdigit():
+                if result < int(word):
+                    result = int(word)
+            else:
+                if result < len(word):
+                    result = len(word)
 
+        return result
+
+
+End of Day 107
