@@ -1,1 +1,16 @@
+#First Problem (2500)
+class Solution(object):
+    def deleteGreatestValue(self, grid):
+        total = 0
+        while grid[0]:
+            current = []
+            for i in range(len(grid)):
+                current.append(max(grid[i]))
+                grid[i].remove(max(grid[i]))
+            total += max(current)
+
+        return total
+
+
+
 
