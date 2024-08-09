@@ -62,4 +62,20 @@ class Solution(object):
 
 
 
+#Fourth Problem (2515)
+class Solution(object):
+    def closetTarget(self, words, target, startIndex):
+        n = len(words)
+        min_distance = float('inf')
+        
+        for i in range(n):
+            if words[i] == target:
+                clockwise_distance = (i - startIndex + n) % n
+                counterclockwise_distance = (startIndex - i + n) % n
+                min_distance = min(min_distance, clockwise_distance, counterclockwise_distance)
+        
+        return min_distance if min_distance != float('inf') else -1
+
+
+
 
