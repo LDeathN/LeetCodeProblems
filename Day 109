@@ -31,4 +31,18 @@ class Solution(object):
 
 
 
+#Third Problem (2535)
+class Solution(object):
+    def differenceOfSum(self, nums):
+        digits = 0
+        elements = 0
+        for num in nums:
+            elements += num
+            for digit in str(num):
+                digits += int(digit)
+
+        return abs(digits - elements)
+
+
+
 
