@@ -19,4 +19,19 @@ class Solution(object):
 
 
 
+#Third Problem (2558)
+class Solution(object):
+    def pickGifts(self, gifts, k):
+        gifts = [-g for g in gifts]
+        heapq.heapify(gifts) 
+        
+        for _ in range(k):
+            max_gifts = -heapq.heappop(gifts)
+            new_gifts = math.floor(math.sqrt(max_gifts))
+            heapq.heappush(gifts, -new_gifts)
+
+        return int(-sum(gifts))
+
+
+
 
