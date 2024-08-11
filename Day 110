@@ -4,3 +4,19 @@ class Solution(object):
         if n == 1:
             return 1
         return n - 1
+
+
+
+#Second Problem (2553)
+class Solution(object):
+    def separateDigits(self, nums):
+        digits = []
+        for num in nums:
+            for digit in str(num):
+                digits.append(int(digit))
+        
+        return digits
+
+
+
+
