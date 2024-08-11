@@ -34,4 +34,19 @@ class Solution(object):
 
 
 
+#Fourth Problem (2562)
+class Solution(object):
+    def findTheArrayConcVal(self, nums):
+        total = 0
+        while nums:
+            if len(nums) >= 2:
+                number = str(nums.pop(0)) + str(nums.pop())
+            else:
+                number = str(nums.pop())
+            total += int(number)
+        
+        return total
+
+
+
 
