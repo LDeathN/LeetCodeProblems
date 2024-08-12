@@ -73,4 +73,16 @@ class Solution(object):
 
 
 
+#Fifth Problem (2586)
+class Solution(object):
+    def vowelStrings(self, words, left, right):
+        count = 0
+        vowels = ["a", "o", "u", "e", "i"]
+        for i in range(left, right + 1):
+            if words[i][0] in vowels and words[i][len(words[i]) - 1] in vowels:
+                count += 1
+        
+        return count
 
+
+End of Day 111
