@@ -60,4 +60,17 @@ class Solution(object):
 
 
 
+#Fourth Problem (2582)
+class Solution(object):
+    def passThePillow(self, n, time):
+        cycle = 2 * (n - 1)
+        effective_time = time % cycle
+
+        if effective_time < n:
+            return 1 + effective_time
+        else:
+            return n - (effective_time - (n - 1))
+
+
+
 
