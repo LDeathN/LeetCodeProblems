@@ -27,5 +27,22 @@ class Solution(object):
         return merged
 
 
+#Second Problem (2574)
+class Solution(object):
+    def leftRightDifference(self, nums):
+        left = []
+        right = []
+        result = []
+        for i in range(len(nums)):
+            left.append(sum(nums[:i]))
+            right.append(sum(nums[i+1:]))
+        while left and right:
+            result.append(abs(left.pop(0) - right.pop(0)))
+        
+        return result
+
+
+
+
 
 
