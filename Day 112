@@ -70,4 +70,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (2614)
+class Solution(object):
+    def diagonalPrime(self, nums):
+        numbers = []
+        for i in range(len(nums)):
+            numbers.append(nums[i][i])
+            numbers.append(nums[i][len(nums) - i - 1])
+        numbers = sorted(numbers)
+        while numbers:
+            n = numbers.pop()
+            if n == 2:
+                return 2
+            if n == 1:
+                return 0
+            flag = True
+            if n % 2 == 0:
+                continue
+            for i in range(2, n // 2):
+                if n % i == 0:
+                    flag = False
+                    break
+            if flag:
+                return n
+        
+        return 0
 
+
+End of Day 112
