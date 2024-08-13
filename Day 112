@@ -16,5 +16,19 @@ class Solution(object):
         
 
 
+#Second Problem (2600)
+class Solution(object):
+    def kItemsWithMaximumSum(self, numOnes, numZeros, numNegOnes, k):
+        ones_picked = min(k, numOnes)
+        k -= ones_picked  
+
+        zeros_picked = min(k, numZeros)
+        k -= zeros_picked
+
+        neg_ones_picked = k 
+
+        return ones_picked - neg_ones_picked
+
+
 
 
