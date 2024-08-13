@@ -1,1 +1,20 @@
+#First Problem (2595)
+class Solution(object):
+    def evenOddBit(self, n):
+        binary_rep = bin(n)[2:] 
+        even_count = 0
+        odd_count = 0
+
+        for i in range(len(binary_rep)):
+            if binary_rep[-(i + 1)] == '1': 
+                if i % 2 == 0:
+                    even_count += 1
+                else:
+                    odd_count += 1
+        
+        return [even_count, odd_count]
+        
+
+
+
 
