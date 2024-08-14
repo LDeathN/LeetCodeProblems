@@ -25,4 +25,17 @@ async function sleep(millis) {
 
 
 
+#Fourth Problem (2626)
+var reduce = function(nums, fn, init) {
+    let val = init; 
+    
+    for (let i = 0; i < nums.length; i++) {
+        val = fn(val, nums[i]);  
+    }
+    
+    return val;  
+};
+
+
+
 
