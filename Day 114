@@ -26,4 +26,24 @@ var map = function(arr, fn) {
 
 
 
+#Third Problem (2639)
+class Solution(object):
+    def findColumnWidth(self, grid):
+        m, n = len(grid), len(grid[0])
+
+        widths = [0] * n
+
+        for col in range(n):
+            max_width = 0
+
+            for row in range(m):
+                length = len(str(grid[row][col]))
+                max_width = max(max_width, length)
+
+            widths[col] = max_width
+        
+        return widths
+
+
+
 
