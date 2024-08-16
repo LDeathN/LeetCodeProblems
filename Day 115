@@ -9,4 +9,11 @@ var fibGenerator = function*() {
 
 
 
+#Second Problem (2651)
+class Solution(object):
+    def findDelayedArrivalTime(self, arrivalTime, delayedTime):
+        return (arrivalTime + delayedTime) % 24
+
+
+
 
