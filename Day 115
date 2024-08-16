@@ -28,4 +28,18 @@ class Solution(object):
 
 
 
+#Fourth Problem (2656)
+class Solution(object):
+    def maximizeSum(self, nums, k):
+        nums = sorted(nums)
+        biggest = nums.pop()
+        total = 0
+        for i in range(k):
+            total += biggest
+            biggest += 1
+        
+        return total
+
+
+
 
