@@ -42,4 +42,41 @@ class Solution(object):
 
 
 
+#Fifth Problem (2660)
+class Solution(object):
+    def isWinner(self, player1, player2):
+        player_one = 0
+        player_two = 0
+        coef = 1
+        coef2 = 1
+        left = 0
+        left2 = 0
+        for i in range(len(player1)):
+            if left == 0:
+                coef = 1
+            player_one += player1[i] * coef
+            if coef == 2:
+                left -=1
+            if player1[i] == 10:
+                coef = 2
+                left = 2
 
+        for i in range(len(player2)):
+            if left2 == 0:
+                coef2 = 1
+            player_two += player2[i] * coef2
+            if coef2 == 2:
+                left2 -= 1
+            if player2[i] == 10:
+                coef2 = 2
+                left2 = 2    
+
+        if player_one > player_two:
+            return 1
+        elif player_two > player_one:
+            return 2
+        else:
+            return 0
+
+
+End of Day 115
