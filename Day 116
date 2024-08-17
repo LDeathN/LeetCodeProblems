@@ -37,4 +37,29 @@ var createHelloWorld = function() {
 
 
 
+#Fourth Problem (2670)
+class Solution(object):
+    def distinctDifferenceArray(self, nums):
+        n = len(nums)
+        suffixSet = set()
+        suffixCount = [0] * n
+
+        for i in range(n - 1, -1, -1):
+            suffixSet.add(nums[i])
+            suffixCount[i] = len(suffixSet)
+
+        prefixSet = set()
+        result = []
+
+        for i in range(n):
+            prefixSet.add(nums[i])
+            if i < n - 1:
+                result.append(len(prefixSet) - suffixCount[i + 1])
+            else:
+                result.append(len(prefixSet))  
+
+        return result
+
+
+
 
