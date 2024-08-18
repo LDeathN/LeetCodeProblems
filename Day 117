@@ -70,4 +70,20 @@ class Solution(object):
 
 
 
+#Fifth Problem (2697)
+class Solution(object):
+    def makeSmallestPalindrome(self, s):
+        s = list(s)
+        left, right = 0, len(s) - 1
+        
+        while left < right:
+            if s[left] != s[right]:
+                smaller_char = min(s[left], s[right])
+                s[left] = s[right] = smaller_char
+            left += 1
+            right -= 1
 
+        return ''.join(s)
+
+
+End of Day 117
