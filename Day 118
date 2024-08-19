@@ -39,4 +39,17 @@ class Solution(object):
 
 
 
+#Fourth Problem (2710)
+class Solution(object):
+    def removeTrailingZeros(self, num):
+        num = [n for n in num]
+        while True:
+            n = num.pop()
+            if n != "0":
+                num.append(n)
+                break
+        return "".join(num)
+
+
+
 
