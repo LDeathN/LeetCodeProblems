@@ -1,1 +1,8 @@
+#First Problem (2716)
+class Solution(object):
+    def minimizedStringLength(self, s):
+        return len(set(s))
+
+
+
 
