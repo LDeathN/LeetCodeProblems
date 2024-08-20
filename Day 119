@@ -5,4 +5,18 @@ class Solution(object):
 
 
 
+#Second Problem (2717)
+class Solution(object):
+    def semiOrderedPermutation(self, nums):
+        n = len(nums)
+        pos1 = nums.index(1)
+        posN = nums.index(n)
+
+        if pos1 < posN:
+            return pos1 + (n - 1 - posN)
+        else:
+            return pos1 + (n - 1 - posN) - 1
+
+
+
 
