@@ -78,4 +78,21 @@ var isEmpty = function(obj) {
 
 
 
+#Third Problem (2729)
+class Solution(object):
+    def isFascinating(self, n):
+        concatenated = str(n) + str(2 * n) + str(3 * n)
+
+        if len(concatenated) != 9:
+            return False
+
+        digits_set = set(concatenated)
+
+        if len(digits_set) != 9 or '0' in digits_set:
+            return False
+
+        return True
+
+
+
 
