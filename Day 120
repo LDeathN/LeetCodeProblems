@@ -105,4 +105,21 @@ class Solution(object):
 
 
 
+#Fifth Problem (2739)
+class Solution(object):
+    def distanceTraveled(self, mainTank, additionalTank):
+        travelled = 0
+        count = 0
+        while mainTank != 0:
+            mainTank -= 1
+            travelled += 10
+            count += 1
+            if count % 5 == 0:
+                if additionalTank > 0:
+                    additionalTank -= 1
+                    mainTank += 1
+            
+        return travelled
 
+
+End of Day 120
