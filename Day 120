@@ -95,4 +95,14 @@ class Solution(object):
 
 
 
+#Fourth Problem (2733)
+class Solution(object):
+    def findNonMinOrMax(self, nums):
+        for num in nums:
+            if num != min(nums) and num != max(nums):
+                return num
+        return -1
+
+
+
 
