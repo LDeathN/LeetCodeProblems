@@ -71,4 +71,22 @@ class Solution(object):
 
 
 
+#Fourth Problem (2765)
+class Solution(object):
+    def alternatingSubarray(self, nums):
+        max_len = -1
+
+        for i in range(len(nums) - 1):
+            if nums[i + 1] == nums[i] + 1:  
+                current_len = 2
+                j = i + 1
+                while j + 1 < len(nums) and nums[j + 1] == nums[j] + (-1)**(current_len - 1):
+                    current_len += 1
+                    j += 1
+                max_len = max(max_len, current_len) 
+        
+        return max_len
+
+
+
 
