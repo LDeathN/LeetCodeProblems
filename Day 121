@@ -43,4 +43,32 @@ class Solution(object):
 
 
 
+#Third Problem (2760)
+class Solution(object):
+    def longestAlternatingSubarray(self, nums, threshold):
+        max_length = 0
+        l = 0
+        
+        while l < len(nums):
+            if nums[l] % 2 != 0 or nums[l] > threshold:
+                l += 1
+                continue
+            
+            r = l
+            current_length = 0
+
+            while r < len(nums):
+                if nums[r] > threshold or (r > l and nums[r] % 2 == nums[r - 1] % 2):
+                    break
+                current_length += 1
+                r += 1
+
+            max_length = max(max_length, current_length)
+
+            l += 1
+        
+        return max_length
+
+
+
 
