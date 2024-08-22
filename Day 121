@@ -16,4 +16,31 @@ class Solution(object):
 
 
 
+#Second Problem (2748)
+class Solution(object):
+    def countBeautifulPairs(self, nums):
+        def first_digit(num):
+            while num >= 10:
+                num //= 10
+            return num
+
+        def gcd(a, b):
+            while b != 0:
+                a, b = b, a % b
+            return a
+        
+        count = 0
+        n = len(nums)
+        
+        for i in range(n):
+            for j in range(i + 1, n):
+                first = first_digit(nums[i])
+                last = nums[j] % 10
+                if gcd(first, last) == 1:
+                    count += 1
+        
+        return count
+
+
+
 
