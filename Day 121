@@ -1,1 +1,19 @@
+#First Problem (2744)
+class Solution(object):
+    def maximumNumberOfStringPairs(self, words):
+        word_map = {}
+        pairs = 0
+        
+        for word in words:
+            reversed_word = word[::-1]
+            if reversed_word in word_map and word_map[reversed_word] > 0:
+                pairs += 1
+                word_map[reversed_word] -= 1  
+            else:
+                word_map[word] = word_map.get(word, 0) + 1  
+        
+        return pairs
+
+
+
 
