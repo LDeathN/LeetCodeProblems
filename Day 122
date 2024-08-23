@@ -20,4 +20,18 @@ class Solution(object):
 
 
 
+#Third Problem (2788)
+class Solution(object):
+    def splitWordsBySeparator(self, words, separator):
+        result = []
+        for word in words:
+            word = word.split(separator)
+            for el in word:
+                if el:
+                    result.append(el)
+        
+        return result
+
+
+
 
