@@ -10,4 +10,14 @@ class Solution(object):
 
 
 
+#Second Problem (2784)
+class Solution(object):
+    def isGood(self, nums):
+        n = max(nums) 
+        base = list(range(1, n + 1)) + [n]  
+
+        return sorted(nums) == sorted(base)
+
+
+
 
