@@ -46,4 +46,14 @@ class Solution(object):
 
 
 
+#Fifth Problem (2806)
+class Solution(object):
+    def accountBalanceAfterPurchase(self, purchaseAmount):
+        if purchaseAmount % 10 >= 5:
+            purchaseAmount = (purchaseAmount // 10) * 10 + 10
+        else:
+            purchaseAmount = (purchaseAmount // 10) * 10
+        return 100 - purchaseAmount
 
+
+End of Day 122
