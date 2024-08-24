@@ -61,4 +61,18 @@ class Solution(object):
 
 
 
+#Fifth Problem (2833)
+class Solution(object):
+    def furthestDistanceFromOrigin(self, moves):
+        if "R" in moves or "L" in moves:
+            if moves.count("L") > moves.count("R"):
+                return len(moves) - moves.count("R") * 2
+            elif moves.count("R") > moves.count("L"):
+                return len(moves) - moves.count("L") * 2
+            else:
+                return len(moves) - moves.count("L") - moves.count("R")
+        else:
+            return len(moves)
 
+
+End of Day 123
