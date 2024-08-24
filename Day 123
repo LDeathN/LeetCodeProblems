@@ -12,4 +12,27 @@ class Solution(object):
 
 
 
+#Second Problem (2815)
+class Solution(object):
+    def maxSum(self, nums):
+        digit_map = {}
+
+        for num in nums:
+            largest_digit = max(int(digit) for digit in str(num))
+
+            if largest_digit not in digit_map:
+                digit_map[largest_digit] = []
+            digit_map[largest_digit].append(num)
+
+        max_sum = -1
+
+        for digit, numbers in digit_map.items():
+            if len(numbers) > 1:
+                numbers.sort(reverse=True)
+                max_sum = max(max_sum, numbers[0] + numbers[1])
+
+        return max_sum
+
+
+
 
