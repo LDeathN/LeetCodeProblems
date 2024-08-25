@@ -9,4 +9,27 @@ class Solution(object):
 
 
 
+#Second Problem (2843)
+class Solution(object):
+    def countSymmetricIntegers(self, low, high):
+        count = 0
+
+        for num in range(low, high + 1):
+            str_num = str(num)
+            n = len(str_num)
+
+            if n % 2 != 0:
+                continue
+
+            mid = n // 2
+            first_half = str_num[:mid]
+            second_half = str_num[mid:]
+
+            if sum(map(int, first_half)) == sum(map(int, second_half)):
+                count += 1
+
+        return count
+
+
+
 
