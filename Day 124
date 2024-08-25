@@ -68,4 +68,16 @@ class Solution(object):
 
 
 
+#Fifth Problem (2859)
+class Solution(object):
+    def sumIndicesWithKSetBits(self, nums, k):
+        total_sum = 0
+    
+        for i in range(len(nums)):
+            if bin(i).count('1') == k:
+                total_sum += nums[i]
+        
+        return total_sum
 
+
+End of Day 124
