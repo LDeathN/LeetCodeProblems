@@ -64,4 +64,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (2900)
+class Solution(object):
+    def getLongestSubsequence(self, words, groups):
+        n = len(words)
 
+        dp = [1] * n  
+        prev = [-1] * n  
+
+        for i in range(1, n):
+            for j in range(i):
+                if groups[j] != groups[i]:
+                    if dp[j] + 1 > dp[i]:
+                        dp[i] = dp[j] + 1
+                        prev[i] = j
+
+        max_index = max(range(n), key=lambda i: dp[i])
+
+        subsequence = []
+        while max_index != -1:
+            subsequence.append(words[max_index])
+            max_index = prev[max_index]
+
+        subsequence.reverse()
+        
+        return subsequence
+
+
+End of Day 125
