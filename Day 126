@@ -48,4 +48,23 @@ class Solution(object):
 
 
 
+#Fourth Problem (2917)
+class Solution(object):
+    def findKOr(self, nums, k):
+        result = 0
+
+        for bit in range(31):
+            count = 0
+
+            for num in nums:
+                if num & (1 << bit):
+                    count += 1
+
+            if count >= k:
+                result |= (1 << bit)
+        
+        return result
+
+
+
 
