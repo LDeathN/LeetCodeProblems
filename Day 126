@@ -10,4 +10,21 @@ class Solution(object):
 
 
 
+#Second Problem (2908)
+class Solution(object):
+    def minimumSum(self, nums):
+        results = []
+        for i in range(len(nums) - 2):
+            for j in range(i + 1, len(nums) - 1):
+                for k in range(j + 1, len(nums)):
+                    if nums[i] < nums[j] and nums[k] < nums[j]:
+                        number = nums[i] + nums[j] + nums[k]
+                        results.append(number)
+        if results:
+            return min(results)
+        else:
+            return -1
+
+
+
 
