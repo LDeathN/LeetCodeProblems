@@ -27,4 +27,25 @@ class Solution(object):
 
 
 
+#Third Problem (2913)
+class Solution(object):
+    def sumCounts(self, nums):
+        n = len(nums)
+        total_sum = 0
+        
+        for i in range(n):
+            freq = defaultdict(int)
+            distinct_count = 0
+            
+            for j in range(i, n):
+                if freq[nums[j]] == 0:
+                    distinct_count += 1
+                freq[nums[j]] += 1
+
+                total_sum += distinct_count ** 2
+        
+        return total_sum
+
+
+
 
