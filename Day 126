@@ -67,4 +67,23 @@ class Solution(object):
 
 
 
+#Fifth Problem (2923)
+class Solution(object):
+    def findChampion(self, grid):
+        n = len(grid)
 
+        champion = 0
+
+        for i in range(1, n):
+
+            if grid[champion][i] == 0:
+                champion = i
+
+        for j in range(n):
+            if j != champion and grid[j][champion] == 1:
+                return -1  
+        
+        return champion
+
+
+End of Day 126
