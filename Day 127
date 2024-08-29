@@ -40,4 +40,30 @@ class Solution(object):
 
 
 
+#Fourth Problem (2946)
+class Solution(object):
+    def areSimilar(self, mat, k):
+        m = len(mat)    
+        n = len(mat[0]) 
+
+        effective_k = k % n
+
+        def left_shift(row, shifts):
+            return row[shifts:] + row[:shifts]
+
+        def right_shift(row, shifts):
+            return row[-shifts:] + row[:-shifts]
+
+        shifted_mat = [row[:] for row in mat]
+
+        for i in range(m):
+            if i % 2 == 0: 
+                shifted_mat[i] = left_shift(shifted_mat[i], effective_k)
+            else:          
+                shifted_mat[i] = right_shift(shifted_mat[i], effective_k)
+
+        return shifted_mat == mat
+
+
+
 
