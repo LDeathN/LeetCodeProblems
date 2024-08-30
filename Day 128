@@ -48,4 +48,27 @@ class Solution(object):
 
 
 
+#Fourth Problem (2974)
+class Solution(object):
+    def numberGame(self, nums):
+        nums.sort()
+
+        arr = []
+        i = 0
+        n = len(nums)
+
+        while i < n:
+            alice_removed = nums[i]
+            i += 1
+
+            bob_removed = nums[i]
+            i += 1
+
+            arr.append(bob_removed)
+            arr.append(alice_removed)
+        
+        return arr
+
+
+
 
