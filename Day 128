@@ -29,4 +29,23 @@ class Solution(object):
 
 
 
+#Third Problem (2965)
+class Solution(object):
+    def findMissingAndRepeatedValues(self, grid):
+        result = [0, 0]
+        seen = []
+        nums = [(i + 1) for i in range(len(grid) * len(grid))]
+        for i in range(1, len(grid) + 1):
+            for j in range(1, len(grid) + 1):
+                if grid[i - 1][j - 1] in seen:
+                    result[0] = grid[i - 1][j - 1]
+                seen.append(grid[i - 1][j - 1])
+
+        for num in nums:
+            if num not in seen:
+                    result[1] = num
+        return result
+
+
+
 
