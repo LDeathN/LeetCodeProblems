@@ -38,4 +38,18 @@ class Solution(object):
 
 
 
+#Third Problem (3005)
+class Solution(object):
+    def maxFrequencyElements(self, nums):
+        from collections import Counter
+        freq = Counter(nums)
+
+        max_freq = max(freq.values())
+
+        total = sum(count for count in freq.values() if count == max_freq)
+        
+        return total
+
+
+
 
