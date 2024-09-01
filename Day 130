@@ -1,1 +1,18 @@
+#First Problem (3019)
+class Solution(object):
+    def countKeyChanges(self, s):
+        change_count = 0
+        previous_group = None
+        
+        for char in s:
+            current_group = char.lower()
+
+            if previous_group is not None and current_group != previous_group:
+                change_count += 1
+
+            previous_group = current_group
+
+        return change_count
+
+
 
