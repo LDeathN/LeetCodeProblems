@@ -18,4 +18,20 @@ class Solution(object):
 
 
 
+#Second Problem (3065)
+class Solution(object):
+    def minOperations(self, nums, k):
+        nums.sort()
+
+        count = 0
+        for num in nums:
+            if num < k:
+                count += 1
+            else:
+                break  
+
+        return count
+
+
+
 
