@@ -74,4 +74,15 @@ class Solution(object):
 
 
 
+#Fifth Problem (3079)
+class Solution(object):
+    def sumOfEncryptedInt(self, nums):
+        def encrypt(x):
+            str_x = str(x)
+            max_digit = max(str_x)
+            encrypted_str = max_digit * len(str_x)
+            return int(encrypted_str)
+        return sum(encrypt(x) for x in nums)
 
+
+End of Day 131
