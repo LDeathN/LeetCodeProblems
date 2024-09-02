@@ -1,1 +1,21 @@
+#First Problem (3046)
+class Solution(object):
+    from collections import Counter
+    def isPossibleToSplit(self, nums):
+        freq = Counter(nums)
+
+        for count in freq.values():
+            if count > 2:
+                return False
+
+        unique_count = len(freq)
+        required_length = len(nums) // 2
+
+        if unique_count < required_length:
+            return False
+
+        return True
+
+
+
 
