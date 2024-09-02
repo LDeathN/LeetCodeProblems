@@ -54,4 +54,24 @@ class Solution(object):
 
 
 
+#Fourth Problem (3074)
+class Solution(object):
+    def minimumBoxes(self, apple, capacity):
+        total_apples = sum(apple)
+
+        capacity.sort(reverse=True)
+
+        total_capacity = 0
+        boxes_needed = 0
+
+        for cap in capacity:
+            total_capacity += cap
+            boxes_needed += 1
+            if total_capacity >= total_apples:
+                break
+
+        return boxes_needed
+
+
+
 
