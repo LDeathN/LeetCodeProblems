@@ -35,4 +35,23 @@ class Solution(object):
 
 
 
+#Third Problem (3095)
+class Solution(object):
+    def minimumSubarrayLength(self, nums, k):
+        n = len(nums)
+        min_length = float('inf') 
+
+        for left in range(n):
+            current_or = 0 
+
+            for right in range(left, n):
+                current_or |= nums[right]  
+                
+                if current_or >= k:
+                    min_length = min(min_length, right - left + 1)
+                    break 
+        return min_length if min_length != float('inf') else -1
+
+
+
 
