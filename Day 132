@@ -66,4 +66,25 @@ class Solution(object):
 
 
 
+#Fifth Problem (3105)
+class Solution(object):
+    def longestMonotonicSubarray(self, nums):
+        incr = decr = 1
+        max_length = 1
 
+        for i in range(1, len(nums)):
+            if nums[i] > nums[i - 1]:
+                incr += 1  
+                decr = 1 
+            elif nums[i] < nums[i - 1]:
+                decr += 1 
+                incr = 1  
+            else:
+                incr = decr = 1
+
+            max_length = max(max_length, incr, decr)
+        
+        return max_length
+
+
+End of Day 132
