@@ -35,4 +35,16 @@ class Solution(object):
 
 
 
+#Third Problem (3120)
+class Solution(object):
+    def numberOfSpecialChars(self, word):
+        result = []
+        for letter in word:
+            if letter.lower() in word and letter.upper() in word:
+                if letter.upper() not in result:
+                    result.append(letter.upper())
+        return len(result)
+
+
+
 
