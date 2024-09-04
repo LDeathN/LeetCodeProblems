@@ -65,4 +65,11 @@ class Solution(object):
 
 
 
+#Fifth Problem (3131)
+class Solution(object):
+    def addedInteger(self, nums1, nums2):
+        return max(nums2) - max(nums1)
 
+
+
+End of Day 133
