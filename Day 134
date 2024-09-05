@@ -101,4 +101,21 @@ class Solution(object):
 
 
 
+#Seventh Problem (3168)
+class Solution(object):
+    def minimumChairs(self, s):
+        current_chairs = 0 
+        max_chairs = 0 
+        
+        for char in s:
+            if char == 'E':
+                current_chairs += 1 
+            elif char == 'L':
+                current_chairs -= 1 
 
+            max_chairs = max(max_chairs, current_chairs)
+        
+        return max_chairs
+
+
+End of Day 134
