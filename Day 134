@@ -39,4 +39,18 @@ class Solution(object):
 
 
 
+#Third Problem (3146)
+class Solution(object):
+    def findPermutationDifference(self, s, t):
+        index_s = {char: i for i, char in enumerate(s)}
+        index_t = {char: i for i, char in enumerate(t)}
+        
+        difference = 0
+        for char in s:
+            difference += abs(index_s[char] - index_t[char])
+        
+        return difference
+
+
+
 
