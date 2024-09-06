@@ -66,4 +66,21 @@ class Solution(object):
 
 
 
+#Fifth Problem (3194)
+class Solution(object):
+    def minimumAverage(self, nums):
+        nums.sort()
 
+        averages = []
+
+        while nums:
+            minElement = float(nums.pop(0)) 
+            maxElement = float(nums.pop(-1))  
+
+            average = (minElement + maxElement) / 2
+            averages.append(average)
+
+        return min(averages)
+
+
+End of Day 135
