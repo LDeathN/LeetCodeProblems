@@ -1,1 +1,20 @@
+#First Problem (3174)
+class Solution(object):
+    def clearDigits(self, s):
+        s = list(s)
+
+        while any(c.isdigit() for c in s):
+            for i in range(len(s)):
+                if s[i].isdigit():
+                    for j in range(i - 1, -1, -1):
+                        if s[j].isalpha():
+                            s.pop(j)
+                            break
+                    s.pop(i - 1) 
+                    break
+
+        return "".join(s)
+
+
+
 
