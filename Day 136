@@ -75,4 +75,29 @@ class Solution(object):
 
 
 
+#Sixth Problem (3232)
+class Solution(object):
+    def canAliceWin(self, nums):
+        single_digit_sum = 0
+        double_digit_sum = 0
 
+        for num in nums:
+            if 1 <= num <= 9:
+                single_digit_sum += num
+            elif 10 <= num <= 99:
+                double_digit_sum += num
+
+        total_sum = sum(nums)
+
+        bob_sum_if_single_digits = total_sum - single_digit_sum
+        bob_sum_if_double_digits = total_sum - double_digit_sum
+
+        if single_digit_sum > bob_sum_if_single_digits:
+            return True
+        if double_digit_sum > bob_sum_if_double_digits:
+            return True
+        
+        return False
+
+
+End of Day 136
