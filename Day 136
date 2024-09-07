@@ -50,4 +50,16 @@ class Solution(object):
 
 
 
+#Fourth Problem (3222)
+class Solution(object):
+    def losingPlayer(self, x, y):
+        max_turns = min(x, y // 4)
+
+        if max_turns % 2 == 1:
+            return "Alice"  
+        else:
+            return "Bob"
+
+
+
 
