@@ -62,4 +62,17 @@ class Solution(object):
 
 
 
+#Fifth Problem (3226)
+class Solution(object):
+    def minChanges(self, n, k):
+        if (k & n) != k:
+            return -1
+
+        count_n = bin(n).count('1')
+        count_k = bin(k).count('1')
+
+        return count_n - count_k
+
+
+
 
