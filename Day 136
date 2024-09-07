@@ -1,1 +1,19 @@
+#First Problem (3206)
+class Solution(object):
+    def numberOfAlternatingGroups(self, colors):
+        n = len(colors)
+        alternating_groups = 0
+
+        for i in range(n):
+            a = i
+            b = (i + 1) % n
+            c = (i + 2) % n
+
+            if colors[b] != colors[a] and colors[b] != colors[c]:
+                alternating_groups += 1
+                
+        return alternating_groups
+
+
+
 
