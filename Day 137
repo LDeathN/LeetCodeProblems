@@ -1,1 +1,21 @@
+#First Problem (3238)
+class Solution(object):
+    def winningPlayerCount(self, n, pick):
+        player_picks = [{} for _ in range(n)]
+
+        for player, color in pick:
+            if color in player_picks[player]:
+                player_picks[player][color] += 1
+            else:
+                player_picks[player][color] = 1
+
+        winners_count = 0
+        for i in range(n):
+            if any(count > i for count in player_picks[i].values()):
+                winners_count += 1
+
+        return winners_count
+
+
+
 
