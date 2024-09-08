@@ -18,4 +18,49 @@ class Solution(object):
 
 
 
+#Second Problem (3242)
+class NeighborSum(object):
+
+    def __init__(self, grid):
+        self.grid = grid
+        self.n = len(grid)
+        self.position_map = {}
+        for i in range(self.n):
+            for j in range(self.n):
+                self.position_map[grid[i][j]] = (i, j)
+        
+
+    def adjacentSum(self, value):
+        if value not in self.position_map:
+            return 0
+        
+        i, j = self.position_map[value]
+        directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]  
+        total_sum = 0
+        
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < self.n and 0 <= nj < self.n:  
+                total_sum += self.grid[ni][nj]
+        
+        return total_sum
+        
+
+    def diagonalSum(self, value):
+        if value not in self.position_map:
+            return 0
+        
+        i, j = self.position_map[value]
+        directions = [(-1, -1), (-1, 1), (1, -1), (1, 1)] 
+        total_sum = 0
+        
+        for di, dj in directions:
+            ni, nj = i + di, j + dj
+            if 0 <= ni < self.n and 0 <= nj < self.n: 
+                total_sum += self.grid[ni][nj]
+        
+        return total_sum
+
+
+
 
