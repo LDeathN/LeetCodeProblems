@@ -46,4 +46,22 @@ class Solution(object):
 
 
 
+#Fourth Problem (3280)
+class Solution(object):
+    def convertDateToBinary(self, date):
+        year, month, day = date.split('-')
 
+        year = int(year)
+        month = int(month)
+        day = int(day)
+
+        year_bin = bin(year)[2:]
+        month_bin = bin(month)[2:]
+        day_bin = bin(day)[2:]
+
+        result = year_bin + '-' + month_bin + '-' + day_bin
+    
+        return result
+
+
+End of Day 138 (Easy Problems DONE)
