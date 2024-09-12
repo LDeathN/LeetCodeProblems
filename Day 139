@@ -95,4 +95,24 @@ class Solution(object):
 
 
 
+#Fifth Problem (7)
+class Solution(object):
+    def reverse(self, x):
+        INT_MIN, INT_MAX = -2**31, 2**31 - 1
 
+        negative = x < 0
+
+        x = abs(x)
+
+        reversed_x = int(str(x)[::-1])
+
+        if negative:
+            reversed_x = -reversed_x
+
+        if reversed_x < INT_MIN or reversed_x > INT_MAX:
+            return 0
+
+        return reversed_x
+
+
+End of Day 139
