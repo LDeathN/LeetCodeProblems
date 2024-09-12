@@ -1,2 +1,2 @@
 # LeetCodeEasyProblems
-Here are all LeetCode (Easy) problems I have solved.
+Here are all LeetCode (Easy - Done) (Medium) problems I have solved.
