@@ -31,4 +31,73 @@ class Solution(object):
 
 
 
+#Second Problem (11)
+class Solution(object):
+    def maxArea(self, height):
+        left, right = 0, len(height) - 1
+        max_area = 0
+
+        while left < right:
+            current_area = min(height[left], height[right]) * (right - left)
+
+            max_area = max(max_area, current_area)
+
+            if height[left] < height[right]:
+                left += 1
+            else:
+                right -= 1
+
+        return max_area
+
+
+
+#Third Problem (12)
+class Solution(object):
+    def intToRoman(self, num):
+        result = ""
+        while num:
+            if num >= 1000:
+                num -= 1000
+                result += "M"
+            elif num < 1000 and num >= 900:
+                num -= 900
+                result += "CM"
+            elif num >= 500:
+                num -= 500
+                result += "D"
+            elif num < 500 and num >= 400:
+                num -= 400
+                result += "CD"
+            elif num >= 100:
+                num -= 100
+                result += "C"
+            elif num < 100 and num >= 90:
+                num -= 90
+                result += "XC"
+            elif num >= 50:
+                num -= 50
+                result += "L"
+            elif num < 50 and num >= 40:
+                num -= 40
+                result += "XL"
+            elif num >= 10:
+                num -= 10
+                result += "X"
+            elif num == 9:
+                num -= 9
+                result += "IX"
+            elif num >= 5:
+                num -= 5
+                result += "V"
+            elif num == 4:
+                num -= 4
+                result += "IV"
+            elif num >= 1:
+                num -= 1
+                result += "I"
+        
+        return result
+
+
+
 
