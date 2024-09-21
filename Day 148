@@ -1,1 +1,20 @@
+#First Problem (77)
+class Solution(object):
+    def combine(self, n, k):
+        def backtrack(start, current_comb):
+            if len(current_comb) == k:
+                result.append(current_comb[:])  
+                return
+
+            for i in range(start, n + 1):
+                current_comb.append(i)           
+                backtrack(i + 1, current_comb)  
+                current_comb.pop()              
+        
+        result = []
+        backtrack(1, [])
+        return result
+
+
+
 
