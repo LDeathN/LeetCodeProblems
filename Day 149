@@ -47,4 +47,15 @@ class Solution(object):
 
 
 
+#Third Problem (89)
+class Solution(object):
+    def grayCode(self, n):
+        result = [0]
+        for i in range(n):
+            reflected = [x + (1 << i) for x in reversed(result)]
+            result.extend(reflected)
+        return result
+
+
+
 
