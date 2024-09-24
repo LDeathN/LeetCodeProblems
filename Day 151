@@ -121,9 +121,9 @@ class Solution(object):
 
         root_index = inorder.index(root_val)
         
-        root.left = buildTree(preorder[1:1+root_index], inorder[:root_index])
+        root.left = self.buildTree(preorder[1:1+root_index], inorder[:root_index])
 
-        root.right = buildTree(preorder[1+root_index:], inorder[root_index+1:])
+        root.right = self.buildTree(preorder[1+root_index:], inorder[root_index+1:])
         
         return root
 
