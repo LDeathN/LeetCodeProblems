@@ -13,4 +13,39 @@ class Solution(object):
 
 
 
+#Second Problem (99)
+class Solution(object):
+    def recoverTree(self, root):
+        first = second = prev = None
+        cur = root
+
+        while cur:
+            if not cur.left:
+                if prev and cur.val < prev.val:
+                    if not first:
+                        first = prev
+                    second = cur
+                prev = cur
+                cur = cur.right
+            else:
+                pred = cur.left
+                while pred.right and pred.right != cur:
+                    pred = pred.right
+                if not pred.right:
+                    pred.right = cur
+                    cur = cur.left
+                else:
+                    pred.right = None
+                    if prev and cur.val < prev.val:
+                        if not first:
+                            first = prev
+                        second = cur
+                    prev = cur
+                    cur = cur.right
+
+        if first and second:
+            first.val, second.val = second.val, first.val
+
+
+
 
