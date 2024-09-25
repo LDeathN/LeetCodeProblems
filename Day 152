@@ -69,4 +69,22 @@ class Solution(object):
 
 
 
+#Fourth Problem (114)
+class Solution(object):
+    def flatten(self, root):
+        current = root
+        while current:
+            if current.left:
+                rightmost = current.left
+                while rightmost.right:
+                    rightmost = rightmost.right
+
+                rightmost.right = current.right
+                current.right = current.left
+                current.left = None  
+
+            current = current.right
+
+
+
 
