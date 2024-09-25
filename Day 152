@@ -45,4 +45,28 @@ class Solution(object):
 
 
 
+#Third Problem (113)
+class Solution(object):
+    def pathSum(self, root, targetSum):
+        def dfs(node, currentSum, path, result):
+            if not node:
+                return
+
+            path.append(node.val)
+            currentSum -= node.val
+
+            if not node.left and not node.right and currentSum == 0:
+                result.append(list(path))  
+
+            dfs(node.left, currentSum, path, result)
+            dfs(node.right, currentSum, path, result)
+
+            path.pop()
+
+        result = []
+        dfs(root, targetSum, [], result)
+        return result
+
+
+
 
