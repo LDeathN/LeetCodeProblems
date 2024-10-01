@@ -53,4 +53,20 @@ ORDER BY score DESC;
 
 
 
+#Fifth Problem (179)
+class Solution(object):
+    from functools import cmp_to_key
+    def largestNumber(self, nums):
+        nums_str = list(map(str, nums))
+    
+        def compare(a, b):
+            return (1 if a + b < b + a else -1)
+        
+        nums_str.sort(key=cmp_to_key(compare))
+        
+        result = ''.join(nums_str)
 
+        return result if result[0] != '0' else '0'
+
+
+End of Day 158
