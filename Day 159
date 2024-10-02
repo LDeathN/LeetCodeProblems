@@ -60,4 +60,8 @@ class Solution(object):
 
 
 
+#Fifth Problem (192)
+cat words.txt | tr -s ' ' '\n' | sort | uniq -c | sort -rn | awk '{print $2, $1}'
 
+
+End of Day 159
