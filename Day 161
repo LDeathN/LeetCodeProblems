@@ -146,6 +146,28 @@ class Solution(object):
 
 
 
+#Seventh Problem (216)
+class Solution(object):
+    def combinationSum3(self, k, n):
+        def backtrack(start, combination, total):
+            if len(combination) == k and total == n:
+                result.append(list(combination))
+                return
+
+            if len(combination) > k or total > n:
+                return
+
+            for i in range(start, 10):
+                combination.append(i)
+                backtrack(i + 1, combination, total + i)
+                combination.pop()
+
+        result = []
+        backtrack(1, [], 0)  
+        return result
+
+
+
 
 
 
