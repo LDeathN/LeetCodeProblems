@@ -48,7 +48,7 @@ class Solution(object):
 
 
 
-#Third Problem (208)
+#Third Problem (209)
 class Solution(object):
     def minSubArrayLen(self, target, nums):
         n = len(nums)
@@ -66,6 +66,36 @@ class Solution(object):
 
         return 0 if min_length == float('inf') else min_length
 
+
+
+#Fourth Problem (210)
+class Solution(object):
+    from collections import deque, defaultdict
+    def findOrder(self, numCourses, prerequisites):
+        adj_list = defaultdict(list)
+        in_degree = [0] * numCourses
+
+        for course, prereq in prerequisites:
+            adj_list[prereq].append(course)
+            in_degree[course] += 1
+
+        zero_in_degree_queue = deque([i for i in range(numCourses) if in_degree[i] == 0])
+
+        course_order = []
+        
+        while zero_in_degree_queue:
+            course = zero_in_degree_queue.popleft()
+            course_order.append(course)
+
+            for neighbor in adj_list[course]:
+                in_degree[neighbor] -= 1
+                if in_degree[neighbor] == 0:
+                    zero_in_degree_queue.append(neighbor)
+
+        if len(course_order) == numCourses:
+            return course_order
+        else:
+            return []
 
 
 
