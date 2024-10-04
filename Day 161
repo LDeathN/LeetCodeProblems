@@ -128,4 +128,25 @@ class Solution(object):
         return max(case1, case2)
 
 
+
+#Sixth Problem (215)
+class Solution(object):
+    def findKthLargest(self, nums, k):
+        import heapq
+        
+        min_heap = []
+    
+        for num in nums:
+            heapq.heappush(min_heap, num)
+
+            if len(min_heap) > k:
+                heapq.heappop(min_heap)
+        
+        return min_heap[0]
+
+
+
+
+
+
 End of Day 161
