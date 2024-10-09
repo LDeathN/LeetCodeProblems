@@ -49,6 +49,47 @@ class Solution(object):
 
 
 
+#Third Problem (307)
+class NumArray(object):
+
+    def __init__(self, nums):
+        self.n = len(nums)
+        self.tree = [0] * (2 * self.n) 
+
+        for i in range(self.n):
+            self.tree[self.n + i] = nums[i]
+        
+        for i in range(self.n - 1, 0, -1):
+            self.tree[i] = self.tree[2 * i] + self.tree[2 * i + 1]
+        
+
+    def update(self, index, val):
+        index += self.n  
+        self.tree[index] = val
+
+        i = index
+        while i > 1:
+            self.tree[i // 2] = self.tree[i] + self.tree[i ^ 1]
+            i //= 2
+        
+
+    def sumRange(self, left, right):
+        left += self.n  
+        right += self.n  
+        sum_ = 0
+
+        while left <= right:
+            if left % 2 == 1:  
+                sum_ += self.tree[left]
+                left += 1
+            if right % 2 == 0:  
+                sum_ += self.tree[right]
+                right -= 1
+            left //= 2
+            right //= 2
+
+        return sum_
+
 
 
 
