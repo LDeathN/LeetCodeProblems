@@ -70,4 +70,11 @@ class Solution(object):
 
 
 
+#Fourth Problem (319)
+class Solution(object):
+    def bulbSwitch(self, n):
+        return int(math.sqrt(n))
+
+
+
 
