@@ -1,4 +1,4 @@
-#First Problem (341)
+#First Problem (346)
 class Solution(object):
     def integerBreak(self, n):
         if n == 2:
@@ -12,6 +12,25 @@ class Solution(object):
             return 3 ** (n // 3 - 1) * 4
         else:
             return 3 ** (n // 3) * 2
+
+
+
+#Second Problem (347)
+class Solution(object):
+    import heapq
+    from collections import Counter 
+
+    def topKFrequent(self, nums, k):
+        count = Counter(nums)  
+        heap = []
+        for num, freq in count.items():
+            heapq.heappush(heap, (-freq, num))
+
+        result = []
+        for _ in range(k):
+            result.append(heapq.heappop(heap)[1])
+        
+        return result
 
 
 
