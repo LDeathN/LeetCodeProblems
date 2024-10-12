@@ -86,4 +86,21 @@ class Solution(object):
 
 
 
+#Fifth Problem (371)
+class Solution(object):
+    def getSum(self, a, b):
+        mask = 0xFFFFFFFF
 
+        while b != 0:
+            sum_no_carry = (a ^ b) & mask
+
+            carry = ((a & b) << 1) & mask
+
+            a = sum_no_carry
+
+            b = carry
+
+        return a if a <= 0x7FFFFFFF else ~(a ^ mask)
+
+
+End of Day 169
