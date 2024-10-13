@@ -1,1 +1,24 @@
+First Problem (372)
+class Solution(object):
+    def superPow(self, a, b):
+        def pow_mod(x, n, mod):
+            res = 1
+            while n > 0:
+                if n % 2 == 1:
+                    res = (res * x) % mod
+                x = (x * x) % mod
+                n //= 2
+            return res
+
+        MOD = 1337
+
+        result = 1
+
+        for digit in b:
+            result = pow_mod(result, 10, MOD) * pow_mod(a, digit, MOD) % MOD
+
+        return result
+
+
+
 
