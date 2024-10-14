@@ -35,4 +35,27 @@ class RandomizedSet(object):
 
 
 
+#Second Problem (382)
+class Solution(object):
+    import random
+
+    def __init__(self, head):
+        self.head = head
+        
+
+    def getRandom(self):
+        current = self.head
+        chosen_value = current.val
+        index = 1
+        
+        while current.next:
+            current = current.next
+            if random.randint(1, index + 1) == 1:
+                chosen_value = current.val
+            index += 1
+
+        return chosen_value
+
+
+
 
