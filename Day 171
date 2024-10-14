@@ -79,4 +79,41 @@ class Solution(object):
 
 
 
+#Fourth Problem (385)
+class Solution(object):
+    def deserialize(self, s):
+        if s[0] != '[':
+            return NestedInteger(int(s))
+        
+        stack = []
+        current = None
+        num = None
+        
+        for i, char in enumerate(s):
+            if char == '[':
+                if current is not None:
+                    stack.append(current)
+                current = NestedInteger()
+            elif char == ']':
+                if num is not None:
+                    current.add(NestedInteger(int(num)))
+                    num = None
+                if stack:
+                    parent = stack.pop()
+                    parent.add(current)
+                    current = parent
+            elif char == ',':
+                if num is not None:
+                    current.add(NestedInteger(int(num)))
+                    num = None
+            elif char == '-' or char.isdigit():
+                if num is None:
+                    num = char
+                else:
+                    num += char
+        
+        return current
+
+
+
 
