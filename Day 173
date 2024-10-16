@@ -45,4 +45,40 @@ class Solution(object):
 
 
 
+#Fourth Problem (399)
+class Solution(object):
+    from collections import defaultdict
+    def calcEquation(self, equations, values, queries):
+        graph = defaultdict(dict)
+        
+        for (a, b), value in zip(equations, values):
+            graph[a][b] = value
+            graph[b][a] = 1 / value
+
+        def dfs(x, y, visited):
+            if x not in graph or y not in graph:
+                return -1.0
+            if y in graph[x]:
+                return graph[x][y]
+            
+            visited.add(x)
+            for neighbor, weight in graph[x].items():
+                if neighbor not in visited:
+                    result = dfs(neighbor, y, visited)
+                    if result != -1.0:
+                        return result * weight
+            visited.remove(x)
+            return -1.0
+
+        results = []
+        for c, d in queries:
+            if c == d and c in graph:
+                results.append(1.0)
+            else:
+                results.append(dfs(c, d, set()))
+        
+        return results
+
+
+
 
