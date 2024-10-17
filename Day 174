@@ -14,3 +14,21 @@ class Solution(object):
         result = ''.join(stack).lstrip('0')
         
         return result if result else "0"
+
+
+
+#Second Problem (406)
+class Solution(object):
+    def reconstructQueue(self, people):
+        people.sort(key=lambda x: (-x[0], x[1]))
+
+        queue = []
+
+        for person in people:
+            queue.insert(person[1], person)
+        
+        return queue
+
+
+
+
