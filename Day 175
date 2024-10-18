@@ -49,4 +49,31 @@ class Solution(object):
 
 
 
+#Third Problem (427)
+class Solution(object):
+    def construct(self, grid):
+        def is_uniform(x1, y1, x2, y2):
+            val = grid[x1][y1]
+            for i in range(x1, x2):
+                for j in range(y1, y2):
+                    if grid[i][j] != val:
+                        return False
+            return True
+
+        def build(x1, y1, x2, y2):
+            if is_uniform(x1, y1, x2, y2):
+                return Node(val=grid[x1][y1] == 1, isLeaf=True)
+            else:
+                mid_x = (x1 + x2) // 2
+                mid_y = (y1 + y2) // 2
+                topLeft = build(x1, y1, mid_x, mid_y)
+                topRight = build(x1, mid_y, mid_x, y2)
+                bottomLeft = build(mid_x, y1, x2, mid_y)
+                bottomRight = build(mid_x, mid_y, x2, y2)
+                return Node(val=True, isLeaf=False, topLeft=topLeft, topRight=topRight, bottomLeft=bottomLeft, bottomRight=bottomRight)
+
+        return build(0, 0, len(grid), len(grid[0]))
+
+
+
 
