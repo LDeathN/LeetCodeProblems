@@ -101,4 +101,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (430)
+class Solution(object):
+    def flatten(self, head):
+        if not head:
+            return head
 
+        stack = []
+        current = head
+
+        while current:
+            if current.child:
+                if current.next:
+                    stack.append(current.next)
+
+                current.next = current.child
+                current.next.prev = current
+                current.child = None
+
+            if not current.next and stack:
+                current.next = stack.pop()
+                current.next.prev = current
+
+            current = current.next
+        
+        return head
+
+
+End of Day 175
