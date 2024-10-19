@@ -94,4 +94,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (438)
+class Solution(object):
+    def findAnagrams(self, s, p):
+        result = []
+        len_s, len_p = len(s), len(p)
 
+        if len_p > len_s:
+            return result
+
+        p_count = [0] * 26
+        s_count = [0] * 26
+
+        for i in range(len_p):
+            p_count[ord(p[i]) - ord('a')] += 1
+            s_count[ord(s[i]) - ord('a')] += 1
+        
+        for i in range(len_s - len_p + 1):
+            if p_count == s_count:
+                result.append(i)
+
+            if i + len_p < len_s:
+                s_count[ord(s[i]) - ord('a')] -= 1
+                s_count[ord(s[i + len_p]) - ord('a')] += 1
+        
+        return result
+
+
+End of Day 176
