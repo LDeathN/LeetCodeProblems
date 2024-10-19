@@ -34,4 +34,21 @@ class Solution(object):
 
 
 
+#Second Problem (435)
+class Solution(object):
+    def eraseOverlapIntervals(self, intervals):
+        intervals.sort(key=lambda x: x[1])
+
+        end_time = float('-inf')
+        non_overlapping_count = 0
+
+        for interval in intervals:
+            if interval[0] >= end_time:
+                end_time = interval[1]
+                non_overlapping_count += 1
+        
+        return len(intervals) - non_overlapping_count
+
+
+
 
