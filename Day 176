@@ -51,4 +51,22 @@ class Solution(object):
 
 
 
+#Third Problem (436)
+class Solution(object):
+    import bisect
+    def findRightInterval(self, intervals):
+        sorted_intervals = sorted((start, i) for i, (start, end) in enumerate(intervals))
+    
+        result = []
+        for start, end in intervals:
+            idx = bisect.bisect_left(sorted_intervals, (end,))
+            if idx < len(sorted_intervals):
+                result.append(sorted_intervals[idx][1])  
+            else:
+                result.append(-1)  
+        
+        return result
+
+
+
 
