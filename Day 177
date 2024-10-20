@@ -101,4 +101,37 @@ class Solution(object):
 
 
 
+#Fifth Problem (449)
+class Codec:
 
+    def serialize(self, root):
+        def preorder(node):
+            if not node:
+                return []
+            return [str(node.val)] + preorder(node.left) + preorder(node.right)
+
+        return ','.join(preorder(root))
+        
+
+    def deserialize(self, data):
+        if not data:
+            return None
+
+        values = list(map(int, data.split(',')))
+
+        def build_tree(bounds):
+            if not values or values[0] < bounds[0] or values[0] > bounds[1]:
+                return None
+
+            val = values.pop(0)
+            node = TreeNode(val)
+
+            node.left = build_tree((bounds[0], val))
+            node.right = build_tree((val, bounds[1]))
+
+            return node
+
+        return build_tree((float('-inf'), float('inf')))
+
+
+End of Day 177
