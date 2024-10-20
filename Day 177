@@ -76,4 +76,29 @@ class Solution(object):
 
 
 
+#Fourth Problem (447)
+class Solution(object):
+    def numberOfBoomerangs(self, points):
+        boomerangs = 0
+
+        for i in points:
+            distance_count = {}
+
+            for j in points:
+                if i == j:
+                    continue
+                dx = j[0] - i[0]
+                dy = j[1] - i[1]
+                dist = dx * dx + dy * dy
+
+                distance_count[dist] = distance_count.get(dist, 0) + 1
+
+            for count in distance_count.values():
+                if count > 1:
+                    boomerangs += count * (count - 1)
+        
+        return boomerangs
+
+
+
 
