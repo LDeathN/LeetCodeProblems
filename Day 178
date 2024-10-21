@@ -62,4 +62,16 @@ class Solution(object):
 
 
 
+#Fourth Problem (453)
+class Solution(object):
+    def minMoves(self, nums):
+        total_sum = sum(nums)
+        min_element = min(nums)
+
+        moves = total_sum - min_element * len(nums)
+        
+        return moves
+
+
+
 
