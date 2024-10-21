@@ -31,4 +31,18 @@ class Solution(object):
 
 
 
+#Second Problem (451)
+class Solution(object):
+    from collections import Counter
+    def frequencySort(self, s):
+        freq = Counter(s)
+
+        sorted_chars = sorted(freq, key=freq.get, reverse=True)
+
+        result = ''.join(char * freq[char] for char in sorted_chars)
+        
+        return result
+
+
+
 
