@@ -98,4 +98,23 @@ class Solution(object):
 
 
 
+#Fifth Problem (467)
+class Solution(object):
+    def findSubstringInWraproundString(self, s):
+        dp = [0] * 26
 
+        current_length = 0
+
+        for i in range(len(s)):
+            if i > 0 and (ord(s[i]) - ord(s[i-1]) == 1 or ord(s[i]) - ord(s[i-1]) == -25):
+                current_length += 1
+            else:
+                current_length = 1
+
+            index = ord(s[i]) - ord('a')
+            dp[index] = max(dp[index], current_length)
+
+        return sum(dp)
+
+
+End of Day 179
