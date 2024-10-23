@@ -98,5 +98,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (475)
+class Solution(object):
+    import bisect
+    def findRadius(self, houses, heaters):
+        houses.sort()
+        heaters.sort()
+
+        min_radius = 0
+
+        for house in houses:
+            index = bisect.bisect_left(heaters, house)
+
+            right_distance = float('inf')
+            if index < len(heaters):
+                right_distance = heaters[index] - house
+
+            left_distance = float('inf')
+            if index > 0:
+                left_distance = house - heaters[index - 1]
+
+            closest_distance = min(left_distance, right_distance)
+
+            min_radius = max(min_radius, closest_distance)
+        
+        return min_radius
 
 
+End of Day 180
