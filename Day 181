@@ -39,4 +39,29 @@ class Solution(object):
 
 
 
+#Third Problem (481)
+class Solution(object):
+    def magicalString(self, n):
+        if n <= 0:
+            return 0
+        if n <= 3:
+            return 1 
+
+        s = ['1', '2', '2']
+        idx = 2  
+        num_ones = 1 
+
+        while len(s) < n:
+            next_num = '1' if s[-1] == '2' else '2'
+            count = int(s[idx])
+            for _ in range(count):
+                s.append(next_num)
+                if next_num == '1' and len(s) <= n:
+                    num_ones += 1
+            idx += 1
+
+        return num_ones
+
+
+
 
