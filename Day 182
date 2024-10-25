@@ -115,4 +115,35 @@ class Solution(object):
 
 
 
+#Fifth Problem (508)
+from collections import defaultdict
+class Solution(object):
+    def findFrequentTreeSum(self, root):
+        sum_count = defaultdict(int)
 
+        def subtree_sum(node):
+            if not node:
+                return 0
+
+            left_sum = subtree_sum(node.left)
+            right_sum = subtree_sum(node.right)
+
+            total_sum = node.val + left_sum + right_sum
+
+            sum_count[total_sum] += 1
+            
+            return total_sum
+
+        subtree_sum(root)
+        
+        if not sum_count:
+            return []
+        
+        max_freq = max(sum_count.values())
+        
+        result = [s for s in sum_count if sum_count[s] == max_freq]
+        
+        return result
+
+
+End of Day 182
