@@ -19,4 +19,40 @@ class Solution(object):
 
 
 
+#Second Problem (497)
+class Solution(object):
+    import random
+    def __init__(self, rects):
+        self.rects = rects
+        self.prefix_sums = []
+        current_sum = 0
+
+        for rect in rects:
+            a, b, x, y = rect
+            area = (x - a + 1) * (y - b + 1)
+            current_sum += area
+            self.prefix_sums.append(current_sum)
+        
+
+    def pick(self):
+        target = random.randint(1, self.prefix_sums[-1])
+
+        left, right = 0, len(self.prefix_sums) - 1
+        while left < right:
+            mid = (left + right) // 2
+            if self.prefix_sums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid
+
+        rect = self.rects[left]
+        a, b, x, y = rect
+
+        rand_x = random.randint(a, x)
+        rand_y = random.randint(b, y)
+
+        return [rand_x, rand_y]
+
+
+
 
