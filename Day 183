@@ -90,4 +90,29 @@ class Solution(object):
 
 
 
+#Fifth Problem (519)
+class Solution(object):
+    import random
+    def __init__(self, m, n):
+        self.m = m
+        self.n = n
+        self.total = m * n
+        self.flipped_map = {}
+        self.available_positions = self.total
+        
 
+    def flip(self):
+        rand_index = random.randint(0, self.available_positions - 1)
+        flip_index = self.flipped_map.get(rand_index, rand_index)
+        self.flipped_map[rand_index] = self.flipped_map.get(self.available_positions - 1, self.available_positions - 1)
+        self.available_positions -= 1
+        row, col = divmod(flip_index, self.n)
+        return [row, col]
+        
+
+    def reset(self):
+        self.available_positions = self.total
+        self.flipped_map.clear()
+
+
+End of Day 183
