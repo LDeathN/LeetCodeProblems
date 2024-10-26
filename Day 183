@@ -25,4 +25,34 @@ class Solution(object):
 
 
 
+#Second Problem (515)
+class Solution(object):
+    from collections import deque
+    def largestValues(self, root):
+        if not root:
+            return []
+
+        queue = deque([root])
+        result = []
+        
+        while queue:
+            level_size = len(queue)
+            max_value = float('-inf')
+
+            for _ in range(level_size):
+                node = queue.popleft()
+                max_value = max(max_value, node.val)
+
+                if node.left:
+                    queue.append(node.left)
+
+                if node.right:
+                    queue.append(node.right)
+
+            result.append(max_value)
+        
+        return result
+
+
+
 
