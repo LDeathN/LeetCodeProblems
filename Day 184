@@ -39,4 +39,25 @@ class Solution(object):
 
 
 
+#Third Problem (524)
+class Solution(object):
+    def findLongestWord(self, s, dictionary):
+        def is_subsequence(word, s):
+            i, j = 0, 0
+            while i < len(word) and j < len(s):
+                if word[i] == s[j]:
+                    i += 1
+                j += 1
+            return i == len(word)
+
+        dictionary.sort(key=lambda word: (-len(word), word))
+
+        for word in dictionary:
+            if is_subsequence(word, s):
+                return word
+
+        return ""
+
+
+
 
