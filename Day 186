@@ -90,4 +90,15 @@ class Solution(object):
 
 
 
+#Fifth Problem (553)
+class Solution(object):
+    def optimalDivision(self, nums):
+        if len(nums) == 1:
+            return str(nums[0])
+        elif len(nums) == 2:
+            return "{}/{}".format(nums[0], nums[1])
+        else:
+            return "{}/({})".format(nums[0], "/".join(map(str, nums[1:])))
 
+
+End of Day 186
