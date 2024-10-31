@@ -82,4 +82,40 @@ WHERE
 
 
 
+#Fifth Problem (592)
+from fractions import Fraction
 
+class Solution(object):
+    def fractionAddition(self, expression):
+        terms = []
+        i = 0
+        n = len(expression)
+        
+        while i < n:
+            sign = 1
+            if expression[i] == '+':
+                i += 1
+            elif expression[i] == '-':
+                sign = -1
+                i += 1
+            
+            j = i
+            while j < n and expression[j] != '+' and expression[j] != '-':
+                j += 1
+            
+            fraction = expression[i:j].split('/')
+            numerator = sign * int(fraction[0])
+            denominator = int(fraction[1])
+            
+            terms.append(Fraction(numerator, denominator))
+            i = j  
+
+        result = sum(terms)
+        
+        numerator = result.numerator
+        denominator = result.denominator
+ 
+        return "{}/{}".format(numerator, denominator)
+
+
+End of Day 188
