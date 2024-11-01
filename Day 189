@@ -1,1 +1,24 @@
+#First Problem (593)
+class Solution(object):
+    def validSquare(self, p1, p2, p3, p4):
+        def dist_sq(p, q):
+            return (p[0] - q[0]) ** 2 + (p[1] - q[1]) ** 2
+
+        distances = [
+            dist_sq(p1, p2), dist_sq(p1, p3), dist_sq(p1, p4),
+            dist_sq(p2, p3), dist_sq(p2, p4), dist_sq(p3, p4)
+        ]
+
+        unique_distances = set(distances)
+        
+        if len(unique_distances) != 2:
+            return False
+
+        side = min(unique_distances)
+        diagonal = max(unique_distances)
+
+        return distances.count(side) == 4 and distances.count(diagonal) == 2
+
+
+
 
