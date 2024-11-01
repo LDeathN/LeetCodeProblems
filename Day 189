@@ -75,4 +75,22 @@ FROM
 
 
 
+#Fifth Problem (609)
+class Solution(object):
+    def findDuplicate(self, paths):
+        content_map = defaultdict(list)  
+    
+        for path in paths:
+            parts = path.split(" ")
+            dir_path = parts[0]  
+            for file_info in parts[1:]:
+                file_name, content = file_info.split("(")
+                content = content[:-1]  
+                full_path = dir_path + "/" + file_name
+                content_map[content].append(full_path)
+        
 
+        return [paths for paths in content_map.values() if len(paths) > 1]
+
+
+End of Day 189
