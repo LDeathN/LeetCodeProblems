@@ -113,4 +113,23 @@ class Solution(object):
 
 
 
+#Fifth Problem (626)
+SELECT 
+    S1.id,
+    CASE 
+        WHEN S1.id % 2 = 1 AND S2.id IS NOT NULL THEN S2.student
+        WHEN S1.id % 2 = 0 THEN S2.student
+        ELSE S1.student
+    END AS student
+FROM 
+    Seat S1
+LEFT JOIN 
+    Seat S2
+ON 
+    (S1.id = S2.id - 1 AND S1.id % 2 = 1) 
+    OR (S1.id = S2.id + 1 AND S1.id % 2 = 0)
+ORDER BY 
+    S1.id;
 
+
+End of Dqay 190
