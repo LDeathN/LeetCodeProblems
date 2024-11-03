@@ -40,4 +40,55 @@ class Solution(object):
 
 
 
+#Third Problem (640)
+class Solution(object):
+    def solveEquation(self, equation):
+        def parse_side(side):
+            x_coefficient = 0
+            constant = 0
+            i = 0
+            sign = 1  
+            
+            while i < len(side):
+                if side[i] == '+':
+                    sign = 1
+                    i += 1
+                elif side[i] == '-':
+                    sign = -1
+                    i += 1
+                elif side[i].isdigit() or side[i] == 'x':
+                    j = i
+                    while j < len(side) and side[j].isdigit():
+                        j += 1
+                    if j < len(side) and side[j] == 'x': 
+                        coef = int(side[i:j]) if j > i else 1 
+                        x_coefficient += sign * coef
+                        i = j + 1  
+                    else:  
+                        constant += sign * int(side[i:j])
+                        i = j
+                else:
+                    i += 1  
+            
+            return x_coefficient, constant
+
+        left_side, right_side = equation.split('=')
+
+        left_x, left_const = parse_side(left_side)
+        right_x, right_const = parse_side(right_side)
+
+        x_coefficient = left_x - right_x
+        constant = right_const - left_const
+
+        if x_coefficient == 0:
+            if constant == 0:
+                return "Infinite solutions"
+            else:
+                return "No solution"
+        else:
+            solution = constant // x_coefficient
+            return "x=" + str(solution)
+
+
+
 
