@@ -16,4 +16,31 @@ class Solution(object):
 
 
 
+#Second Problem (655)
+class Solution(object):
+    def printTree(self, root):
+        def get_height(node):
+            if not node:
+                return -1  
+            return 1 + max(get_height(node.left), get_height(node.right))
+        
+        height = get_height(root)
+        m, n = height + 1, 2 ** (height + 1) - 1
+        res = [["" for _ in range(n)] for _ in range(m)]
+
+        def fill(res, node, row, col, height):
+            if not node:
+                return
+            res[row][col] = str(node.val)
+            offset = 2 ** (height - row - 1)
+            if node.left:
+                fill(res, node.left, row + 1, col - offset, height)
+            if node.right:
+                fill(res, node.right, row + 1, col + offset, height)
+
+        fill(res, root, 0, (n - 1) // 2, height)
+        return res
+
+
+
 
