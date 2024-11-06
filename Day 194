@@ -74,4 +74,28 @@ class Solution(object):
 
 
 
+#Fifth Problem (676)
+class MagicDictionary(object):
 
+    def __init__(self):
+        self.patterns = defaultdict(list)
+        
+
+    def buildDict(self, dictionary):
+        for word in dictionary:
+            for i in range(len(word)):
+                pattern = word[:i] + '*' + word[i+1:]
+                self.patterns[pattern].append(word)
+        
+
+    def search(self, searchWord):
+        for i in range(len(searchWord)):
+            pattern = searchWord[:i] + '*' + searchWord[i+1:]
+            if pattern in self.patterns:
+                for word in self.patterns[pattern]:
+                    if word != searchWord:
+                        return True
+        return False
+
+
+End of Day 194
