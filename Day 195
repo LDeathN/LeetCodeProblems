@@ -95,4 +95,21 @@ class Solution(object):
 
 
 
+#Fourth Problem (686)
+class Solution(object):
+    import math
+
+    def repeatedStringMatch(self, a, b):
+        min_repeats = int(math.ceil(len(b) / len(a)))
+
+        if b in a * min_repeats:
+            return min_repeats
+
+        if b in a * (min_repeats + 1):
+            return min_repeats + 1
+        
+        return -1
+
+
+
 
