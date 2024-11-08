@@ -75,4 +75,33 @@ class Solution(object):
 
 
 
+#Fifth Problem (698)
+class Solution(object):
+    def canPartitionKSubsets(self, nums, k):
+        total_sum = sum(nums)
+        if total_sum % k != 0:
+            return False
 
+        target = total_sum // k
+        nums.sort(reverse=True)  
+
+        subsets = [0] * k
+
+        def dfs(index):
+            if index == len(nums):
+                return all(s == target for s in subsets)
+            
+            for i in range(k):
+                if subsets[i] + nums[index] <= target:
+                    subsets[i] += nums[index]
+                    if dfs(index + 1):
+                        return True
+                    subsets[i] -= nums[index]
+                if subsets[i] == 0:
+                    break
+            return False
+
+        return dfs(0)
+
+
+End of Day 196
