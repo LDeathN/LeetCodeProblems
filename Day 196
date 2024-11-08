@@ -20,4 +20,22 @@ class Solution(object):
 
 
 
+#Second Problem (690)
+class Solution(object):
+    def getImportance(self, employees, id):
+        employee_map = {emp.id: emp for emp in employees}
+        
+        total_importance = 0
+        queue = [id]
+        
+        while queue:
+            current_id = queue.pop(0)
+            employee = employee_map[current_id]
+            total_importance += employee.importance  
+            queue.extend(employee.subordinates)     
+        
+        return total_importance
+
+
+
 
