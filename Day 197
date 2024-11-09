@@ -140,4 +140,17 @@ class Solution(object):
 
 
 
+#Fifth Problem (714)
+class Solution(object):
+    def maxProfit(self, prices, fee):
+        holding = -prices[0]  
+        not_holding = 0       
 
+        for price in prices[1:]:
+            not_holding = max(not_holding, holding + price - fee) 
+            holding = max(holding, not_holding - price)      
+        
+        return not_holding
+
+
+End of Day 197
