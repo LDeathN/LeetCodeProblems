@@ -14,4 +14,22 @@ class Solution(object):
 
 
 
+#Second Problem (720)
+class Solution(object):
+    def longestWord(self, words):
+        words.sort(key=lambda x: (len(x), x))
+    
+        buildable = set([""])
+        longest_word = ""
+        
+        for word in words:
+            if word[:-1] in buildable:
+                buildable.add(word)
+                if len(word) > len(longest_word) or (len(word) == len(longest_word) and word < longest_word):
+                    longest_word = word
+
+        return longest_word
+
+
+
 
