@@ -80,4 +80,19 @@ class Solution(object):
 
 
 
+#Fourth Problem (754)
+class Solution(object):
+    def reachNumber(self, target):
+        target = abs(target)
+        k = 0
+        sum_k = 0
+        
+        while sum_k < target or (sum_k - target) % 2 != 0:
+            k += 1
+            sum_k += k
+        
+        return k
+
+
+
 
