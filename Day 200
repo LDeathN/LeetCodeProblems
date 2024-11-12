@@ -95,4 +95,44 @@ class Solution(object):
 
 
 
+#Fifth Problem (756)
+class Solution(object):
+    def pyramidTransition(self, bottom, allowed):
+        allowed_dict = defaultdict(list)
+        for pattern in allowed:
+            allowed_dict[pattern[:2]].append(pattern[2])
+        
+        memo = {}
 
+        def canBuild(row):
+            if len(row) == 1:  
+                return True
+            if row in memo:  
+                return memo[row]
+
+            next_row = []
+            def backtrack(index):
+                if index == len(row) - 1:  
+                    return canBuild("".join(next_row))
+                
+                pair = row[index:index + 2]
+                if pair not in allowed_dict:
+                    return False
+                
+                for block in allowed_dict[pair]:
+                    next_row.append(block)
+                    if backtrack(index + 1):
+                        memo[row] = True
+                        return True
+                    next_row.pop() 
+                
+                return False
+            
+            result = backtrack(0)
+            memo[row] = result
+            return result
+
+        return canBuild(bottom)
+
+
+End of Day 200
