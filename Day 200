@@ -15,4 +15,33 @@ class Solution(object):
 
 
 
+#Second Problem (743)
+class Solution(object):
+    def networkDelayTime(self, times, n, k):
+        graph = defaultdict(list)
+        for u, v, w in times:
+            graph[u].append((v, w))
+
+        dist = [float('inf')] * (n + 1)
+        dist[k] = 0
+        min_heap = [(0, k)]  
+
+        while min_heap:
+            time, u = heapq.heappop(min_heap)
+            
+            if time > dist[u]:
+                continue
+            
+            for v, w in graph[u]:
+                new_time = time + w
+                if new_time < dist[v]:
+                    dist[v] = new_time
+                    heapq.heappush(min_heap, (new_time, v))
+
+        max_time = max(dist[1:]) 
+        
+        return max_time if max_time != float('inf') else -1
+
+
+
 
