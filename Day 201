@@ -56,4 +56,33 @@ class Solution(object):
 
 
 
+#Third Problem (767)
+class Solution(object):
+    def reorganizeString(self, s):
+        freq = Counter(s)
+    
+        max_freq = max(freq.values())
+        if max_freq > (len(s) + 1) // 2:
+            return ""
+        
+        max_heap = [(-count, char) for char, count in freq.items()]
+        heapq.heapify(max_heap)
+        
+        result = []
+        prev_count, prev_char = 0, ""
+        
+        while max_heap:
+            count, char = heapq.heappop(max_heap)
+            result.append(char)
+            
+            if prev_count < 0:
+                heapq.heappush(max_heap, (prev_count, prev_char))
+            
+            prev_count = count + 1  
+            prev_char = char
+        
+        return "".join(result)
+
+
+
 
