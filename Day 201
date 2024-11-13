@@ -17,4 +17,43 @@ class Solution(object):
 
 
 
+#Second Problem (764)
+class Solution(object):
+    def orderOfLargestPlusSign(self, n, mines):
+        grid = [[n] * n for _ in range(n)]
+    
+        for x, y in mines:
+            grid[x][y] = 0
+        
+        for i in range(n):
+            count = 0
+            for j in range(n):
+                count = count + 1 if grid[i][j] != 0 else 0
+                grid[i][j] = min(grid[i][j], count)
+            
+            count = 0
+            for j in range(n - 1, -1, -1):
+                count = count + 1 if grid[i][j] != 0 else 0
+                grid[i][j] = min(grid[i][j], count)
+        
+        for j in range(n):
+            count = 0
+            for i in range(n):
+                count = count + 1 if grid[i][j] != 0 else 0
+                grid[i][j] = min(grid[i][j], count)
+            
+            count = 0
+            for i in range(n - 1, -1, -1):
+                count = count + 1 if grid[i][j] != 0 else 0
+                grid[i][j] = min(grid[i][j], count)
+        
+        max_order = 0
+        for i in range(n):
+            for j in range(n):
+                max_order = max(max_order, grid[i][j])
+        
+        return max_order
+
+
+
 
