@@ -1,1 +1,25 @@
+#First Problem (777)
+class Solution(object):
+    def canTransform(self, start, result):
+        if start.replace("X", "") != result.replace("X", ""):
+            return False
+
+        j = 0  
+        for i, c in enumerate(start):
+            if c == "X":
+                continue
+            while result[j] == "X":
+                j += 1
+            if c != result[j]:
+                return False
+            if c == "L" and i < j:
+                return False  
+            if c == "R" and i > j:
+                return False 
+            j += 1
+
+        return True
+
+
+
 
