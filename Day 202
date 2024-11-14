@@ -90,4 +90,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (787)
+class Solution(object):
+    def findCheapestPrice(self, n, flights, src, dst, k):
+        graph = collections.defaultdict(list)
+        for u, v, price in flights:
+            graph[u].append((v, price))
+        
+        queue = [(0, src, 0)]
+        visited = {}
+        
+        while queue:
+            cost, city, stops = heapq.heappop(queue)
+            
+            if city == dst:
+                return cost
+            
+            if city in visited and visited[city] <= stops:
+                continue
+            visited[city] = stops
+            
+            if stops <= k:
+                for neighbor, price in graph[city]:
+                    new_cost = cost + price
+                    heapq.heappush(queue, (new_cost, neighbor, stops + 1))
+        
+        return -1
 
+End of Day 202
