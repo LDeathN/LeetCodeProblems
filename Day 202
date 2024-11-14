@@ -37,4 +37,32 @@ class Solution(object):
 
 
 
+#Third Problem (784)
+class Solution(object):
+    def letterCasePermutation(self, s):
+        results = []
+    
+        def backtrack(index, path):
+            if index == len(s):
+                results.append("".join(path))
+                return
+            
+            if s[index].isalpha():
+                path.append(s[index].lower())
+                backtrack(index + 1, path)
+                path.pop()
+                
+                path.append(s[index].upper())
+                backtrack(index + 1, path)
+                path.pop()
+            else:
+                path.append(s[index])
+                backtrack(index + 1, path)
+                path.pop()
+        
+        backtrack(0, [])
+        return results
+
+
+
 
