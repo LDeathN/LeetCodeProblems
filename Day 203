@@ -64,4 +64,15 @@ class Solution(object):
 
 
 
+#Fourth Problem (791)
+class Solution(object):
+    def customSortString(self, order, s):
+        order_map = {char: i for i, char in enumerate(order)}
+    
+        s_ordered = sorted(s, key=lambda x: order_map[x] if x in order_map else float('inf'))
+        
+        return ''.join(s_ordered)
+
+
+
 
