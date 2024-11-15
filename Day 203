@@ -1,1 +1,26 @@
+#First Problem (788)
+class Solution(object):
+    def rotatedDigits(self, n):
+        rotate_map = {'0': '0', '1': '1', '2': '5', '5': '2', '6': '9', '8': '8', '9': '6'}
+        count_good_numbers = 0
+        
+        for num in range(1, n + 1):
+            num_str = str(num)
+            rotated = []
+            valid = True
+            for digit in num_str:
+                if digit not in rotate_map:
+                    valid = False
+                    break
+                rotated.append(rotate_map[digit])
+            
+            if valid:
+                rotated_num = ''.join(rotated)
+                if rotated_num != num_str:  
+                    count_good_numbers += 1
+        
+        return count_good_numbers
+
+
+
 
