@@ -75,4 +75,38 @@ class Solution(object):
 
 
 
+#Fifth Problem (792)
+class Solution(object):
+    def numMatchingSubseq(self, s, words):
+        char_positions = defaultdict(list)
+    
+        for i, char in enumerate(s):
+            char_positions[char].append(i)
+        
+        def isSubsequence(word):
+            last_pos = -1
+            
+            for char in word:
+                if char not in char_positions:
+                    return False
+                
+                positions = char_positions[char]
 
+                idx = bisect_right(positions, last_pos)
+                
+                if idx == len(positions):  
+                    return False
+                
+                last_pos = positions[idx]
+            
+            return True
+        
+        count = 0
+        for word in words:
+            if isSubsequence(word):
+                count += 1
+        
+        return count
+
+
+End of Day 203
