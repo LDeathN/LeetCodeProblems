@@ -1,1 +1,32 @@
+First Problem (794)
+class Solution(object):
+    def validTicTacToe(self, board):
+        def is_winner(player):
+            for i in range(3):
+                if all(board[i][j] == player for j in range(3)) or all(board[j][i] == player for j in range(3)):
+                    return True
+            if (board[0][0] == board[1][1] == board[2][2] == player) or (board[0][2] == board[1][1] == board[2][0] == player):
+                return True
+            return False
+
+        count_X = sum(row.count('X') for row in board)
+        count_O = sum(row.count('O') for row in board)
+        
+        if not (count_X == count_O or count_X == count_O + 1):
+            return False
+        
+        x_wins = is_winner('X')
+        o_wins = is_winner('O')
+        
+        if x_wins and o_wins:
+            return False
+        if x_wins and count_X != count_O + 1:
+            return False
+        if o_wins and count_X != count_O:
+            return False
+        
+        return True
+
+
+
 
