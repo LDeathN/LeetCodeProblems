@@ -29,4 +29,22 @@ class Solution(object):
 
 
 
+#Second Problem (795)
+class Solution(object):
+    def numSubarrayBoundedMax(self, nums, left, right):
+        def countSubarrays(bound):
+            count = 0
+            current = 0
+            for num in nums:
+                if num <= bound:
+                    current += 1
+                    count += current
+                else:
+                    current = 0
+            return count
+
+        return countSubarrays(right) - countSubarrays(left - 1)
+
+
+
 
