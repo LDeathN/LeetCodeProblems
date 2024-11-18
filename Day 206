@@ -81,4 +81,18 @@ class Solution(object):
 
 
 
+#Fifth Problem (833)
+class Solution(object):
+    def findReplaceString(self, s, indices, sources, targets):
+        replacements = sorted(zip(indices, sources, targets), key=lambda x: x[0], reverse=True)
+        
+        s_list = list(s)
+        
+        for index, source, target in replacements:
+            if s[index:index + len(source)] == source:
+                s_list[index:index + len(source)] = list(target)
+        
+        return ''.join(s_list)
 
+
+End of Day 206
