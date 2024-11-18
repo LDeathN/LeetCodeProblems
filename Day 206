@@ -53,4 +53,32 @@ class Solution(object):
 
 
 
+#Fourth Problem (831)
+class Solution(object):
+    def maskPII(self, s):
+        def mask_email(email):
+            email = email.lower()
+            name, domain = email.split('@')
+            masked_name = name[0] + "*****" + name[-1]
+            return masked_name + "@" + domain
+        
+        def mask_phone_number(phone):
+            digits = [char for char in phone if char.isdigit()]
+            local_number = ''.join(digits[-10:])
+            country_code_length = len(digits) - 10
+            
+            if country_code_length > 0:
+                country_code = "+" + "*" * country_code_length + "-"
+            else:
+                country_code = ""
+            
+            return country_code + "***-***-" + local_number[-4:]
+        
+        if "@" in s:
+            return mask_email(s)
+        else:
+            return mask_phone_number(s)
+
+
+
 
