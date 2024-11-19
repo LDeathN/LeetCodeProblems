@@ -63,4 +63,34 @@ class Solution(object):
 
 
 
+#Third Problem (840)
+class Solution(object):
+    def numMagicSquaresInside(self, grid):
+        def is_magic(subgrid):
+       
+            elements = [subgrid[i][j] for i in range(3) for j in range(3)]
+            
+            if sorted(elements) != list(range(1, 10)):
+                return False
+
+            row_sums = [sum(subgrid[i]) for i in range(3)]
+            col_sums = [sum(subgrid[i][j] for i in range(3)) for j in range(3)]
+            diag1_sum = sum(subgrid[i][i] for i in range(3))
+            diag2_sum = sum(subgrid[i][2 - i] for i in range(3))
+
+            return len(set(row_sums + col_sums + [diag1_sum, diag2_sum])) == 1
+
+        rows, cols = len(grid), len(grid[0])
+        count = 0
+
+        for i in range(rows - 2):
+            for j in range(cols - 2):
+                subgrid = [row[j:j+3] for row in grid[i:i+3]]
+                if is_magic(subgrid):
+                    count += 1
+
+        return count
+
+
+
 
