@@ -29,4 +29,21 @@ class Solution(object):
 
 
 
+#Second Problem (846)
+class Solution(object):
+    def isNStraightHand(self, hand, groupSize):
+        if len(hand) % groupSize != 0:
+            return False
+
+        count = Counter(hand)
+        for card in sorted(count):
+            while count[card] > 0:
+                for i in range(groupSize):
+                    if count[card + i] <= 0:
+                        return False
+                    count[card + i] -= 1
+        return True
+
+
+
 
