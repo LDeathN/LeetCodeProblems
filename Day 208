@@ -46,4 +46,20 @@ class Solution(object):
 
 
 
+#Third Problem (848)
+class Solution(object):
+    def shiftingLetters(self, s, shifts):
+        n = len(s)
+        cumulative_shift = 0
+        result = list(s)  
+        
+        for i in range(n - 1, -1, -1):
+            cumulative_shift += shifts[i]
+            cumulative_shift %= 26
+            result[i] = chr((ord(s[i]) - ord('a') + cumulative_shift) % 26 + ord('a'))
+        
+        return ''.join(result)
+
+
+
 
