@@ -35,4 +35,35 @@ class Solution(object):
 
 
 
+#Third Problem (894)
+class Solution(object):
+    def allPossibleFBT(self, n):
+        memo = {}
+
+        def helper(num_nodes):
+            if num_nodes in memo:
+                return memo[num_nodes]
+
+            if num_nodes == 1:
+                return [TreeNode(0)]
+            if num_nodes % 2 == 0:
+                return []
+
+            trees = []
+            for left_nodes in range(1, num_nodes, 2):
+                right_nodes = num_nodes - 1 - left_nodes
+                left_trees = helper(left_nodes)
+                right_trees = helper(right_nodes)
+
+                for left in left_trees:
+                    for right in right_trees:
+                        trees.append(TreeNode(0, left, right))
+
+            memo[num_nodes] = trees
+            return trees
+
+        return helper(n)
+
+
+
 
