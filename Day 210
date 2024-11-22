@@ -66,4 +66,18 @@ class Solution(object):
 
 
 
+#Fourth Problem (898)
+class Solution(object):
+    def subarrayBitwiseORs(self, arr):
+        result = set()
+        current = set()
+
+        for num in arr:
+            current = {num | x for x in current} | {num}
+            result.update(current)
+
+        return len(result)
+
+
+
 
