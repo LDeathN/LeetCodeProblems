@@ -21,4 +21,18 @@ class Solution(object):
 
 
 
+#Second Problem (893)
+class Solution(object):
+    def numSpecialEquivGroups(self, words):
+        unique_groups = set()
+
+        for word in words:
+            even_chars = sorted(word[::2])  
+            odd_chars = sorted(word[1::2])  
+            unique_groups.add((tuple(even_chars), tuple(odd_chars)))
+
+        return len(unique_groups)
+
+
+
 
