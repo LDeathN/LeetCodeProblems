@@ -104,4 +104,25 @@ class Solution(object):
 
 
 
+#Fifth Problem (918)
+class Solution(object):
+    def maxSubarraySumCircular(self, nums):
+        def kadane(arr):
+            max_sum = cur_max = arr[0]
+            for num in arr[1:]:
+                cur_max = max(num, cur_max + num)
+                max_sum = max(max_sum, cur_max)
+            return max_sum
 
+        total_sum = sum(nums)
+        max_kadane = kadane(nums)
+        min_kadane = kadane([-num for num in nums])
+        max_circular = total_sum + min_kadane  
+
+        if max_circular == 0:
+            return max_kadane
+        
+        return max(max_kadane, max_circular)
+
+
+End of Day 212
