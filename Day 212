@@ -1,1 +1,26 @@
+#First Problem (911)
+class TopVotedCandidate(object):
+
+    def __init__(self, persons, times):
+        self.times = times
+        self.leaders = []
+        vote_count = defaultdict(int)
+        leader = -1  
+        max_votes = 0
+
+        for person in persons:
+            vote_count[person] += 1
+            if vote_count[person] >= max_votes:
+                if person != leader:
+                    leader = person
+                max_votes = vote_count[person]
+            self.leaders.append(leader)
+        
+
+    def q(self, t):
+        idx = bisect_right(self.times, t) - 1
+        return self.leaders[idx]
+
+
+
 
