@@ -55,4 +55,27 @@ class Solution(object):
 
 
 
+#Third Problem (926)
+class Solution(object):
+    def minFlipsMonoIncr(self, s):
+        n = len(s)
+    
+        total_ones = 0
+        prefix_ones = 0
+        flips = float('inf')
+        
+        total_ones = sum(1 for char in s if char == '1')
+        
+        for i, char in enumerate(s):
+            flips = min(flips, prefix_ones + (n - i - (total_ones - prefix_ones)))
+            
+            if char == '1':
+                prefix_ones += 1
+        
+        flips = min(flips, prefix_ones)
+        
+        return flips
+
+
+
 
