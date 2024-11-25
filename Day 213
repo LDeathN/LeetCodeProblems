@@ -78,4 +78,22 @@ class Solution(object):
 
 
 
+#Fourth Problem (930)
+class Solution(object):
+    def numSubarraysWithSum(self, nums, goal):
+        prefix_sum = 0
+        count = 0
+        prefix_counts = defaultdict(int)
+        prefix_counts[0] = 1  
+        
+        for num in nums:
+            prefix_sum += num
+            if prefix_sum - goal in prefix_counts:
+                count += prefix_counts[prefix_sum - goal]
+            prefix_counts[prefix_sum] += 1
+        
+        return count
+
+
+
 
