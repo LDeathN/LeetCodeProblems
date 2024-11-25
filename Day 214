@@ -84,4 +84,25 @@ class Solution(object):
 
 
 
+#Fourth Problem (937)
+class Solution(object):
+    def reorderLogFiles(self, logs):
+        def is_digit_log(log):
+            return log.split()[1].isdigit()
+        
+        letter_logs = []
+        digit_logs = []
+        
+        for log in logs:
+            if is_digit_log(log):
+                digit_logs.append(log)
+            else:
+                letter_logs.append(log)
+        
+        letter_logs.sort(key=lambda x: (x.split()[1:], x.split()[0]))
+        
+        return letter_logs + digit_logs
+
+
+
 
