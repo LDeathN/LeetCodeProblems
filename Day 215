@@ -76,4 +76,19 @@ class Solution(object):
 
 
 
+#Fifth Problem (950)
+class Solution(object):
+    def deckRevealedIncreasing(self, deck):
+        deck.sort()
+    
+        result = deque()
+        
+        for card in deck[::-1]:
+            if result:
+                result.appendleft(result.pop())
+            result.appendleft(card)
+        
+        return list(result)
 
+
+End of Day 215
