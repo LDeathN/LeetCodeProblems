@@ -56,4 +56,24 @@ class Solution(object):
 
 
 
+#Fourth Problem (949)
+class Solution(object):
+    def largestTimeFromDigits(self, arr):
+        max_time = -1
+        for perm in permutations(arr):
+            hours = perm[0] * 10 + perm[1]  
+            minutes = perm[2] * 10 + perm[3]  
+            
+            if hours < 24 and minutes < 60:
+                max_time = max(max_time, hours * 60 + minutes)
+        
+        if max_time == -1:
+            return ""
+
+        hours = max_time // 60
+        minutes = max_time % 60
+        return '{:02}:{:02}'.format(hours, minutes)
+
+
+
 
