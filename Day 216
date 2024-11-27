@@ -30,4 +30,24 @@ class Solution(object):
 
 
 
+#Third Problem (955)
+class Solution(object):
+    def minDeletionSize(self, strs):
+        n = len(strs)
+        m = len(strs[0])
+        deletions = 0
+        current = [""] * n 
+
+        for col in range(m):
+            new_current = [current[i] + strs[i][col] for i in range(n)]
+            
+            if all(new_current[i] <= new_current[i + 1] for i in range(n - 1)):
+                current = new_current
+            else:
+                deletions += 1  
+
+        return deletions
+
+
+
 
