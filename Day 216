@@ -74,4 +74,26 @@ class Solution(object):
 
 
 
+#Fifth Problem (958)
+class Solution(object):
+    def isCompleteTree(self, root):
+        if not root:
+            return True
+        
+        queue = deque([root])
+        encountered_null = False
+        
+        while queue:
+            node = queue.popleft()
+            if node:
+                if encountered_null:
+                    return False
+                queue.append(node.left)
+                queue.append(node.right)
+            else:
+                encountered_null = True
+        
+        return True
 
+
+End of Day 216
