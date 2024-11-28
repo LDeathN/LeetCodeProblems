@@ -131,4 +131,29 @@ class Solution(object):
 
 
 
+#Fifth Problem (969)
+class Solution(object):
+    def pancakeSort(self, arr):
+        def flip(sub_arr, k):
+            sub_arr[:k] = reversed(sub_arr[:k])
+        
+        result = []
+        n = len(arr)
+        
+        for target in range(n, 0, -1):
+            index = arr.index(target)
+            
+            if index == target - 1:
+                continue 
+            
+            if index != 0:
+                result.append(index + 1)
+                flip(arr, index + 1)
+            
+            result.append(target)
+            flip(arr, target)
+        
+        return result
 
+
+End of Day 217
