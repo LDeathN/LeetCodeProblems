@@ -74,4 +74,38 @@ class Solution(object):
 
 
 
+#Third Problem (966)
+class Solution(object):
+    def spellchecker(self, wordlist, queries):
+        def normalize_vowels(word):
+            return ''.join('*' if c in 'aeiou' else c for c in word.lower())
+        
+        words_exact = set(wordlist)
+        
+        words_lower = {}
+        for word in wordlist:
+            words_lower.setdefault(word.lower(), word)
+        
+        words_vowel = {}
+        for word in wordlist:
+            norm = normalize_vowels(word)
+            words_vowel.setdefault(norm, word)
+        
+        result = []
+        for query in queries:
+            if query in words_exact:
+                result.append(query)  
+            elif query.lower() in words_lower:
+                result.append(words_lower[query.lower()])  
+            else:
+                norm_query = normalize_vowels(query)
+                if norm_query in words_vowel:
+                    result.append(words_vowel[norm_query]) 
+                else:
+                    result.append('')  
+        
+        return result
+
+
+
 
