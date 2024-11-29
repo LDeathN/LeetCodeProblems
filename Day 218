@@ -19,4 +19,37 @@ class Solution(object):
 
 
 
+#Second Problem (971)
+class Solution(object):
+    def flipMatchVoyage(self, root, voyage):
+        flipped = []
+        index = [0]  
+
+        def dfs(node):
+            if not node:
+                return True
+            if node.val != voyage[index[0]]:
+                return False
+            
+            index[0] += 1
+            if node.left and node.left.val != voyage[index[0]]:
+                flipped.append(node.val)
+                if not dfs(node.right):
+                    return False
+                if not dfs(node.left):
+                    return False
+            else:
+                if not dfs(node.left):
+                    return False
+                if not dfs(node.right):
+                    return False
+            return True
+
+        if dfs(root):
+            return flipped
+        else:
+            return [-1]
+
+
+
 
