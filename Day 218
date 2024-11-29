@@ -83,4 +83,31 @@ class Solution(object):
 
 
 
+#Fifth Problem (978)
+class Solution(object):
+    def maxTurbulenceSize(self, arr):
+        n = len(arr)
+        if n == 1:
+            return 1
+        
+        max_length = 1
+        increase = 1
+        decrease = 1
+        
+        for i in range(1, n):
+            if arr[i] > arr[i-1]:
+                increase = decrease + 1
+                decrease = 1
+            elif arr[i] < arr[i-1]:
+                decrease = increase + 1
+                increase = 1
+            else:
+                increase = 1
+                decrease = 1
+            
+            max_length = max(max_length, increase, decrease)
+        
+        return max_length
 
+
+End of Day 218
