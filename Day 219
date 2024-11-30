@@ -67,4 +67,40 @@ class Solution(object):
 
 
 
+#Fourth Problem (984)
+class Solution(object):
+    def strWithout3a3b(self, a, b):
+        result = []
+    
+        while a > 0 or b > 0:
+            if a > b:
+                if a >= 2:
+                    result.append('aa')
+                    a -= 2
+                else:
+                    result.append('a')
+                    a -= 1
+                if b > 0:
+                    result.append('b')
+                    b -= 1
+            elif b > a:
+                if b >= 2:
+                    result.append('bb')
+                    b -= 2
+                else:
+                    result.append('b')
+                    b -= 1
+                if a > 0:
+                    result.append('a')
+                    a -= 1
+            else:  # a == b
+                result.append('a')
+                a -= 1
+                result.append('b')
+                b -= 1
+        
+        return ''.join(result)
+
+
+
 
