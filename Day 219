@@ -1,1 +1,24 @@
+#First Problem (979)
+class Solution(object):
+    def distributeCoins(self, root):
+        self.moves = 0
+        
+        def dfs(node):
+            if not node:
+                return 0
+            
+            left_balance = dfs(node.left)
+            right_balance = dfs(node.right)
+            
+            balance = node.val + left_balance + right_balance - 1
+            
+            self.moves += abs(balance)
+            
+            return balance
+        
+        dfs(root)
+        return self.moves
+
+
+
 
