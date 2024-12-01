@@ -20,4 +20,29 @@ class Solution(object):
 
 
 
+#Second Problem (988)
+class Solution(object):
+    def smallestFromLeaf(self, root):
+        def dfs(node, path):
+            if not node:
+                return
+            
+            path.append(chr(node.val + ord('a')))
+            
+            if not node.left and not node.right:
+                candidate = ''.join(reversed(path))
+                if smallest[0] is None or candidate < smallest[0]:
+                    smallest[0] = candidate
+            
+            dfs(node.left, path)
+            dfs(node.right, path)
+            
+            path.pop()
+        
+        smallest = [None]  
+        dfs(root, [])
+        return smallest[0]
+
+
+
 
