@@ -45,4 +45,42 @@ class Solution(object):
 
 
 
+#Third Problem (990)
+class UnionFind:
+    def __init__(self, size):
+        self.parent = list(range(size))
+    
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])  # Path compression
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+        if rootX != rootY:
+            self.parent[rootY] = rootX
+
+
+class Solution(object):
+    def equationsPossible(self, equations):
+        uf = UnionFind(26)  
+    
+        for eq in equations:
+            if eq[1] == '=':
+                x = ord(eq[0]) - ord('a')
+                y = ord(eq[3]) - ord('a')
+                uf.union(x, y)
+        
+        for eq in equations:
+            if eq[1] == '!':
+                x = ord(eq[0]) - ord('a')
+                y = ord(eq[3]) - ord('a')
+                if uf.find(x) == uf.find(y):
+                    return False
+        
+        return True
+
+
+
 
