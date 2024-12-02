@@ -14,4 +14,20 @@ class Solution(object):
 
 
 
+#Second Problem (1003)
+class Solution(object):
+    def isValid(self, s):
+        stack = []
+    
+        for char in s:
+            stack.append(char)
+            if len(stack) >= 3 and stack[-3:] == ['a', 'b', 'c']:
+                stack.pop() 
+                stack.pop()  
+                stack.pop()  
+        
+        return len(stack) == 0
+
+
+
 
