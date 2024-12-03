@@ -1,1 +1,26 @@
+#First Problem (1008)
+#         self.right = right
+class Solution(object):
+    def bstFromPreorder(self, preorder):
+        if not preorder:
+            return None
+        
+        root = TreeNode(preorder[0])
+        
+        def insert(node, val):
+            if not node:
+                return TreeNode(val)
+            if val < node.val:
+                node.left = insert(node.left, val)
+            else:
+                node.right = insert(node.right, val)
+            return node
+        
+        for value in preorder[1:]:
+            insert(root, value)
+        
+        return root
+
+
+
 
