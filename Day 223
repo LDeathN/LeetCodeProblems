@@ -80,4 +80,21 @@ class Solution(object):
 
 
 
+#Fifth Problem (1024)
+class Solution(object):
+    def videoStitching(self, clips, time):
+        clips.sort()
+    
+        current_end, next_end, count, i = 0, 0, 0, 0
+        while current_end < time:
+            while i < len(clips) and clips[i][0] <= current_end:
+                next_end = max(next_end, clips[i][1])
+                i += 1
+            if next_end == current_end:
+                return -1
+            count += 1
+            current_end = next_end
+        return count
 
+
+End of Day 223
