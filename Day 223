@@ -64,4 +64,20 @@ class Solution(object):
 
 
 
+#Fourth Problem (1023)
+class Solution(object):
+    def camelMatch(self, queries, pattern):
+        def matches(query, pattern):
+            i = 0  
+            for char in query:
+                if i < len(pattern) and char == pattern[i]:
+                    i += 1
+                elif char.isupper() and (i >= len(pattern) or char != pattern[i]):
+                    return False
+            return i == len(pattern)
+        
+        return [matches(query, pattern) for query in queries]
+
+
+
 
