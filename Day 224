@@ -71,4 +71,24 @@ class Solution(object):
 
 
 
+#Fifth Problem (1033)
+class Solution(object):
+    def numMovesStones(self, a, b, c):
+        x, y, z = sorted([a, b, c])
+    
+        gap1 = y - x
+        gap2 = z - y
+        
+        if gap1 == 1 and gap2 == 1:
+            min_moves = 0
+        elif gap1 <= 2 or gap2 <= 2:
+            min_moves = 1
+        else:
+            min_moves = 2
+        
+        max_moves = (gap1 - 1) + (gap2 - 1)
+        
+        return [min_moves, max_moves]
 
+
+End of Day 224
