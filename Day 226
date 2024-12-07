@@ -1,1 +1,19 @@
+#First Problem 1041
+class Solution(object):
+    def isRobotBounded(self, instructions):
+        x, y = 0, 0
+        dx, dy = 0, 1  
+
+        for instr in instructions:
+            if instr == 'G':  
+                x, y = x + dx, y + dy
+            elif instr == 'L':  
+                dx, dy = -dy, dx
+            elif instr == 'R':  
+                dx, dy = dy, -dx
+
+        return (x == 0 and y == 0) or (dx != 0 or dy != 1)
+
+
+
 
