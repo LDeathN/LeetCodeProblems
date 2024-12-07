@@ -1,1 +1,38 @@
+#First Problem (1034)
+class Solution(object):
+    def colorBorder(self, grid, row, col, color):
+        m, n = len(grid), len(grid[0])
+        original_color = grid[row][col]
+        visited = set()
+        borders = []
+
+        def is_border(x, y):
+            if x == 0 or x == m - 1 or y == 0 or y == n - 1:
+                return True
+            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nx, ny = x + dx, y + dy
+                if not (0 <= nx < m and 0 <= ny < n) or grid[nx][ny] != original_color:
+                    return True
+            return False
+
+        def dfs(x, y):
+            if (x, y) in visited:
+                return
+            visited.add((x, y))
+            if is_border(x, y):
+                borders.append((x, y))
+            for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < m and 0 <= ny < n and (nx, ny) not in visited and grid[nx][ny] == original_color:
+                    dfs(nx, ny)
+
+        dfs(row, col)
+
+        for x, y in borders:
+            grid[x][y] = color
+
+        return grid
+
+
+
 
