@@ -86,4 +86,28 @@ class Solution(object):
 
 
 
+#Fifth Problem (1040)
+class Solution(object):
+    def numMovesStonesII(self, stones):
+        stones.sort()
+        n = len(stones)
+        
+        max_moves = (stones[-1] - stones[0] + 1) - n
+        
+        max_moves -= min(stones[1] - stones[0] - 1, stones[-1] - stones[-2] - 1)
+        
+        min_moves = float('inf')
+        left = 0
+        for right in range(n):
+            while stones[right] - stones[left] + 1 > n:
+                left += 1
+            stones_in_window = right - left + 1
+            if stones_in_window == n - 1 and stones[right] - stones[left] + 1 == n - 1:
+                min_moves = min(min_moves, 2)
+            else:
+                min_moves = min(min_moves, n - stones_in_window)
+        
+        return [min_moves, max_moves]
 
+
+End of Day 225
