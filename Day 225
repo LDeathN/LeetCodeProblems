@@ -52,4 +52,20 @@ class Solution(object):
 
 
 
+#Third Problem (1038)
+class Solution(object):
+    def bstToGst(self, root):
+        def reverse_in_order(node, acc_sum):
+            if not node:
+                return acc_sum
+            acc_sum = reverse_in_order(node.right, acc_sum)
+            node.val += acc_sum
+            acc_sum = node.val
+            return reverse_in_order(node.left, acc_sum)
+
+        reverse_in_order(root, 0)
+        return root
+
+
+
 
