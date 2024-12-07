@@ -16,4 +16,25 @@ class Solution(object):
 
 
 
+#Second Problem 1042
+class Solution(object):
+    def gardenNoAdj(self, n, paths):
+        graph = [[] for _ in range(n)]
+        for x, y in paths:
+            graph[x - 1].append(y - 1)
+            graph[y - 1].append(x - 1)
+        
+        result = [0] * n
+        
+        for garden in range(n):
+            used = {result[neighbor] for neighbor in graph[garden]}
+            for flower in range(1, 5):
+                if flower not in used:
+                    result[garden] = flower
+                    break
+        
+        return result
+
+
+
 
