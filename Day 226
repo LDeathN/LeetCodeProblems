@@ -69,4 +69,27 @@ JOIN ProductCount p ON c.product_count = p.total_products;
 
 
 
+#Fifth Problem 1048
+class Solution(object):
+    def longestStrChain(self, words):
+        words.sort(key=len)
+    
+        dp = {}
+        
+        max_chain = 1
+        
+        for word in words:
+            dp[word] = 1  
+            
+            for i in range(len(word)):
+                predecessor = word[:i] + word[i+1:] 
+                
+                if predecessor in dp:
+                    dp[word] = max(dp[word], dp[predecessor] + 1)
+            
+            max_chain = max(max_chain, dp[word])
+        
+        return max_chain
 
+
+End of Day 226
