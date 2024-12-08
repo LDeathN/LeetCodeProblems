@@ -65,4 +65,28 @@ class Solution(object):
 
 
 
+#Fourth Problem (1054)
+class Solution(object):
+    def rearrangeBarcodes(self, barcodes):
+        freq = Counter(barcodes)
+    
+        max_heap = [(-count, barcode) for barcode, count in freq.items()]
+        heapq.heapify(max_heap)
+        
+        result = []
+        prev_count, prev_barcode = 0, 0  
+        
+        while max_heap:
+            count, barcode = heapq.heappop(max_heap)  
+            result.append(barcode)  
+            
+            if prev_count < 0:
+                heapq.heappush(max_heap, (prev_count, prev_barcode))
+            
+            prev_count, prev_barcode = count + 1, barcode  
+        
+        return result
+
+
+
 
