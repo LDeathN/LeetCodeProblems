@@ -16,4 +16,31 @@ class Solution(object):
 
 
 
+#Second Problem (1052)
+class Solution(object):
+    def maxSatisfied(self, customers, grumpy, minutes):
+        n = len(customers)
+    
+        base_satisfaction = sum(customers[i] for i in range(n) if grumpy[i] == 0)
+        
+        max_gain = 0
+        current_gain = 0
+        
+        for i in range(minutes):
+            if grumpy[i] == 1:
+                current_gain += customers[i]
+        
+        max_gain = current_gain
+        
+        for i in range(minutes, n):
+            if grumpy[i] == 1:
+                current_gain += customers[i]
+            if grumpy[i - minutes] == 1:
+                current_gain -= customers[i - minutes]
+            max_gain = max(max_gain, current_gain)
+        
+        return base_satisfaction + max_gain
+
+
+
 
