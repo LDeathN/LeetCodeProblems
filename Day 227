@@ -89,4 +89,39 @@ class Solution(object):
 
 
 
+#Fifth Problem (1061)
+class UnionFind:
+    def __init__(self):
+        self.parent = {chr(i): chr(i) for i in range(ord('a'), ord('z') + 1)}
+        self.rank = {chr(i): 0 for i in range(ord('a'), ord('z') + 1)}
+    
+    def find(self, x):
+        if self.parent[x] != x:
+            self.parent[x] = self.find(self.parent[x])  
+        return self.parent[x]
+    
+    def union(self, x, y):
+        rootX = self.find(x)
+        rootY = self.find(y)
+        if rootX != rootY:
+            if rootX < rootY:
+                self.parent[rootY] = rootX
+            else:
+                self.parent[rootX] = rootY
 
+
+class Solution(object):
+    def smallestEquivalentString(self, s1, s2, baseStr):
+        uf = UnionFind()
+    
+        for c1, c2 in zip(s1, s2):
+            uf.union(c1, c2)
+        
+        result = []
+        for c in baseStr:
+            result.append(uf.find(c))
+        
+        return ''.join(result)
+
+
+End of Day 227
