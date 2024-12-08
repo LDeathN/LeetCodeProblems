@@ -43,4 +43,26 @@ class Solution(object):
 
 
 
+#Third Problem (1053)
+class Solution(object):
+    def prevPermOpt1(self, arr):
+        n = len(arr)
+    
+        for i in range(n - 2, -1, -1):
+            if arr[i] > arr[i + 1]:
+                break
+        else:
+            return arr
+        
+        max_index = -1
+        for j in range(i + 1, n):
+            if arr[j] < arr[i] and (max_index == -1 or arr[j] > arr[max_index]):
+                max_index = j
+        
+        arr[i], arr[max_index] = arr[max_index], arr[i]
+        
+        return arr
+
+
+
 
