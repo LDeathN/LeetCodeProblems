@@ -36,4 +36,21 @@ class Solution(object):
 
 
 
+#Third Problem 1079
+class Solution(object):
+    def numTilePossibilities(self, tiles):
+        def backtrack(counter, count):
+            for char in counter:
+                if counter[char] > 0:
+                    count += 1
+                    counter[char] -= 1
+                    count = backtrack(counter, count)
+                    counter[char] += 1
+            return count
+
+        counter = Counter(tiles)
+        return backtrack(counter, 0)
+
+
+
 
