@@ -22,4 +22,18 @@ ON
 
 
 
+#Second Problem 1072
+class Solution(object):
+    from collections import Counter
+    def maxEqualRowsAfterFlips(self, matrix):
+        patterns = Counter()
+
+        for row in matrix:
+            pattern = tuple(x ^ row[0] for x in row)
+            patterns[pattern] += 1
+
+        return max(patterns.values())
+
+
+
 
