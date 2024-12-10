@@ -91,4 +91,23 @@ class Solution(object):
 
 
 
+#Fifth Problem 1109
+class Solution(object):
+    def corpFlightBookings(self, bookings, n):
+        diff = [0] * (n + 1)  
 
+        for first, last, seats in bookings:
+            diff[first - 1] += seats  
+            if last < n:
+                diff[last] -= seats  
+
+        result = [0] * n
+        current_seats = 0
+        for i in range(n):
+            current_seats += diff[i]
+            result[i] = current_seats
+
+        return result
+
+
+End of Day 229
