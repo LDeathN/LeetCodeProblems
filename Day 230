@@ -63,4 +63,29 @@ class Solution(object):
 
 
 
+#Fourth Problem 1124
+class Solution(object):
+    def longestWPI(self, hours):
+        score = [1 if h > 8 else -1 for h in hours]
+        
+        prefix_sum = 0
+        first_occurrence = {}
+        max_length = 0
+
+        for i, s in enumerate(score):
+            prefix_sum += s
+
+            if prefix_sum > 0:
+                max_length = i + 1
+            
+            elif prefix_sum - 1 in first_occurrence:
+                max_length = max(max_length, i - first_occurrence[prefix_sum - 1])
+            
+            if prefix_sum not in first_occurrence:
+                first_occurrence[prefix_sum] = i
+
+        return max_length
+
+
+
 
