@@ -88,4 +88,44 @@ class Solution(object):
 
 
 
+#Fifth Problem 1129
+class Solution(object):
+    def shortestAlternatingPaths(self, n, redEdges, blueEdges):
+        red_graph = defaultdict(list)
+        blue_graph = defaultdict(list)
+        
+        for u, v in redEdges:
+            red_graph[u].append(v)
+        for u, v in blueEdges:
+            blue_graph[u].append(v)
+        
+        queue = deque([(0, 0, 0), (0, 1, 0)])  
+        visited = set()
+        
+        distances = [[-1, -1] for _ in range(n)]
+        distances[0] = [0, 0]  
+        
+        while queue:
+            node, color, dist = queue.popleft()
+            if (node, color) in visited:
+                continue
+            visited.add((node, color))
+            
+            neighbors = blue_graph[node] if color == 0 else red_graph[node]
+            next_color = 1 - color
+            for neighbor in neighbors:
+                if distances[neighbor][next_color] == -1:  
+                    distances[neighbor][next_color] = dist + 1
+                    queue.append((neighbor, next_color, dist + 1))
+        
+        answer = []
+        for red_dist, blue_dist in distances:
+            if red_dist == -1 and blue_dist == -1:
+                answer.append(-1)
+            else:
+                answer.append(min(d for d in (red_dist, blue_dist) if d != -1))
+        
+        return answer
 
+
+End of Day 230
