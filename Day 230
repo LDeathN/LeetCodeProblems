@@ -22,4 +22,22 @@ class Solution(object):
 
 
 
+#Second Problem 1111
+class Solution(object):
+    def maxDepthAfterSplit(self, seq):
+        result = []
+        depth = 0  
+
+        for char in seq:
+            if char == '(':
+                result.append(depth % 2)
+                depth += 1
+            else: 
+                depth -= 1
+                result.append(depth % 2)
+        
+        return result
+
+
+
 
