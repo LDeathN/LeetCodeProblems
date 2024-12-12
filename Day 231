@@ -105,4 +105,27 @@ class Solution(object):
 
 
 
+#Fifth Problem 1140
+class Solution(object):
+    def stoneGameII(self, piles):
+        n = len(piles)
+        suffix_sum = [0] * (n + 1)
+        for i in range(n - 1, -1, -1):
+            suffix_sum[i] = suffix_sum[i + 1] + piles[i]
+        
+        dp = [[0] * (n + 1) for _ in range(n + 1)]
+        
+        for i in range(n - 1, -1, -1):
+            for m in range(1, n + 1):
+                max_diff = 0
+                for x in range(1, 2 * m + 1):
+                    if i + x >= n: 
+                        max_diff = max(max_diff, suffix_sum[i])
+                        break
+                    max_diff = max(max_diff, suffix_sum[i] - dp[i + x][max(m, x)])
+                dp[i][m] = max_diff
+        
+        return dp[0][1]
 
+
+End of Day 231
