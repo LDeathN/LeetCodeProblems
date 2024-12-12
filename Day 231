@@ -42,4 +42,38 @@ class Solution(object):
 
 
 
+#Third Problem 1138
+class Solution(object):
+    def alphabetBoardPath(self, target):
+        def get_position(char):
+            index = ord(char) - ord('a')
+            return index // 5, index % 5
+
+        x, y = 0, 0
+        result = []
+
+        for char in target:
+            nx, ny = get_position(char)
+      
+            if char == 'z' and x < nx:
+                result.append('L' * (y - ny))
+                result.append('D' * (nx - x))
+            else:
+                if nx < x:
+                    result.append('U' * (x - nx))
+                if nx > x:
+                    result.append('D' * (nx - x))
+                if ny < y:
+                    result.append('L' * (y - ny))
+                if ny > y:
+                    result.append('R' * (ny - y))
+            
+            result.append('!')
+            
+            x, y = nx, ny
+
+        return ''.join(result)
+
+
+
 
