@@ -95,3 +95,24 @@ class SnapshotArray(object):
             else:
                 high = mid - 1
         return best
+
+
+
+#Fifth Problem 1155
+class Solution(object):
+    def numRollsToTarget(self, n, k, target):
+        MOD = 10**9 + 7
+
+        dp = [[0] * (target + 1) for _ in range(n + 1)]
+        dp[0][0] = 1  
+
+        for i in range(1, n + 1):  
+            for j in range(1, target + 1):  
+                for f in range(1, k + 1):  
+                    if j - f >= 0: 
+                        dp[i][j] = (dp[i][j] + dp[i-1][j-f]) % MOD
+
+        return dp[n][target]
+
+
+End of Day 232
