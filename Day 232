@@ -37,4 +37,26 @@ class Solution(object):
 
 
 
+#Third Problem 1145
+class Solution(object):
+    def btreeGameWinningMove(self, root, n, x):
+        def count_nodes(node):
+            if not node:
+                return 0
+            return 1 + count_nodes(node.left) + count_nodes(node.right)
+        
+        def find_node(node, val):
+            if not node or node.val == val:
+                return node
+            return find_node(node.left, val) or find_node(node.right, val)
+        
+        x_node = find_node(root, x)
+        left = count_nodes(x_node.left)
+        right = count_nodes(x_node.right)
+        parent = n - (left + right + 1)  
+        
+        return max(left, right, parent) > n // 2
+
+
+
 
