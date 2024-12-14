@@ -59,4 +59,39 @@ class Solution(object):
 
 
 
+#Fourth Problem 1146
+class SnapshotArray(object):
 
+    def __init__(self, length):
+        self.snapshots = [collections.defaultdict(int) for _ in range(length)]
+        self.snap_id = 0
+        
+
+    def set(self, index, val):
+        self.snapshots[index][self.snap_id] = val
+        
+
+    def snap(self):
+        self.snap_id += 1
+        return self.snap_id - 1
+        
+
+    def get(self, index, snap_id):
+        snaps = self.snapshots[index]
+        if snap_id in snaps:
+            return snaps[snap_id]
+        keys = sorted(snaps.keys())
+        idx = self.binary_search(keys, snap_id)
+        return snaps[keys[idx]] if idx != -1 else 0
+    
+    def binary_search(self, keys, target):
+        low, high = 0, len(keys) - 1
+        best = -1
+        while low <= high:
+            mid = (low + high) // 2
+            if keys[mid] <= target:
+                best = mid
+                low = mid + 1
+            else:
+                high = mid - 1
+        return best
