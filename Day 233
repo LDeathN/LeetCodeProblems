@@ -94,4 +94,23 @@ FROM (SELECT DISTINCT product_id FROM Products) p;
 
 
 
+#Fifth Problem 1170
+class Solution(object):
+    def f(self, s):
+        smallest_char = min(s)
+        return s.count(smallest_char)
 
+    def numSmallerByFrequency(self, queries, words):
+        word_freqs = sorted(self.f(word) for word in words)  # Sort the frequencies of words
+    
+        result = []
+        for query in queries:
+            query_freq = self.f(query)  
+         
+            count = len(word_freqs) - bisect_right(word_freqs, query_freq)
+            result.append(count)
+        
+        return result
+
+
+End of Day 233
