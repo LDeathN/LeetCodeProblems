@@ -17,4 +17,37 @@ ORDER BY
 
 
 
+#Second Problem 1161
+class Solution(object):
+    def maxLevelSum(self, root):
+        if not root:
+            return 0
+        
+        queue = deque([(root, 1)])  
+        level_sums = {}
+        
+        while queue:
+            node, level = queue.popleft()
+            
+            if level in level_sums:
+                level_sums[level] += node.val
+            else:
+                level_sums[level] = node.val
+            
+            if node.left:
+                queue.append((node.left, level + 1))
+            if node.right:
+                queue.append((node.right, level + 1))
+        
+        max_sum = float('-inf')
+        result_level = 0
+        for level, total in level_sums.items():
+            if total > max_sum:
+                max_sum = total
+                result_level = level
+        
+        return result_level
+
+
+
 
