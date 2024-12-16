@@ -54,4 +54,32 @@ FROM
 
 
 
+#Third Problem 1177
+class Solution(object):
+    def canMakePaliQueries(self, s, queries):
+        n = len(s)
+        prefix = [[0] * 26 for _ in range(n + 1)]  
+        
+        for i in range(n):
+            for j in range(26):
+                prefix[i + 1][j] = prefix[i][j]  
+            prefix[i + 1][ord(s[i]) - ord('a')] += 1 
+        
+        result = []
+        for left, right, k in queries:
+            odd_count = 0
+            for j in range(26):
+                freq = prefix[right + 1][j] - prefix[left][j]
+                if freq % 2 != 0:
+                    odd_count += 1
+            
+            if odd_count // 2 <= k:
+                result.append(True)
+            else:
+                result.append(False)
+        
+        return result
+
+
+
 
