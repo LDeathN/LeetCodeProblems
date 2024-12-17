@@ -1,1 +1,30 @@
+#First Problem 1191
+class Solution(object):
+    def kConcatenationMaxSum(self, arr, k):
+        MOD = 10**9 + 7
+    
+        def kadane(array):
+            max_sum = 0
+            current_sum = 0
+            for num in array:
+                current_sum = max(num, current_sum + num)
+                max_sum = max(max_sum, current_sum)
+            return max_sum
+        
+        total_sum = sum(arr)
+        
+        kadane_single = kadane(arr)
+        
+        if k == 1:
+            return kadane_single % MOD
+        
+        kadane_double = kadane(arr * 2)
+        
+        if total_sum > 0:
+            return (kadane_double + (k - 2) * total_sum) % MOD
+        else:
+            return kadane_double % MOD
+
+
+
 
