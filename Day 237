@@ -1,1 +1,11 @@
+#First Problem 1227
+class Solution(object):
+    def nthPersonGetsNthSeat(self, n):
+        if n == 1:
+            return 1.0
+        else:
+            return 0.5
+
+
+
 
