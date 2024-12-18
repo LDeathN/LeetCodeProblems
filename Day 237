@@ -22,4 +22,31 @@ class Solution(object):
 
 
 
+#Third Problem 1234
+class Solution(object):
+    def balancedString(self, s):
+        n = len(s)
+        target = n // 4
+        count = Counter(s)
+        
+        excess = {char: max(0, count[char] - target) for char in "QWER"}
+        if all(value == 0 for value in excess.values()):
+            return 0
+        
+        left = 0
+        min_length = n
+        for right in range(n):
+            if s[right] in excess:
+                excess[s[right]] -= 1
+            
+            while all(value <= 0 for value in excess.values()):
+                min_length = min(min_length, right - left + 1)
+                if s[left] in excess:
+                    excess[s[left]] += 1
+                left += 1
+        
+        return min_length
+
+
+
 
