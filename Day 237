@@ -61,4 +61,22 @@ class Solution(object):
 
 
 
+#Fifth Problem 1239
+class Solution(object):
+    def maxLength(self, arr):
+        def has_unique_chars(s):
+            return len(s) == len(set(s))
+        
+        def backtrack(index, current, max_len):
+            max_len = max(max_len, len(current))
+            
+            for i in range(index, len(arr)):
+                if has_unique_chars(arr[i]) and not (set(current) & set(arr[i])):
+                    max_len = backtrack(i + 1, current + arr[i], max_len)
+            
+            return max_len
 
+        return backtrack(0, "", 0)
+
+
+End of Day 237
