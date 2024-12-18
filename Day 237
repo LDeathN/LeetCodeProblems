@@ -8,4 +8,18 @@ class Solution(object):
 
 
 
+#Second Problem 1233
+class Solution(object):
+    def removeSubfolders(self, folder):
+        folder.sort()
+        result = []
+        
+        for f in folder:
+            if not result or not f.startswith(result[-1] + '/'):
+                result.append(f)
+        
+        return result
+
+
+
 
