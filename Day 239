@@ -94,4 +94,19 @@ class Solution(object):
 
 
 
+#Fifth Problem 1276
+class Solution(object):
+    def numOfBurgers(self, tomatoSlices, cheeseSlices):
+        if tomatoSlices % 2 != 0:
+            return []
+        
+        J = (tomatoSlices - 2 * cheeseSlices) // 2
+        S = cheeseSlices - J
+        
+        if J < 0 or S < 0:
+            return []
+        
+        return [J, S]
 
+
+End of Day 239
