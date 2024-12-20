@@ -84,4 +84,39 @@ class Solution(object):
 
 
 
+#Fourth Problem 1253
+class Solution(object):
+    def reconstructMatrix(self, upper, lower, colsum):
+        n = len(colsum)
+        upper_row = [0] * n
+        lower_row = [0] * n
+
+        for i in range(n):
+            if colsum[i] == 2:
+                if upper > 0 and lower > 0:
+                    upper_row[i] = 1
+                    lower_row[i] = 1
+                    upper -= 1
+                    lower -= 1
+                else:
+                    return []  
+        
+        for i in range(n):
+            if colsum[i] == 1:
+                if upper > 0:
+                    upper_row[i] = 1
+                    upper -= 1
+                elif lower > 0:
+                    lower_row[i] = 1
+                    lower -= 1
+                else:
+                    return []  
+
+        if upper == 0 and lower == 0:
+            return [upper_row, lower_row]
+        else:
+            return [] 
+
+
+
 
