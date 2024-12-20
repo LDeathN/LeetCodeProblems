@@ -20,4 +20,35 @@ class FindElements(object):
 
 
 
+#Second Problem 1262
+class Solution(object):
+    def maxSumDivThree(self, nums):
+        mod1 = []
+        mod2 = []
+        total_sum = 0
+
+        for num in nums:
+            total_sum += num
+            if num % 3 == 1:
+                mod1.append(num)
+            elif num % 3 == 2:
+                mod2.append(num)
+        
+        mod1.sort()
+        mod2.sort()
+
+        remainder = total_sum % 3
+        if remainder == 0:
+            return total_sum
+        elif remainder == 1:
+            remove_one = mod1[0] if mod1 else float('inf')
+            remove_two = sum(mod2[:2]) if len(mod2) >= 2 else float('inf')
+            return total_sum - min(remove_one, remove_two)
+        elif remainder == 2:
+            remove_one = mod2[0] if mod2 else float('inf')
+            remove_two = sum(mod1[:2]) if len(mod1) >= 2 else float('inf')
+            return total_sum - min(remove_one, remove_two)
+
+
+
 
