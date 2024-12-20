@@ -49,4 +49,39 @@ class Solution(object):
 
 
 
+#Third Problem 1249
+class Solution(object):
+    def minRemoveToMakeValid(self, s):
+        result = []
+        open_count = 0
+
+        for char in s:
+            if char == '(':
+                open_count += 1
+                result.append(char)
+            elif char == ')':
+                if open_count > 0:  
+                    open_count -= 1
+                    result.append(char)
+            else:
+                result.append(char)  
+
+        final_result = []
+        open_count = 0
+
+        for char in reversed(result):
+            if char == '(':
+                if open_count > 0: 
+                    open_count -= 1
+                    final_result.append(char)
+            elif char == ')':
+                open_count += 1
+                final_result.append(char)
+            else:
+                final_result.append(char)  
+
+        return ''.join(reversed(final_result))
+
+
+
 
