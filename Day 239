@@ -75,4 +75,23 @@ class Solution(object):
 
 
 
+#Fourth Problem 1268
+class Solution(object):
+    def suggestedProducts(self, products, searchWord):
+        products.sort()
+    
+        result = []
+        prefix = ""
+        
+        for char in searchWord:
+            prefix += char
+            
+            matches = [product for product in products if product.startswith(prefix)]
+            
+            result.append(matches[:3])
+        
+        return result
+
+
+
 
