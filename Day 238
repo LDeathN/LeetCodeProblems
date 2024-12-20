@@ -24,4 +24,29 @@ class Solution(object):
 
 
 
+#Second Problem 1248
+class Solution(object):
+    def numberOfSubarrays(self, nums, k):
+        def atMostK(k):
+            count = 0
+            start = 0
+            odd_count = 0
+
+            for end in range(len(nums)):
+                if nums[end] % 2 == 1:  
+                    odd_count += 1
+
+                while odd_count > k:  
+                    if nums[start] % 2 == 1:
+                        odd_count -= 1
+                    start += 1
+
+                count += end - start + 1  
+
+            return count
+
+        return atMostK(k) - atMostK(k - 1)
+
+
+
 
