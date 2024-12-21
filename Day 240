@@ -15,3 +15,25 @@ class Solution(object):
                     total_squares += dp[i][j]
         
         return total_squares
+
+
+
+#Second Problem 1282
+class Solution(object):
+    def groupThePeople(self, groupSizes):
+        from collections import defaultdict
+
+        size_to_people = defaultdict(list)
+        result = []
+
+        for person, group_size in enumerate(groupSizes):
+            size_to_people[group_size].append(person)
+            if len(size_to_people[group_size]) == group_size:
+                result.append(size_to_people[group_size])
+                size_to_people[group_size] = [] 
+
+        return result
+
+
+
+
