@@ -73,4 +73,20 @@ class CombinationIterator(object):
 
 
 
+#Fifth Problem 1288
+class Solution(object):
+    def removeCoveredIntervals(self, intervals):
+        intervals.sort(key=lambda x: (x[0], -x[1]))
+    
+        remaining_intervals = 0
+        max_end = 0
+        
+        for _, end in intervals:
+            if end > max_end:
+                remaining_intervals += 1
+                max_end = end 
+        
+        return remaining_intervals
 
+
+End of Day 240
