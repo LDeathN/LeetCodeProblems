@@ -96,4 +96,31 @@ class Solution(object):
 
 
 
+#Fifth Problem 1300
+class Solution(object):
+    def findBestValue(self, arr, target):
+        def compute_sum(value):
+            return sum(min(x, value) for x in arr)
 
+        left, right = 0, max(arr)
+        closest_value = right
+        closest_diff = float('inf')
+
+        while left <= right:
+            mid = (left + right) // 2
+            current_sum = compute_sum(mid)
+            current_diff = abs(current_sum - target)
+
+            if current_diff < closest_diff or (current_diff == closest_diff and mid < closest_value):
+                closest_value = mid
+                closest_diff = current_diff
+
+            if current_sum < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return closest_value
+
+
+End of Day 241
