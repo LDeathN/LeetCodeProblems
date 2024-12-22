@@ -80,4 +80,20 @@ class Solution(object):
 
 
 
+#Fourth Problem 1297
+class Solution(object):
+    def maxFreq(self, s, maxLetters, minSize, maxSize):
+        substring_count = Counter()
+        max_occurrences = 0
+        
+        for i in range(len(s) - minSize + 1):
+            substring = s[i:i + minSize]
+            if len(set(substring)) <= maxLetters:
+                substring_count[substring] += 1
+                max_occurrences = max(max_occurrences, substring_count[substring])
+        
+        return max_occurrences
+
+
+
 
