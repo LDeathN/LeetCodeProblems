@@ -60,4 +60,24 @@ class Solution(object):
 
 
 
+#Third Problem 1296
+class Solution(object):
+    def isPossibleDivide(self, nums, k):
+        if len(nums) % k != 0:
+            return False
+        
+        count = Counter(nums)
+        
+        for num in sorted(count):
+            if count[num] > 0: 
+                freq = count[num]
+                for i in range(num, num + k):
+                    if count[i] < freq:  
+                        return False
+                    count[i] -= freq  
+        
+        return True
+
+
+
 
