@@ -93,4 +93,31 @@ class Solution(object):
 
 
 
+#Fifth Problem 1311
+class Solution(object):
+    def watchedVideosByFriends(self, watchedVideos, friends, id, level):
+        visited = set()
+        queue = deque([(id, 0)])  
+        visited.add(id)
+        level_friends = []
+
+        while queue:
+            current, cur_level = queue.popleft()
+            if cur_level == level:
+                level_friends.append(current)
+            elif cur_level < level:
+                for friend in friends[current]:
+                    if friend not in visited:
+                        visited.add(friend)
+                        queue.append((friend, cur_level + 1))
+
+        video_count = Counter()
+        for friend in level_friends:
+            video_count.update(watchedVideos[friend])
+
+        sorted_videos = sorted(video_count.keys(), key=lambda x: (video_count[x], x))
+        return sorted_videos
+
+
+End of Day 242
 
