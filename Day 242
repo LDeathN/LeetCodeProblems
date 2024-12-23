@@ -48,4 +48,29 @@ class Solution(object):
 
 
 
+#Third Problem 1306
+class Solution(object):
+    def canReach(self, arr, start):
+        n = len(arr)
+        queue = deque([start])  
+        visited = set()  
+
+        while queue:
+            current = queue.popleft()
+
+            if arr[current] == 0:
+                return True
+
+            if current in visited:
+                continue
+            visited.add(current)
+
+            for next_index in [current + arr[current], current - arr[current]]:
+                if 0 <= next_index < n and next_index not in visited:
+                    queue.append(next_index)
+
+        return False
+
+
+
 
