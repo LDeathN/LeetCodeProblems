@@ -1,1 +1,21 @@
+#First Problem 1302
+class Solution(object):
+    def deepestLeavesSum(self, root):
+        def dfs(node, depth, max_depth, deepest_sum):
+            if not node:
+                return max_depth, deepest_sum
+            if depth > max_depth:
+                max_depth = depth
+                deepest_sum = node.val
+            elif depth == max_depth:
+                deepest_sum += node.val
+            max_depth, deepest_sum = dfs(node.left, depth + 1, max_depth, deepest_sum)
+            max_depth, deepest_sum = dfs(node.right, depth + 1, max_depth, deepest_sum)
+            return max_depth, deepest_sum
+
+        _, deepest_sum = dfs(root, 0, -1, 0)
+        return deepest_sum
+
+
+
 
