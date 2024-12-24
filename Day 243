@@ -25,4 +25,22 @@ class Solution(object):
 
 
 
+#Second Problem 1315
+class Solution(object):
+    def sumEvenGrandparent(self, root):
+        def dfs(node, parent, grandparent):
+            if not node:
+                return 0
+            
+            grandparent_sum = node.val if grandparent and grandparent.val % 2 == 0 else 0
+            
+            grandparent_sum += dfs(node.left, node, parent)
+            grandparent_sum += dfs(node.right, node, parent)
+            
+            return grandparent_sum
+        
+        return dfs(root, None, None)
+
+
+
 
