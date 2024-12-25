@@ -64,4 +64,29 @@ class Solution(object):
 
 
 
+#Fifth Problem 1334
+class Solution(object):
+    def findTheCity(self, n, edges, distanceThreshold):
+        dist = [[float('inf')] * n for _ in range(n)]
+        for i in range(n):
+            dist[i][i] = 0  
+        for u, v, w in edges:
+            dist[u][v] = w
+            dist[v][u] = w
+        
+        for k in range(n):
+            for i in range(n):
+                for j in range(n):
+                    if dist[i][j] > dist[i][k] + dist[k][j]:
+                        dist[i][j] = dist[i][k] + dist[k][j]
+        
+        reachable = []
+        for i in range(n):
+            count = sum(1 for j in range(n) if dist[i][j] <= distanceThreshold)
+            reachable.append((count, i))
+        
+        reachable.sort(key=lambda x: (x[0], -x[1]))
+        return reachable[0][1]
 
+
+End of Day 244
