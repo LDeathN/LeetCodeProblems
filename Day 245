@@ -19,4 +19,30 @@ class Solution(object):
 
 
 
+#Second Problem 1339
+class Solution(object):
+    def maxProduct(self, root):
+        MOD = 10**9 + 7
+        
+        def calculate_total_sum(node):
+            if not node:
+                return 0
+            return node.val + calculate_total_sum(node.left) + calculate_total_sum(node.right)
+        
+        total_sum = calculate_total_sum(root)
+        
+        def calculate_subtree_sum(node, max_product):
+            if not node:
+                return 0
+            subtree_sum = node.val + calculate_subtree_sum(node.left, max_product) + calculate_subtree_sum(node.right, max_product)
+            max_product[0] = max(max_product[0], subtree_sum * (total_sum - subtree_sum))
+            return subtree_sum
+        
+        max_product = [0]  
+        calculate_subtree_sum(root, max_product)
+        
+        return max_product[0] % MOD
+
+
+
 
