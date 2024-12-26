@@ -1,1 +1,22 @@
+#First Problem 1338
+class Solution(object):
+    def minSetSize(self, arr):
+        freq = Counter(arr)
+    
+        frequencies = sorted(freq.values(), reverse=True)
+        
+        target = len(arr) // 2
+        removed = 0
+        count = 0
+        
+        for f in frequencies:
+            removed += f
+            count += 1
+            if removed >= target:
+                break
+        
+        return count
+
+
+
 
