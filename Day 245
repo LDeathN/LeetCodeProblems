@@ -45,4 +45,53 @@ class Solution(object):
 
 
 
+#Third Problem 1341
+WITH UserMovieCount AS (
+    SELECT
+        u.name AS user_name,
+        COUNT(mr.movie_id) AS movie_count
+    FROM
+        Users u
+        JOIN MovieRating mr ON u.user_id = mr.user_id
+    GROUP BY
+        u.user_id, u.name
+),
+MovieAvgRating AS (
+    SELECT
+        m.title AS movie_name,
+        AVG(mr.rating) AS avg_rating
+    FROM
+        Movies m
+        JOIN MovieRating mr ON m.movie_id = mr.movie_id
+    WHERE
+        mr.created_at BETWEEN '2020-02-01' AND '2020-02-29'
+    GROUP BY
+        m.movie_id, m.title
+)
+SELECT
+    (
+        SELECT
+            user_name
+        FROM
+            UserMovieCount
+        ORDER BY
+            movie_count DESC,
+            user_name ASC
+        LIMIT 1
+    ) AS results
+UNION ALL
+SELECT
+    (
+        SELECT
+            movie_name
+        FROM
+            MovieAvgRating
+        ORDER BY
+            avg_rating DESC,
+            movie_name ASC
+        LIMIT 1
+    ) AS results;
+
+
+
 
