@@ -103,4 +103,23 @@ class Solution(object):
 
 
 
+#Fifth Problem 1358
+class Solution(object):
+    def numberOfSubstrings(self, s):
+        left = 0
+        char_count = defaultdict(int)
+        total_count = 0
 
+        for right in range(len(s)):
+            char_count[s[right]] += 1
+
+            while all(char_count[char] > 0 for char in 'abc'):
+                total_count += len(s) - right
+
+                char_count[s[left]] -= 1
+                left += 1
+
+        return total_count
+
+
+End of Day 246
