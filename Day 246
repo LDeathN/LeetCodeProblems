@@ -1,1 +1,16 @@
+#First Problem 1347
+class Solution(object):
+    def minSteps(self, s, t):
+        count_s = Counter(s)
+        count_t = Counter(t)
+        
+        replacements = 0
+        for char, freq in count_s.items():
+            if freq > count_t[char]:
+                replacements += freq - count_t[char]
+        
+        return replacements
+
+
+
 
