@@ -39,4 +39,23 @@ class Solution(object):
 
 
 
+#Second Problem 1362
+class Solution(object):
+    def closestDivisors(self, num):
+        def findClosestDivisors(target):
+            import math
+            for i in range(int(math.sqrt(target)), 0, -1):
+                if target % i == 0:
+                    return (i, target // i)
+
+        candidates1 = findClosestDivisors(num + 1)
+        candidates2 = findClosestDivisors(num + 2)
+
+        if abs(candidates1[0] - candidates1[1]) < abs(candidates2[0] - candidates2[1]):
+            return list(candidates1)
+        else:
+            return list(candidates2)
+
+
+
 
