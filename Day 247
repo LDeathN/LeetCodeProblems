@@ -58,4 +58,16 @@ class Solution(object):
 
 
 
+#Third Problem 1366
+class Solution(object):
+    def rankTeams(self, votes):
+        from collections import defaultdict
 
+        rank = {team: [0] * len(votes[0]) + [team] for team in votes[0]}
+
+        for vote in votes:
+            for i, team in enumerate(vote):
+                rank[team][i] -= 1
+
+        sorted_teams = sorted(rank.keys(), key=lambda x: rank[x])
+        return "".join(sorted_teams)
