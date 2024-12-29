@@ -1,1 +1,42 @@
+#First Problem 1361
+class Solution(object):
+    def validateBinaryTreeNodes(self, n, leftChild, rightChild):
+        in_degree = [0] * n
+
+        for i in range(n):
+            if leftChild[i] != -1:
+                in_degree[leftChild[i]] += 1
+            if rightChild[i] != -1:
+                in_degree[rightChild[i]] += 1
+
+        root = -1
+        for i in range(n):
+            if in_degree[i] == 0:
+                if root == -1:
+                    root = i
+                else:
+                    return False
+
+        if root == -1:
+            return False
+
+        visited = [False] * n
+        queue = [root]
+
+        while queue:
+            node = queue.pop(0)
+            if visited[node]:
+                return False
+
+            visited[node] = True
+
+            if leftChild[node] != -1:
+                queue.append(leftChild[node])
+            if rightChild[node] != -1:
+                queue.append(rightChild[node])
+
+        return all(visited)
+
+
+
 
