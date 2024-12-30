@@ -34,4 +34,24 @@ class Solution(object):
 
 
 
+#Third Problem 1376
+class Solution(object):
+    def numOfMinutes(self, n, headID, manager, informTime):
+        subordinates = defaultdict(list)
+        for employee, mgr in enumerate(manager):
+            if mgr != -1:
+                subordinates[mgr].append(employee)
+        
+        def dfs(emp_id):
+            if not subordinates[emp_id]:  
+                return 0
+            max_time = 0
+            for sub in subordinates[emp_id]:
+                max_time = max(max_time, dfs(sub))
+            return informTime[emp_id] + max_time
+
+        return dfs(headID)
+
+
+
 
