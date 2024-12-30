@@ -19,4 +19,19 @@ class Solution(object):
 
 
 
+#Second Problem 1375
+class Solution(object):
+    def numTimesAllBlue(self, flips):
+        max_flipped = 0
+        count = 0
+
+        for i, flip in enumerate(flips, 1):
+            max_flipped = max(max_flipped, flip)
+            if max_flipped == i:
+                count += 1
+
+        return count
+
+
+
 
