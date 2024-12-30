@@ -77,4 +77,30 @@ class Solution(object):
 
 
 
+#Fifth Problem 1386
+class Solution(object):
+    def maxNumberOfFamilies(self, n, reservedSeats):
+        reserved = defaultdict(set)
+        for row, seat in reservedSeats:
+            reserved[row].add(seat)
 
+        max_groups = 0
+
+        for row in reserved:
+            reserved_set = reserved[row]
+
+            left_block = all(seat not in reserved_set for seat in range(2, 6))
+            right_block = all(seat not in reserved_set for seat in range(6, 10))
+            middle_block = all(seat not in reserved_set for seat in range(4, 8))
+
+            if left_block and right_block:
+                max_groups += 2
+            elif left_block or right_block or middle_block:
+                max_groups += 1
+
+        max_groups += 2 * (n - len(reserved))
+
+        return max_groups
+
+
+End of Day 248
