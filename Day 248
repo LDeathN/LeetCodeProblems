@@ -1,1 +1,22 @@
+#First Problem 1372
+class Solution(object):
+    def longestZigZag(self, root):
+        def dfs(node, is_left, length, max_length):
+            if not node:
+                return
+            max_length[0] = max(max_length[0], length)
+            if is_left:
+                dfs(node.left, False, length + 1, max_length)
+                dfs(node.right, True, 1, max_length)
+            else:
+                dfs(node.right, True, length + 1, max_length)
+                dfs(node.left, False, 1, max_length)
+        
+        max_length = [0]  
+        dfs(root, True, 0, max_length)  
+        dfs(root, False, 0, max_length)  
+        return max_length[0]
+
+
+
 
