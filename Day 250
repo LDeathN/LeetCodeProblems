@@ -73,4 +73,23 @@ class Solution(object):
 
 
 
+#Fifth Problem 1414
+class Solution(object):
+    def findMinFibonacciNumbers(self, k):
+        fib = [1, 1]
+        while fib[-1] <= k:
+            fib.append(fib[-1] + fib[-2])
+        
+        count = 0
+        idx = len(fib) - 1  
+        while k > 0:
+            if fib[idx] <= k:
+                k -= fib[idx]
+                count += 1
+            else:
+                idx -= 1 
+        
+        return count
 
+
+End of Day 250
