@@ -1,1 +1,22 @@
+#First Problem 1415
+class Solution(object):
+    def getHappyString(self, n, k):
+        def helper(n, k, last_char):
+            if n == 0:
+                return ""
+            
+            chunk_size = 2 ** (n - 1)
+            for char in ['a', 'b', 'c']:
+                if char != last_char:
+                    if k <= chunk_size:
+                        return char + helper(n - 1, k, char)
+                    k -= chunk_size
+            
+            return ""
+        
+        total_happy_strings = 3 * (2 ** (n - 1))  
+        return helper(n, k, "") if k <= total_happy_strings else ""
+
+
+
 
