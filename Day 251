@@ -44,4 +44,41 @@ class Solution(object):
 
 
 
+#Third Problem 1419
+class Solution(object):
+    def minNumberOfFrogs(self, croakOfFrogs):
+        if len(croakOfFrogs) % 5 != 0:
+            return -1  
+
+        croak_map = {'c': 0, 'r': 1, 'o': 2, 'a': 3, 'k': 4}
+        counts = [0] * 5  
+        active_frogs = 0  
+        max_frogs = 0  
+
+        for char in croakOfFrogs:
+            if char not in croak_map:
+                return -1 
+
+            index = croak_map[char]
+
+            if index > 0:
+                if counts[index - 1] == 0:
+                    return -1  
+                counts[index - 1] -= 1  
+
+            counts[index] += 1  
+
+            if char == 'c': 
+                active_frogs += 1
+                max_frogs = max(max_frogs, active_frogs)
+            elif char == 'k':  
+                active_frogs -= 1
+
+        if sum(counts[:-1]) != 0:
+            return -1
+
+        return max_frogs
+
+
+
 
