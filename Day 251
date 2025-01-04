@@ -19,4 +19,29 @@ class Solution(object):
 
 
 
+#Second Problem 1418
+class Solution(object):
+    def displayTable(self, orders):
+        food_items = set()
+        table_counts = defaultdict(lambda: defaultdict(int))
+
+        for _, table, food in orders:
+            food_items.add(food)
+            table_counts[table][food] += 1
+
+        sorted_food_items = sorted(food_items)
+        sorted_tables = sorted(table_counts.keys(), key=int)
+
+        result = [["Table"] + sorted_food_items]
+
+        for table in sorted_tables:
+            row = [table]
+            for food in sorted_food_items:
+                row.append(str(table_counts[table].get(food, 0)))
+            result.append(row)
+
+        return result
+
+
+
 
