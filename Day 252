@@ -1,1 +1,27 @@
+#First Problem 1432
+class Solution(object):
+    def maxDiff(self, num):
+        num_str = str(num)
+
+        for digit in num_str:
+            if digit != '9':
+                a = int(num_str.replace(digit, '9'))
+                break
+        else:
+            a = num
+
+        if num_str[0] != '1':
+            b = int(num_str.replace(num_str[0], '1'))
+        else:
+            for digit in num_str[1:]:
+                if digit != '0' and digit != '1':
+                    b = int(num_str.replace(digit, '0'))
+                    break
+            else:
+                b = num
+
+        return a - b
+
+
+
 
