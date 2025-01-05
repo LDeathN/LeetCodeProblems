@@ -24,4 +24,18 @@ class Solution(object):
 
 
 
+#Second Problem 1433
+class Solution(object):
+    def checkIfCanBreak(self, s1, s2):
+        s1_sorted = sorted(s1)
+        s2_sorted = sorted(s2)
+        
+        can_s1_break_s2 = all(c1 >= c2 for c1, c2 in zip(s1_sorted, s2_sorted))
+        
+        can_s2_break_s1 = all(c2 >= c1 for c1, c2 in zip(s1_sorted, s2_sorted))
+        
+        return can_s1_break_s2 or can_s2_break_s1
+
+
+
 
