@@ -89,4 +89,24 @@ class Solution(object):
 
 
 
+#Fifth Problem 1442
+class Solution(object):
+    def countTriplets(self, arr):
+        prefixXor = 0
+        count = 0
+        freq = {0: 1} 
+        sum_indices = {0: 0}  
+        
+        for k, value in enumerate(arr):
+            prefixXor ^= value 
+            
+            if prefixXor in freq:
+                count += freq[prefixXor] * k - sum_indices[prefixXor]
+            
+            freq[prefixXor] = freq.get(prefixXor, 0) + 1
+            sum_indices[prefixXor] = sum_indices.get(prefixXor, 0) + k + 1
+        
+        return count
 
+
+End of Day 252
