@@ -19,4 +19,20 @@ class Solution(object):
 
 
 
+#Second Problem 1447
+class Solution(object):
+    def simplifiedFractions(self, n):
+        def gcd(a, b):
+            while b != 0:
+                a, b = b, a % b
+            return a
+        result = []
+        for denominator in range(2, n + 1):  
+            for numerator in range(1, denominator):  
+                if gcd(numerator, denominator) == 1:  
+                    result.append(str(numerator) + "/" + str(denominator)) 
+        return result
+
+
+
 
