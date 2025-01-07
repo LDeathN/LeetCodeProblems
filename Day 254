@@ -53,4 +53,26 @@ class Solution(object):
 
 
 
+#Fourth Problem 1462
+class Solution(object):
+    def checkIfPrerequisite(self, numCourses, prerequisites, queries):
+        reachable = [[False] * numCourses for _ in range(numCourses)]
+    
+        for a, b in prerequisites:
+            reachable[a][b] = True
+        
+        for k in range(numCourses):
+            for i in range(numCourses):
+                for j in range(numCourses):
+                    if reachable[i][k] and reachable[k][j]:
+                        reachable[i][j] = True
+        
+        result = []
+        for u, v in queries:
+            result.append(reachable[u][v])
+        
+        return result
+
+
+
 
