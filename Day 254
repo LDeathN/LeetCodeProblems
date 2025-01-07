@@ -39,4 +39,18 @@ class Solution(object):
 
 
 
+#Third Problem 1461
+class Solution(object):
+    def hasAllCodes(self, s, k):
+        seen = set()
+        n = len(s)
+        
+        for i in range(n - k + 1):
+            substring = s[i:i + k]
+            seen.add(substring)
+        
+        return len(seen) == 2**k
+
+
+
 
