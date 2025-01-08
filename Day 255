@@ -79,4 +79,36 @@ class SubrectangleQueries(object):
 
 
 
+#Fifth Problem 1477
+class Solution(object):
+    def minSumOfLengths(self, arr, target):
+        n = len(arr)
+        min_length = [float('inf')] * n  
+        left, curr_sum = 0, 0
+        min_len = float('inf')  
 
+        for right in range(n):
+            curr_sum += arr[right]
+            while curr_sum > target:
+                curr_sum -= arr[left]
+                left += 1
+            if curr_sum == target:
+                min_length[right] = right - left + 1
+            if right > 0:
+                min_length[right] = min(min_length[right], min_length[right - 1])
+
+        curr_sum = 0
+        left = 0
+        for right in range(n):
+            curr_sum += arr[right]
+            while curr_sum > target:
+                curr_sum -= arr[left]
+                left += 1
+            if curr_sum == target:
+                if left > 0 and min_length[left - 1] != float('inf'):
+                    min_len = min(min_len, (right - left + 1) + min_length[left - 1])
+
+        return min_len if min_len != float('inf') else -1
+
+
+End of Day 255
