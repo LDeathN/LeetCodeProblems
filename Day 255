@@ -1,1 +1,26 @@
+#First Problem 1466
+class Solution(object):
+    def minReorder(self, n, connections):
+        graph = defaultdict(list)
+        for a, b in connections:
+            graph[a].append((b, 1))  
+            graph[b].append((a, 0))  
+
+        queue = deque([0])
+        visited = set()
+        visited.add(0)
+        reorder_count = 0
+
+        while queue:
+            current = queue.popleft()
+            for neighbor, direction in graph[current]:
+                if neighbor not in visited:
+                    visited.add(neighbor)
+                    reorder_count += direction  
+                    queue.append(neighbor)
+
+        return reorder_count
+
+
+
 
