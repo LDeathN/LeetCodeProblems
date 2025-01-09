@@ -1,1 +1,21 @@
+#First Problem 1481
+class Solution(object):
+    def findLeastNumOfUniqueInts(self, arr, k):
+        freq = Counter(arr)
+    
+        heap = list(freq.values())
+        heapq.heapify(heap)
+        
+        while k > 0:
+            smallest = heapq.heappop(heap)
+            if k >= smallest:
+                k -= smallest
+            else:
+                heapq.heappush(heap, smallest - k)
+                break
+        
+        return len(heap)
+
+
+
 
