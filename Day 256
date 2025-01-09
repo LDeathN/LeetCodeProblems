@@ -78,4 +78,34 @@ class Solution(object):
 
 
 
+#Fourth Problem 1488
+class Solution(object):
+    def avoidFlood(self, rains):
+        n = len(rains)
+        lake_map = {}
+        dry_days = []
+        ans = [-1] * n  
+
+        for i in range(n):
+            if rains[i] > 0:
+                lake = rains[i]
+                if lake in lake_map:
+                    idx = -1
+                    for j, day in enumerate(dry_days):
+                        if day > lake_map[lake]:
+                            idx = j
+                            break
+                    if idx == -1:
+                        return []  
+                    ans[dry_days[idx]] = lake
+                    dry_days.pop(idx)
+                lake_map[lake] = i
+            else:
+                dry_days.append(i)
+                ans[i] = 1  
+
+        return ans
+
+
+
 
