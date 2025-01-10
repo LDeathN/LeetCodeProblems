@@ -86,4 +86,35 @@ class Solution(object):
 
 
 
+#Fifth Problem 1519
+class Solution(object):
+    def countSubTrees(self, n, edges, labels):
+        tree = defaultdict(list)
+        for a, b in edges:
+            tree[a].append(b)
+            tree[b].append(a)
+        
+        result = [0] * n
 
+        def dfs(node, parent):
+            label_count = [0] * 26
+            current_label = ord(labels[node]) - ord('a')
+            
+            label_count[current_label] += 1
+            
+            for neighbor in tree[node]:
+                if neighbor == parent:
+                    continue
+                child_count = dfs(neighbor, node)
+                
+                for i in range(26):
+                    label_count[i] += child_count[i]
+            
+            result[node] = label_count[current_label]
+            return label_count
+        
+        dfs(0, -1)
+        return result
+
+
+End of Day 258
