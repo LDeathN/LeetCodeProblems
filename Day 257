@@ -80,4 +80,33 @@ class Solution(object):
 
 
 
+#Fifth Problem 1504
+class Solution(object):
+    def numSubmat(self, mat):
+        m, n = len(mat), len(mat[0])
+    
+        heights = [[0] * n for _ in range(m)]
+        for i in range(m):
+            for j in range(n):
+                if mat[i][j] == 1:
+                    heights[i][j] = heights[i - 1][j] + 1 if i > 0 else 1
+        
+        total = 0
+        for i in range(m):
+            stack = []
+            count = [0] * n 
+            
+            for j in range(n):
+                width = 1
+                while stack and stack[-1][0] >= heights[i][j]:
+                    h, w = stack.pop()
+                    width += w
+                
+                stack.append((heights[i][j], width))
+                count[j] = sum(h * w for h, w in stack)
+                total += count[j]
+        
+        return total
 
+
+End of Day 257
