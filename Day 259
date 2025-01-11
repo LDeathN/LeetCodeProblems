@@ -22,4 +22,28 @@ class Solution(object):
 
 
 
+#Second Problem 1525
+class Solution(object):
+    def numSplits(self, s):
+        n = len(s)
+        if n < 2:
+            return 0
+
+        suffix_distinct = [0] * n
+        seen = set()
+        for i in range(n - 1, -1, -1):
+            seen.add(s[i])
+            suffix_distinct[i] = len(seen)
+
+        seen = set()
+        result = 0
+        for i in range(n - 1):
+            seen.add(s[i])
+            if len(seen) == suffix_distinct[i + 1]:
+                result += 1
+
+        return result
+
+
+
 
