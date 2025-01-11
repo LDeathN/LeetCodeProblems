@@ -61,4 +61,37 @@ class Solution(object):
 
 
 
+#Fourth Problem 1530
+class Solution(object):
+    def countPairs(self, root, distance):
+        def dfs(node):
+            if not node:
+                return [0] * (distance + 1)
+            
+            if not node.left and not node.right:  
+                dist = [0] * (distance + 1)
+                dist[1] = 1 
+                return dist
+            
+            left_dist = dfs(node.left)
+            right_dist = dfs(node.right)
+            
+            for l in range(1, distance + 1):
+                for r in range(1, distance + 1):
+                    if l + r <= distance:
+                        good_pairs[0] += left_dist[l] * right_dist[r]
+            
+            current_dist = [0] * (distance + 1)
+            for i in range(1, distance): 
+                current_dist[i + 1] += left_dist[i]
+                current_dist[i + 1] += right_dist[i]
+            
+            return current_dist
+        
+        good_pairs = [0]  
+        dfs(root)
+        return good_pairs[0]
+
+
+
 
