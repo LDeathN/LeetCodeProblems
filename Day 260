@@ -33,4 +33,26 @@ class Solution(object):
 
 
 
+#Second Problem 1540
+class Solution(object):
+    def canConvertString(self, s, t, k):
+        if len(s) != len(t):
+            return False
+        
+        shift_count = [0] * 26
+        
+        for char_s, char_t in zip(s, t):
+            shift = (ord(char_t) - ord(char_s) + 26) % 26
+            if shift > 0:  
+                shift_count[shift] += 1
+        
+        for shift in range(1, 26):  
+            max_moves_needed = (shift_count[shift] - 1) * 26 + shift
+            if max_moves_needed > k:
+                return False
+        
+        return True
+
+
+
 
