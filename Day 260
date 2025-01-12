@@ -104,4 +104,23 @@ class Solution(object):
 
 
 
+#Fifth Problem 1546
+class Solution(object):
+    def maxNonOverlapping(self, nums, target):
+        prefix_sum = 0
+        count = 0
+        seen = {0}  
 
+        for num in nums:
+            prefix_sum += num
+            if prefix_sum - target in seen:
+                count += 1
+                prefix_sum = 0
+                seen = {0}
+            else:
+                seen.add(prefix_sum)
+
+        return count
+
+
+End of Day 260
