@@ -10,4 +10,36 @@ class Solution(object):
 
 
 
+#Second Problem 1552
+class Solution(object):
+    def maxDistance(self, position, m):
+        position.sort()
+    
+        def canPlaceBalls(force):
+            count = 1  
+            last_position = position[0]
+            
+            for pos in position:
+                if pos - last_position >= force:
+                    count += 1
+                    last_position = pos
+                    if count == m:
+                        return True
+            return False
+        
+        low, high = 1, position[-1] - position[0]
+        answer = 0
+        
+        while low <= high:
+            mid = (low + high) // 2
+            if canPlaceBalls(mid):
+                answer = mid  
+                low = mid + 1  
+            else:
+                high = mid - 1  
+        
+        return answer
+
+
+
 
