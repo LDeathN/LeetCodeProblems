@@ -55,4 +55,25 @@ class Solution(object):
 
 
 
+#Fourth Problem 1558
+class Solution(object):
+    def minOperations(self, nums):
+        total_increments = 0
+        max_doublings = 0
+        
+        for num in nums:
+            doublings = 0
+            while num > 0:
+                if num % 2 == 1:  
+                    num -= 1
+                    total_increments += 1
+                else:  
+                    num //= 2
+                    doublings += 1
+            max_doublings = max(max_doublings, doublings)
+        
+        return total_increments + max_doublings
+
+
+
 
