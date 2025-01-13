@@ -1,1 +1,13 @@
+#First Problem 1551
+class Solution(object):
+    def minOperations(self, n):
+        if n % 2 == 0:
+            m = n // 2
+            return m * m
+        else:
+            m = n // 2
+            return m * (m + 1)
+
+
+
 
