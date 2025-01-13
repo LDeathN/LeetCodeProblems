@@ -76,4 +76,34 @@ class Solution(object):
 
 
 
+#Fifth Problem 1559
+class Solution(object):
+    def containsCycle(self, grid):
+        m, n = len(grid), len(grid[0])
+        visited = [[False] * n for _ in range(m)]
+        
+        def dfs(x, y, px, py, char, length):
+            if visited[x][y]:
+                return length >= 4
+            
+            visited[x][y] = True
+            
+            directions = [(0, 1), (1, 0), (0, -1), (-1, 0)]
+            for dx, dy in directions:
+                nx, ny = x + dx, y + dy
+                if 0 <= nx < m and 0 <= ny < n and (nx, ny) != (px, py) and grid[nx][ny] == char:
+                    if dfs(nx, ny, x, y, char, length + 1):
+                        return True
+            
+            return False
+        
+        for i in range(m):
+            for j in range(n):
+                if not visited[i][j]:
+                    if dfs(i, j, -1, -1, grid[i][j], 0):
+                        return True
+        
+        return False
 
+
+End of Day 261
