@@ -66,4 +66,34 @@ class Solution(object):
 
 
 
+#Fourth Problem 1573
+class Solution(object):
+    def numWays(self, s):
+        MOD = 10**9 + 7
+        total_ones = s.count('1')
+
+        if total_ones % 3 != 0:
+            return 0
+
+        if total_ones == 0:
+            n = len(s)
+            return ((n - 1) * (n - 2) // 2) % MOD
+
+        target = total_ones // 3
+        count_ones = 0
+        ways_s2 = ways_s3 = 0
+
+        for char in s:
+            if char == '1':
+                count_ones += 1
+
+            if count_ones == target:
+                ways_s2 += 1
+            elif count_ones == 2 * target:
+                ways_s3 += 1
+
+        return (ways_s2 * ways_s3) % MOD
+
+
+
 
