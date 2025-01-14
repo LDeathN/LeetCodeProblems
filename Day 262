@@ -44,4 +44,26 @@ class Solution(object):
 
 
 
+#Third Problem 1567
+class Solution(object):
+    def getMaxLen(self, nums):
+        positive_len = 0 
+        negative_len = 0  
+        max_len = 0    
+
+        for num in nums:
+            if num > 0:
+                positive_len += 1
+                negative_len = negative_len + 1 if negative_len > 0 else 0
+            elif num < 0:
+                positive_len, negative_len = (negative_len + 1 if negative_len > 0 else 0, positive_len + 1)
+            else:
+                positive_len = negative_len = 0  
+
+            max_len = max(max_len, positive_len) 
+
+        return max_len
+
+
+
 
