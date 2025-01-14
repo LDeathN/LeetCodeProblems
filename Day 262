@@ -12,4 +12,36 @@ class Solution(object):
 
 
 
+#Second Problem 1562
+class Solution(object):
+    def findLatestStep(self, arr, m):
+        n = len(arr)
+        if m == n:
+            return n 
+
+        length = [0] * (n + 2) 
+        count = [0] * (n + 1)  
+        result = -1            
+
+        for step, index in enumerate(arr, 1): 
+            left = length[index - 1] 
+            right = length[index + 1]  
+            new_size = left + right + 1  
+
+            if left > 0:
+                count[left] -= 1
+            if right > 0:
+                count[right] -= 1
+
+            count[new_size] += 1
+            length[index - left] = new_size  
+            length[index + right] = new_size  
+
+            if count[m] > 0:
+                result = step
+
+        return result
+
+
+
 
